@@ -1,0 +1,166 @@
+.myfooter {
+  bottom: 0;
+  padding-top: 10px;
+  background-color: #333;
+  color: #f9f9f9;
+  width: 100%;
+}
+
+.myfooter:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.myfooter .fcol {
+  float: left;
+}
+
+.myfooter .fcol1 {
+  width: 50%;
+}
+
+.myfooter .fcol2 {
+  width: 50%;
+}
+
+.fcontent {
+  text-align: left;
+  width: 80%;
+  margin: auto;
+}
+.fbody{
+font-size: 15px;
+}
+
+.flink {
+  font-weight: bold;
+  color: #f9f9f9 !important;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 800px) {
+  .fcenter {
+    text-align: center;
+  }
+  .myfooter .fcol {
+    float: none;
+  }
+  .myfooter .fcol1 {
+    width: 100%;
+  }
+  .myfooter .fcol2 {
+    width: 100%;
+  }
+}
+
+.ficon-button {
+  background-color: white;
+  border-radius: 2.5rem;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  line-height: 2.5rem;
+  margin: 0 5px;
+  position: relative;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.ficon-button span {
+  border-radius: 0;
+  display: block;
+  height: 0;
+  margin: 0;
+  position: absolute;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 0;
+  left: 50%;
+  top: 50%;
+}
+
+.ficon-button:hover span {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 2.5rem;
+  margin: -1.25rem;
+  color: #ffffff00;
+}
+
+.femail span {
+  background-color: #b23121;
+}
+
+.ffacebook span {
+  background-color: #3b5998;
+}
+
+.flinkedin span {
+  background-color: #0077b5;
+}
+
+.ftwitter span {
+  background-color: #4099ff;
+}
+
+.fgithub span {
+  background-color: #000;
+}
+
+.fresume span {
+  background-color: black;
+}
+
+.ficon-button i {
+  background: none;
+  color: white;
+  height: 2.5rem;
+  left: 0;
+  line-height: 2.5rem;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 2.5rem;
+  z-index: 10;
+}
+.ficon-button .icon-email {
+  color: #b23121;
+}
+.ficon-button .icon-facebook {
+  color: #3b5998;
+}
+.ficon-button .icon-twitter {
+  color: #4099ff;
+}
+
+.ficon-button .icon-github {
+  color: #000;
+}
+
+.ficon-button .icon-linkedin {
+  color: #0077b5;
+}
+
+.ficon-button .icon-resume {
+  color: black;
+}
+
+.ficon-button:hover .icon-email,
+.ficon-button:hover .icon-twitter,
+.ficon-button:hover .icon-facebook,
+.ficon-button:hover .icon-github,
+.ficon-button:hover .icon-linkedin,
+.ficon-button:hover .icon-resume {
+  color: white;
+}

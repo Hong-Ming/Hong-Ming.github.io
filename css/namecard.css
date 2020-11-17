@@ -1,0 +1,213 @@
+#my-name {
+    font-size: 32px;
+    font-weight: bold;
+    color: #292929
+}
+
+#my-title {
+    font-size: 20px;
+    color: #292929;
+    font-weight: 200
+}
+
+#my-email {
+    font-size: 16px;
+    color: #292929;
+    font-weight: 160
+}
+
+.nboard {
+    max-width: 100%;
+    height: 320px;
+    z-index: initial;
+    margin: 30px auto 0;
+    padding-right: 0px;
+    padding-left: 0px
+}
+
+.nrow {
+    border-radius: 25px;
+    position: relative;
+    top: 20%;
+    width: 600px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8)
+}
+
+.nboard:after,
+.nrow:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.ncol {
+    float: left !important;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.ncol1 {
+    width: -webkit-calc(40% - (30px / 2));
+    width: calc(40% - (30px / 2))
+}
+
+.ncol2 {
+    width: -webkit-calc(60% - (30px / 2));
+    width: calc(60% - (30px / 2))
+}
+
+.circle-img {
+    margin: 0px auto;
+    width: 168px;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 50%;
+    border-color: #292929;
+}
+
+.icon-button {
+    background-color: white;
+    border-radius: 3.6rem;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 2.0rem;
+    height: 3.6rem;
+    width: 3.6rem;
+    line-height: 3.6rem;
+    margin: 0 5px;
+    position: relative;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.icon-button span {
+    border-radius: 0;
+    display: block;
+    height: 0;
+    width: 0;
+    margin: 0;
+    position: absolute;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    color: black;
+    font-size: 10px;
+    left: 50%;
+    top: 50%;
+    
+}
+
+#icon-text{
+    height: 0rem;
+    width: 3.6rem;
+    margin: 0;
+    left: 0%;
+    top: 40%;
+}
+
+.icon-button:hover span {
+    left: 50%;
+    top: 50%;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 3.6rem;
+    margin: -1.8rem;
+    color: #ffffff00;
+}
+
+.facebook span {
+    background-color: #3B5998;
+}
+
+.linkedin span {
+    background-color: #0077B5;
+}
+
+.github span {
+    background-color: #000;
+}
+
+.resume span {
+    background-color: black;
+}
+
+.icon-button i {
+    background: none;
+    color: white;
+    height: 3.6rem;
+    left: 0;
+    line-height: 3.6rem;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 3.6rem;
+    z-index: 10
+}
+
+.icon-button .icon-facebook {
+    color: #3B5998
+}
+
+.icon-button .icon-github {
+    color: #000
+}
+
+.icon-button .icon-linkedin {
+    color: #0077B5
+}
+
+.icon-button .icon-resume {
+    color: black
+}
+
+.icon-button:hover .icon-twitter,
+.icon-button:hover .icon-facebook,
+.icon-button:hover .icon-github,
+.icon-button:hover .icon-linkedin,
+.icon-button:hover .icon-resume {
+    color: white
+}
+
+@media screen and (max-width: 800px) {
+    .nboard {
+        max-width: -webkit-calc(1024px - (30px));
+        max-width: calc(1024px - (30px));
+        padding-right: 15px;
+        padding-left: 15px
+    }
+    .ncol1,
+    .ncol2 {
+        width: -webkit-calc(50% - (30px / 2));
+        width: calc(50% - (30px / 2))
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .nboard {
+        height: 400px
+    }
+    .nrow {
+        top: 5%;
+        border-radius: 25px;
+        position: relative;
+        width: -webkit-calc(90% - (30px / 2));
+        width: calc(90% - (30px / 2));
+        margin-left: auto;
+        margin-right: auto
+    }
+    .ncol {
+        position: relative;
+        margin: 10px auto;
+        float: none;
+        width: -webkit-calc( 100%);
+        width: calc( 100%)
+    }
+}

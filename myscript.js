@@ -1,5 +1,6 @@
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+function topnavFunction() {
+    var element = document.getElementById("myDropdown");
+    element.classList.toggle("show");
 }
 window.onclick = function(e) {
   if (!e.target.matches('.dropbtn')) {
