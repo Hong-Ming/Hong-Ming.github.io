@@ -11,6 +11,10 @@ p {
 color: red;
 } */
 
+.group-text{
+    white-space: nowrap;
+}
+
 #profile-cover {
     margin-top: 30px;
 }
@@ -19,4 +23,16 @@ color: red;
     #profile-cover {
         margin-top: 75px;
     }
+}
+
+.projects {
+    max-width: -webkit-calc(100% - (30px / 2));
+    max-width: calc(100% - (30px / 2));
+    margin-top: 60px;
+    font-family: 'Roboto', sans-serif, Helvetica
+}
+
+pub-right>.publish>.publisher>.contributor {
+    color: #0077B5;
+    font-weight: 400
 }

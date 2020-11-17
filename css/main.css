@@ -1361,7 +1361,7 @@ div.paginate-container li:nth-last-child(2) a:after {
 .pub {
     border-top: thin solid #c0c0c0;
     radius: 15px;
-    float: left !important;
+    /* float: left !important; */
     margin-top: 30px;
     padding-top: 30px;
     overflow: auto
@@ -1417,7 +1417,7 @@ div.paginate-container li:nth-last-child(2) a:after {
     font-weight: 400
 }
 
-.pub-right>.tags>.tag {
+.pub-right>.tags>.tag, .pub-right>.tags>.group-text>.tag{
     color: #9b3022;
     font-weight: 500;
     font-size: 14px
