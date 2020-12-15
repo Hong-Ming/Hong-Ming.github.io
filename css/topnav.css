@@ -1,87 +1,98 @@
 /* fix bookmark offest */
 :target {
-padding-top: 79px;
-margin-top: -79px;
+  padding-top: 79px;
+  margin-top: -79px;
 }
 
 /* Add a black background color to the top navigation */
 .topnav {
-background-color: #333;
-/* overflow: hidden; */
-position: fixed;
-top: 0;
-width: 100%;
-z-index: 9999;
+  background-color: #333;
+  /* overflow: hidden; */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
 }
 
 /* Style the links inside the navigation bar */
 
-.topnav a, .topnav a:visited{
-float: left;
-color: #f9f9f9;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
-font-size: 17px;
+.topnav a,
+.topnav a:visited {
+  float: left;
+  color: #f9f9f9;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-#firstnav{margin-left: 20px;}
-#lastnav{margin-right: 20px;}
-
-.topnav a:hover {
-text-decoration: underline;
-color: #f9f9f9;
+#firstnav {
+  margin-left: 20px;
 }
-    
+#lastnav {
+  margin-right: 20px;
+}
+
+@media (hover: hover) {
+  .topnav a:hover {
+    text-decoration: underline;
+    color: #f9f9f9;
+  }
+}
+
 .topnav .dropdown .dropbtn {
-cursor: pointer;
-font-size: 22px;  
-border: none;
-outline: none;
-color: #f9f9f9;
-padding: 14px 16px;
-background-color: inherit;
-font-family: inherit;
-margin: 0;
-display: none;
-z-index: 1;
+  cursor: pointer;
+  font-size: 22px;
+  border: none;
+  outline: none;
+  color: #f9f9f9;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  display: none;
+  z-index: 1;
 }
 
-button > i{
-    pointer-events: none;
+button > i {
+  pointer-events: none;
 }
 
-#dropicon{
-    z-index: -1;
+#dropicon {
+  z-index: -1;
 }
 
 .dropdown {
-float: right;
-z-index: 9999;
-/* overflow: hidden; */
+  float: right;
+  z-index: 9999;
+  /* overflow: hidden; */
 }
 
 /* When the screen is less than 800 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 800px) {
-    #lastnav{
+  #lastnav {
     margin-right: 0px;
-    }
-    .topnav .dropdown .dropbtn {
+  }
+  .topnav .dropdown .dropbtn {
     display: block;
+  }
+  @media (hover: hover) {
+    .dropdown:hover .dropbtn,
+    .dropbtn:focus {
+      background-color: #9b3022;
     }
-    .dropdown:hover .dropbtn, .dropbtn:focus {
-    background-color: #9b3022;
-    }
-    .dropdown-content {
+  }
+  .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     right: 0;
-    }
-    .dropdown-content a, .dropdown-content a:visited {
+  }
+  .dropdown-content a,
+  .dropdown-content a:visited {
     margin: 0;
     float: none;
     color: black;
@@ -89,12 +100,14 @@ z-index: 9999;
     /* text-decoration: none; */
     display: block;
     text-align: left;
-    }
+  }
+  @media (hover: hover) {
     .dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
+      background-color: #ddd;
+      color: black;
     }
-    .show {
+  }
+  .show {
     display: block;
-    }
+  }
 }

@@ -18,9 +18,9 @@
 
 .nboard {
     max-width: 100%;
-    height: 320px;
+    /* height: 320px; */
     z-index: initial;
-    margin: 30px auto 0;
+    margin: 83px auto 0;
     padding-right: 0px;
     padding-left: 0px
 }
@@ -109,15 +109,16 @@
     left: 0%;
     top: 40%;
 }
-
-.icon-button:hover span {
-    left: 50%;
-    top: 50%;
-    width: 3.6rem;
-    height: 3.6rem;
-    border-radius: 3.6rem;
-    margin: -1.8rem;
-    color: #ffffff00;
+@media (hover: hover) {
+    .icon-button:hover span {
+        left: 50%;
+        top: 50%;
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: 3.6rem;
+        margin: -1.8rem;
+        color: #ffffff00;
+    }
 }
 
 .facebook span {
@@ -167,21 +168,20 @@
 .icon-button .icon-resume {
     color: black
 }
-
-.icon-button:hover .icon-twitter,
-.icon-button:hover .icon-facebook,
-.icon-button:hover .icon-github,
-.icon-button:hover .icon-linkedin,
-.icon-button:hover .icon-resume {
-    color: white
+@media (hover: hover) {
+    .icon-button:hover .icon-twitter,
+    .icon-button:hover .icon-facebook,
+    .icon-button:hover .icon-github,
+    .icon-button:hover .icon-linkedin,
+    .icon-button:hover .icon-resume {
+        color: white
+    }
 }
 
 @media screen and (max-width: 800px) {
     .nboard {
         max-width: -webkit-calc(1024px - (30px));
         max-width: calc(1024px - (30px));
-        padding-right: 15px;
-        padding-left: 15px
     }
     .ncol1,
     .ncol2 {
@@ -191,15 +191,12 @@
 }
 
 @media screen and (max-width: 600px) {
-    .nboard {
-        height: 400px
-    }
     .nrow {
         top: 5%;
         border-radius: 25px;
         position: relative;
-        width: -webkit-calc(90% - (30px / 2));
-        width: calc(90% - (30px / 2));
+        width: -webkit-calc(95% - (30px / 2));
+        width: calc(95% - (30px / 2));
         margin-left: auto;
         margin-right: auto
     }

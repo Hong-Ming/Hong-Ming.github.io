@@ -30,7 +30,8 @@ hr {
 
 body,
 html {
-    height: 100%
+    height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -41,13 +42,14 @@ body {
     font-weight: 300;
     color: #111;
     background-color: #f9f9f9;
-    -webkit-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%;
+    position: relative
 }
 
-body:after {
+/* body:after {
     display: none;
     content: url("/images/background/background-cube.jpg") url("/images/background/background-deepcube-2.jpg")
-}
+} */
 
 h1,
 h2,
@@ -105,11 +107,6 @@ a {
 
 a:visited {
     color: #1756a9
-}
-
-a:hover {
-    color: #111;
-    text-decoration: underline
 }
 
 blockquote {
@@ -375,12 +372,6 @@ pre>code {
     display: inline-block;
     text-align: center;
     padding: 0.5rem 0.9rem
-}
-
-.button>.heading>a:hover {
-    color: #fff;
-    background-color: #292929;
-    border: solid 1px #292929
 }
 
 .highlight {
@@ -1350,7 +1341,7 @@ div.paginate-container li:nth-last-child(2) a:after {
 .publications {
     max-width: -webkit-calc(100% - (30px / 2));
     max-width: calc(100% - (30px / 2));
-    margin-top: 30px;
+    margin: 30px auto 0;
     font-family: 'Roboto', sans-serif, Helvetica
 }
 

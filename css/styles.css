@@ -28,7 +28,7 @@ color: red;
 .selected-projects {
     max-width: -webkit-calc(100% - (30px / 2));
     max-width: calc(100% - (30px / 2));
-    margin-top: 60px;
+    margin: 60px auto 0;
     font-family: 'Roboto', sans-serif, Helvetica
 }
 
