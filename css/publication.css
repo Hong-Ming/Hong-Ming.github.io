@@ -11,9 +11,9 @@
 
 .pub {
     border-top: thin solid #c0c0c0;
-    radius: 15px;
+    /* border-radius: 15px; */
     /* float: left !important; */
-    margin-top: 30px;
+    margin-bottom: 30px;
     padding-top: 30px;
     overflow: auto
 }
@@ -23,20 +23,22 @@
     width: -webkit-calc(40% - (30px / 2));
     width: calc(40% - (30px / 2));
     text-align: center;
-    margin-left: auto;
-    margin-right: auto
+    margin: 0 auto;
 }
 
 .pub-left>.intro-img {
-    width: 280px;
+    width: 95%;
     border-style: solid;
-    border-color: #9b3022
+    border-color: #9b3022;
+    margin-left: auto;
+    margin-right: auto
 }
 
 .pub-right {
     float: right;
     width: -webkit-calc(60% - (30px / 2));
-    width: calc(60% - (30px / 2))
+    width: calc(60% - (30px / 2));
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 800px) {

@@ -8,7 +8,9 @@
 .timeline-brief,
 .timeline {
     font-family: 'Roboto', sans-serif, Helvetica;
-    margin-top: 30px;
+    max-width: -webkit-calc(100% - (30px / 2));
+    max-width: calc(100% - (30px / 2));
+    margin: 30px auto 0;
     font-size: 20px;
     font-weight: 400
 }
@@ -129,7 +131,7 @@
         margin-left: 5px
     }
     .timeline-start:after {
-        left: 17px;
+        left: 10px;
         width: 11px;
         height: 11px;
         background: #333;
