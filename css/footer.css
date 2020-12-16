@@ -38,7 +38,6 @@ font-size: 16px;
 .flink {
   font-weight: 700;
   color: #f9f9f9 !important;
-  /* text-decoration: underline; */
 }
 
 @media screen and (max-width: 800px) {

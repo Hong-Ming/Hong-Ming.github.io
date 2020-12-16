@@ -35,6 +35,7 @@
     width: -webkit-calc(60% - (30px / 2));
     width: calc(60% - (30px / 2));
     margin: 0 auto;
+    padding-right: 1%;
 }
 
 @media screen and (max-width: 800px) {
@@ -43,7 +44,8 @@
         float: none;
         margin: 10px auto;
         width: -webkit-calc(100% - (30px / 2));
-        width: calc(100% - (30px / 2))
+        width: calc(100% - (30px / 2));
+        padding-right: 0;
     }
     .pub-left>.intro-img {
         max-width: 350px;
@@ -79,7 +81,8 @@
 }
 
 .pub-right>.desc>p {
-    margin: auto
+    margin: auto;
+    text-align: justify;
 }
 
 .pub-right>.publish {
@@ -110,5 +113,8 @@
 @media screen and (max-width: 600px) {
     .pub-right>.publish>.place {
         display: none
+    }
+    .pub-right>.desc>p {
+        text-align: left;
     }
 }
