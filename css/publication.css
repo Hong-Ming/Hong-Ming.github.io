@@ -10,8 +10,6 @@
 
 .pub {
     border-top: thin solid #c0c0c0;
-    /* border-radius: 15px; */
-    /* float: left !important; */
     margin-bottom: 30px;
     padding-top: 30px;
     overflow: auto
@@ -46,6 +44,9 @@
         margin: 10px auto;
         width: -webkit-calc(100% - (30px / 2));
         width: calc(100% - (30px / 2))
+    }
+    .pub-left>.intro-img {
+        max-width: 350px;
     }
 }
 

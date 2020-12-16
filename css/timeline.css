@@ -11,7 +11,7 @@
     max-width: calc(100% - (30px / 2));
     margin: 30px auto 0;
     font-size: 20px;
-    font-weight: 400
+    font-weight: 400;
 }
 
 .timeline-body {
@@ -129,7 +129,7 @@
         padding: 0 0 0 5px;
         text-align: left;
         border-left: 5px dashed #333;
-        width: 100%;
+        width: auto;
         padding-left: 5px;
         margin-left: 5px
     }
@@ -150,10 +150,12 @@
         text-align: left;
         border-left: 5px solid #333;
         border-right: 0px;
-        width: 100%;
+        width: auto;
         padding-left: 5px;
         margin-left: 5px;
         margin-right: 0px;
+        /* margin-top: 5px; */
+        padding-bottom: 5px;
         padding-right: 0px
     }
     .timeline>.timeline-body>.timeline-item:last-child:nth-child(odd),
@@ -162,7 +164,7 @@
         text-align: left;
         border-left: 5px solid #333;
         border-right: 0px;
-        width: 100%;
+        width: auto;
         padding-left: 5px;
         margin-left: 5px;
         margin-right: 0px;

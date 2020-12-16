@@ -5,6 +5,7 @@
   background-color: #2e2d29;
   color: #f9f9f9;
   width: 100%;
+  font-weight: 400;
 }
 
 .myfooter:after {
@@ -31,13 +32,13 @@
   margin: auto;
 }
 .fbody{
-font-size: 15px;
+font-size: 16px;
 }
 
 .flink {
-  font-weight: bold;
+  font-weight: 700;
   color: #f9f9f9 !important;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 @media screen and (max-width: 800px) {
