@@ -1,30 +1,3 @@
-/* body {
-background-color: #f9f9f9;
-margin: 0%;
-}
-
-h1 {
-color: blue;
-}
-
-p {
-color: red;
-} */
-
-.group-text{
-    white-space: nowrap;
-}
-
-#profile-cover {
-    margin-top: 30px;
-}
-
-@media screen and (max-width: 600px) {
-    #profile-cover {
-        margin-top: 75px;
-    }
-}
-
 .selected-projects {
     max-width: -webkit-calc(100% - (30px / 2));
     max-width: calc(100% - (30px / 2));

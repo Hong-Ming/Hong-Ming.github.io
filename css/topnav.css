@@ -6,7 +6,7 @@
 
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #333;
+  background-color: #2e2d29;
   /* overflow: hidden; */
   position: fixed;
   top: 0;
@@ -36,7 +36,7 @@
 @media (hover: hover) {
   .topnav a:hover {
     text-decoration: underline;
-    color: #f9f9f9;
+    /* color: #f9f9f9; */
   }
 }
 
