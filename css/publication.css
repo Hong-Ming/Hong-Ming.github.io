@@ -30,8 +30,7 @@
     width: 95%;
     border-style: solid;
     border-color: #9b3022;
-    margin-left: auto;
-    margin-right: auto
+    margin: 0 auto;
 }
 
 .pub-right {
