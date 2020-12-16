@@ -2,7 +2,6 @@
     max-width: -webkit-calc(100% - (30px / 2));
     max-width: calc(100% - (30px / 2));
     margin: 30px auto 0;
-    font-family: 'Roboto', sans-serif, Helvetica
 }
 
 .pub-list {
@@ -61,18 +60,21 @@
 }
 
 .pub-right>.title {
-    font-weight: 600
+    font-weight: 700
 }
 
 .pub-right>.authors>.author {
-    color: #0077B5;
+    color: #1756a9;
     font-weight: 400
+}
+
+.pub-right>.tags, .pub-right>.publish{
+    font-size: 16px;
 }
 
 .pub-right>.tags>.tag, .pub-right>.tags>.group-text>.tag{
     color: #9b3022;
-    font-weight: 500;
-    font-size: 14px
+    font-weight: 700;
 }
 
 .pub-right>.desc>p {
@@ -84,14 +86,13 @@
 }
 
 .pub-right>.publish>.publisher {
-    color: #002336;
-    font-size: 16px
+    color: #000000;
+    font-weight: 700;
 }
 
 .pub-right>.publish>.status {
     color: #9b3022;
-    font-weight: 800;
-    font-size: 16px
+    font-weight: 700;
 }
 
 @media screen and (max-width: 600px) {
@@ -103,7 +104,6 @@
 .pub-right>.publish>.place {
     color: #0077B5;
     font-weight: 500;
-    font-size: 16px
 }
 
 @media screen and (max-width: 600px) {

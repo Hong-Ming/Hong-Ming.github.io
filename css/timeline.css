@@ -7,7 +7,6 @@
 
 .timeline-brief,
 .timeline {
-    font-family: 'Roboto', sans-serif, Helvetica;
     max-width: -webkit-calc(100% - (30px / 2));
     max-width: calc(100% - (30px / 2));
     margin: 30px auto 0;
@@ -76,15 +75,19 @@
 
 .timeline-date {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     color: #113f7c
 }
 
 .timeline-title {
     font-size: 20px;
     font-weight: 500;
-    font-family: 'Roboto', sans-serif;
     color: #9b3022
+}
+
+.timeline-posi {
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .timeline-desc {
@@ -176,6 +179,9 @@
     }
     .timeline-title {
         font-size: 16px
+    }
+    .timeline-posi {
+        font-size: 12px;
     }
     .timeline-desc {
         font-size: 12px

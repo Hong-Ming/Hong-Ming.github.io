@@ -36,16 +36,22 @@ html {
 
 body {
     z-index: initial;
-    font-family: "Roboto", Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    /* font-family: "Roboto", Helvetica, Arial, sans-serif; */
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
     line-height: 1.5;
-    font-weight: 350;
+    font-weight: 300;
     color: #000000;
     /* color: #111; */
     /* background-color: #f9f9f9; */
     background-color: #fbfaf6;
     -webkit-text-size-adjust: 100%;
     position: relative
+}
+
+strong {
+    font-weight: 500;
 }
 
 h1,
@@ -203,7 +209,7 @@ pre>code {
 .md-heading {
     font-size: 24px;
     font-color: #9b3022;
-    font-weight: 400
+    font-weight: 500
 }
 
 .lg-heading {
@@ -400,11 +406,11 @@ li.float-left {
     color: #9b3022
 }
 
-.publisher {
+/* .publisher {
     color: #00a200;
     font-size: 14px;
     font-weight: 600
-}
+} */
 
 .project-content {
     margin-bottom: 30px

@@ -2,7 +2,6 @@
     max-width: -webkit-calc(100% - (30px / 2));
     max-width: calc(100% - (30px / 2));
     margin: 30px auto 0;
-    font-family: 'Roboto', sans-serif, Helvetica
 }
 
 pub-right>.publish>.publisher>.contributor {

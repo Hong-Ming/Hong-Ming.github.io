@@ -1,16 +1,16 @@
 #my-name {
-    font-size: 32px;
-    font-weight: bold;
+    font-size: 35px;
+    font-weight: 700;
 }
 
 #my-title {
     font-size: 20px;
-    font-weight: 300
+    font-weight: 400
 }
 
 #my-email {
     font-size: 16px;
-    font-weight: 200
+    font-weight: 300
 }
 
 /* @media screen and (max-width: 600px) {
@@ -118,6 +118,7 @@
     height: 0rem;
     width: 3.6rem;
     margin: 0;
+    font-weight: 400;
     left: 0%;
     top: 40%;
 }
