@@ -1,7 +1,7 @@
 /* fix bookmark offest */
 :target {
-  padding-top: 79px;
-  margin-top: -79px;
+  padding-top: 60px;
+  margin-top: -60px;
 }
 
 /* Add a black background color to the top navigation */
@@ -21,16 +21,16 @@
   float: left;
   color: #f9f9f9;
   text-align: center;
-  padding: 14px 16px;
+  padding: 10px 16px;
   text-decoration: none;
   font-size: 17px;
 }
 
 #firstnav {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 #lastnav {
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 @media (hover: hover) {
@@ -46,7 +46,7 @@
   border: none;
   outline: none;
   color: #f9f9f9;
-  padding: 14px 16px;
+  padding: 10px 16px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
