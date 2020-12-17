@@ -110,7 +110,7 @@ button > i {
   }
 }
 /* text size adjustment */
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .topnav a{
     padding: 8px 16px;
     font-size: 16px;
@@ -126,4 +126,4 @@ button > i {
     padding-top: 55px;
     margin-top: -55px;
   }
-}
+} */
