@@ -44,7 +44,7 @@
 
 </head>
 
-<body>
+<body id="top">
   <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KR7V8CX" height="0" width="0"
@@ -429,6 +429,22 @@
   </div>
 
   <!-- Footer -->
+  <div class=foot-botton>
+    <div class="back-to-top">
+      Scroll to Top
+    </div>
+  </div>
+  <script type="text/javascript">
+    jQuery(document).ready(function () {
+      var duration = 500;
+      jQuery('.back-to-top').click(function (event) {
+        event.preventDefault();
+        jQuery('html, body').animate({ scrollTop: 0 }, duration);
+        return false;
+      })
+    });
+  </script>
+
   <div class="myfooter">
     <div class="foot-left">
       <a href="mailto: hongmingchiu0217@gmail.com" class="ficon-button femail" target="_blank">
