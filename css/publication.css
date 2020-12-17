@@ -63,7 +63,7 @@
 }
 
 .pub-right>.title {
-    font-weight: 700
+    font-weight: 500
 }
 
 .pub-right>.authors>.author {
@@ -73,6 +73,12 @@
 
 .pub-right>.tags, .pub-right>.publish{
     font-size: 16px;
+}
+
+@media screen and (max-width: 800px) {
+    .pub-right>.tags, .pub-right>.publish{
+        font-size: 14px;
+    }
 }
 
 .pub-right>.tags>.tag, .pub-right>.tags>.group-text>.tag{

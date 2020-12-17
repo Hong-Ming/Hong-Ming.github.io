@@ -177,6 +177,12 @@
     .timeline-item:after {
         left: -8px
     }
+    .social-icon {
+        width: auto;
+        height: 30px;
+        margin-right: 5px;
+        display: inline-block
+    }
     .timeline-date {
         font-size: 14px
     }
