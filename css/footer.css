@@ -4,6 +4,7 @@
   background-color: #2e2d29;
   color: #f9f9f9;
   width: 100%;
+  /* height: 100px; */
   font-size: 16px;
   font-weight: 400;
   overflow: auto;
@@ -11,16 +12,18 @@
 
 .foot-left {
   float: left;
-  width: -webkit-calc(50% - (30px));
-  width: calc(50% - (30px));
+  width: -webkit-calc(45% - (30px));
+  width: calc(45% - (30px));
+  height: 90px;
   text-align: center;
   margin: 15px 15px 0px;
 }
 
 .foot-right {
   float: right;
-  width: -webkit-calc(50% - (30px));
-  width: calc(50% - (30px));
+  width: -webkit-calc(55% - (30px));
+  width: calc(55% - (30px));
+  height: 90px;
   text-align: left;
   margin: 15px 15px 0px;
 }
@@ -38,6 +41,7 @@
     margin-right: auto;
     width: -webkit-calc(100% - (30px));
     width: calc(100% - (30px));
+    height: auto;
   }
   .foot-right {
     margin-top: 5px;
@@ -166,16 +170,13 @@
 
 @media screen and (max-width: 350px) {
   .ficon-button {
-    margin-left: -webkit-calc((100% - (30px) - (240px))/12);
-    margin-left: calc((100% - (30px) - (240px))/12);
-    margin-right: -webkit-calc((100% - (30px) - (240px))/12);
-    margin-right: calc((100% - (30px) - (240px))/12);
+    margin: 0 -webkit-calc((100% - (30px) - (240px))/12);
+    margin: 0 calc((100% - (30px) - (240px))/12);
   }
 }
 
 @media screen and (max-width: 299px) {
   .ficon-button {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 0 5px;
   }
 }
