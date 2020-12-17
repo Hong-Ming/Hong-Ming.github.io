@@ -37,12 +37,6 @@ body {
   position: relative;
 }
 
-@media screen and (max-width: 800px) {
-  body {
-    font-size: 16px;
-  }
-}
-
 strong {
   font-weight: 500;
 }
@@ -68,7 +62,11 @@ a {
   text-align: justify;
 }
 
+/* text size adjustment */
 @media screen and (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
   .bio {
     max-width: -webkit-calc(100% - (30px / 2));
     max-width: calc(100% - (30px / 2));
@@ -194,18 +192,17 @@ pre > code {
 .wrapper {
   max-width: -webkit-calc(1024px - (30px * 2));
   max-width: calc(1024px - (30px * 2));
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 30px;
-  padding-left: 30px;
+  margin: 0 auto;
+  /* padding-right: 30px;
+  padding-left: 30px; */
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 980px) {
   .wrapper {
-    max-width: -webkit-calc(1024px - (30px));
-    max-width: calc(1024px - (30px));
-    padding-right: 15px;
-    padding-left: 15px;
+    max-width: -webkit-calc(100% - (30px / 2));
+    max-width: calc(100% - (30px / 2));
+    /* padding-right: 15px;
+    padding-left: 15px; */
   }
 }
 

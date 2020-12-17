@@ -16,8 +16,7 @@
 
 /* Style the links inside the navigation bar */
 
-.topnav a,
-.topnav a:visited {
+.topnav a{
   float: left;
   color: #f9f9f9;
   text-align: center;
@@ -37,7 +36,6 @@
 @media (hover: hover) {
   .topnav a:hover {
     text-decoration: underline;
-    /* color: #f9f9f9; */
   }
 }
 
@@ -92,12 +90,11 @@ button > i {
     z-index: 1;
     right: 0;
   }
-  .dropdown-content a,
-  .dropdown-content a:visited {
+  .dropdown-content a{
     margin: 0;
     float: none;
     color: black;
-    padding: 12px 16px;
+    padding: 9px 16px;
     /* text-decoration: none; */
     display: block;
     text-align: left;
@@ -110,5 +107,23 @@ button > i {
   }
   .show {
     display: block;
+  }
+}
+/* text size adjustment */
+@media screen and (max-width: 600px) {
+  .topnav a{
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+  .dropdown-content a{
+    padding: 8px 16px;
+  }
+  .topnav .dropdown .dropbtn {
+    font-size: 20px;
+    padding: 8px 16px;
+  }
+  :target {
+    padding-top: 55px;
+    margin-top: -55px;
   }
 }

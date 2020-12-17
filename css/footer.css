@@ -1,57 +1,46 @@
 .myfooter {
   bottom: 0;
   margin-top: 30px;
-  padding-top: 15px;
   background-color: #2e2d29;
   color: #f9f9f9;
   width: 100%;
+  font-size: 16px;
   font-weight: 400;
+  overflow: auto;
 }
 
-.myfooter:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.myfooter .fcol {
+.foot-left {
   float: left;
+  width: -webkit-calc(50% - (30px));
+  width: calc(50% - (30px));
+  text-align: center;
+  margin: 15px 15px 0px;
 }
 
-.myfooter .fcol1 {
-  width: 50%;
-}
-
-.myfooter .fcol2 {
-  width: 50%;
-}
-
-.fcontent {
+.foot-right {
+  float: right;
+  width: -webkit-calc(50% - (30px));
+  width: calc(50% - (30px));
   text-align: left;
-  width: 90%;
-  margin: auto;
-}
-.fbody{
-font-size: 16px;
+  margin: 15px 15px 0px;
 }
 
-.flink {
+.foot-right a{
   font-weight: 700;
-  color: #f9f9f9 !important;
+  color: #f9f9f9;
 }
 
 @media screen and (max-width: 800px) {
-  .fcenter {
-    text-align: center;
-  }
-  .myfooter .fcol {
+  .foot-left,
+  .foot-right {
     float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: -webkit-calc(100% - (30px));
+    width: calc(100% - (30px));
   }
-  .myfooter .fcol1 {
-    width: 100%;
-  }
-  .myfooter .fcol2 {
-    width: 100%;
+  .foot-right {
+    margin-top: 5px;
   }
 }
 
@@ -89,13 +78,13 @@ font-size: 16px;
 }
 
 @media (hover: hover) {
-.ficon-button:hover span {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 2.5rem;
-  margin: -1.25rem;
-  color: #ffffff00;
-}
+  .ficon-button:hover span {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 2.5rem;
+    margin: -1.25rem;
+    color: #ffffff00;
+  }
 }
 
 .femail span {
@@ -160,12 +149,33 @@ font-size: 16px;
 }
 
 @media (hover: hover) {
-.ficon-button:hover .icon-email,
-.ficon-button:hover .icon-twitter,
-.ficon-button:hover .icon-facebook,
-.ficon-button:hover .icon-github,
-.ficon-button:hover .icon-linkedin,
-.ficon-button:hover .icon-resume {
-  color: white;
+  .ficon-button:hover .icon-email,
+  .ficon-button:hover .icon-twitter,
+  .ficon-button:hover .icon-facebook,
+  .ficon-button:hover .icon-github,
+  .ficon-button:hover .icon-linkedin,
+  .ficon-button:hover .icon-resume {
+    color: white;
+  }
 }
+@media screen and (max-width: 600px) {
+  .myfooter {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .ficon-button {
+    margin-left: -webkit-calc((100% - (30px) - (240px))/12);
+    margin-left: calc((100% - (30px) - (240px))/12);
+    margin-right: -webkit-calc((100% - (30px) - (240px))/12);
+    margin-right: calc((100% - (30px) - (240px))/12);
+  }
+}
+
+@media screen and (max-width: 299px) {
+  .ficon-button {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 }

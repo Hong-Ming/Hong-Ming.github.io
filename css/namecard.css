@@ -191,6 +191,13 @@
     }
 }
 
+@media screen and (max-width: 340px) {
+    .icon-button {
+      margin: 0 2px;
+    }
+  }
+
+
 @media screen and (max-width: 800px) {
     .nboard {
         max-width: -webkit-calc(1024px - (30px));
@@ -203,8 +210,8 @@
         top: 5%;
         border-radius: 25px;
         position: relative;
-        width: -webkit-calc(95% - (30px / 2));
-        width: calc(95% - (30px / 2));
+        width: -webkit-calc(90% - (30px / 2));
+        width: calc(90% - (30px / 2));
         margin-left: auto;
         margin-right: auto
     }
@@ -219,5 +226,11 @@
     }
     .ncol2{
         margin: 0px auto 10px;
+    }
+}
+/* text size adjustment */
+@media screen and (max-width: 600px) {
+    .nboard{
+        margin: 70px auto 0;
     }
 }
