@@ -162,7 +162,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* font-size: 1.6rem; */
+  font-size: 1.6rem;
 }
 
 .ficon-button .icon-linkedin {
@@ -171,7 +171,7 @@
 
 .ficon-button .icon-sitemap {
   color: black;
-  /* font-size: 1.2rem; */
+  font-size: 1.2rem;
 }
 
 @media (hover: hover) {
