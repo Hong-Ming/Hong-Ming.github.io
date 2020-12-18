@@ -168,12 +168,8 @@
 }
 
 .ficon-button .icon-sitemap {
-  color: #0077b5;
-  font-size: 1.2rem;
-}
-
-.ficon-button .icon-resume {
   color: black;
+  font-size: 1.2rem;
 }
 
 @media (hover: hover) {
