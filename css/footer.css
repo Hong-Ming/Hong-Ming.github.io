@@ -42,6 +42,9 @@
     width: calc(100% - (30px));
     min-height: 0;
   }
+  .foot-left {
+    margin-bottom: 10px;
+  }
   .foot-right {
     margin-top: 5px;
   }
@@ -76,8 +79,19 @@
   -o-transition: all 0.3s;
   transition: all 0.3s;
   width: 0;
+  color: white;
+  font-size: 9px;
   left: 50%;
   top: 50%;
+}
+
+#foot-icon-text {
+  height: 0rem;
+  width: 2.5rem;
+  margin: 0;
+  font-weight: 500;
+  left: 0%;
+  top: 70%;
 }
 
 @media (hover: hover) {
@@ -106,11 +120,12 @@
   background-color: #4099ff;
 }
 
-.fgithub span {
-  background-color: #000;
+.finstagram span {
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
 }
 
-.fresume span {
+.fsitemap span {
   background-color: black;
 }
 
@@ -139,12 +154,22 @@
   color: #4099ff;
 }
 
-.ficon-button .icon-github {
-  color: #000;
+.ficon-button .icon-instagram {
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.6rem;
 }
 
 .ficon-button .icon-linkedin {
   color: #0077b5;
+}
+
+.ficon-button .icon-sitemap {
+  color: #0077b5;
+  font-size: 1.2rem;
 }
 
 .ficon-button .icon-resume {
@@ -155,10 +180,11 @@
   .ficon-button:hover .icon-email,
   .ficon-button:hover .icon-twitter,
   .ficon-button:hover .icon-facebook,
-  .ficon-button:hover .icon-github,
+  .ficon-button:hover .icon-instagram,
   .ficon-button:hover .icon-linkedin,
-  .ficon-button:hover .icon-resume {
+  .ficon-button:hover .icon-sitemap {
     color: white;
+    -webkit-text-fill-color: white;
   }
 }
 @media screen and (max-width: 600px) {
