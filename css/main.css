@@ -18,10 +18,6 @@ figure {
   padding: 0;
 }
 
-html{
-  scroll-behavior: smooth;
-}
-
 body,
 html {
   height: 100%;
