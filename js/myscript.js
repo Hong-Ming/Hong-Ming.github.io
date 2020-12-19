@@ -78,7 +78,8 @@ function SmoothScroll() {
     window.pageYOffset ||
     document.documentElement.scrollTop ||
     document.body.scrollTop;
-  if (First || Offset == Next_Offset){
+  // if (First || Offset == Next_Offset){
+    if (Counter < 10 || Offset == Next_Offset){
     if (Offset > 0) {
       window.scrollBy(0, -Math.min(Offset,ScrollInterval));
       Next_Offset = Offset - ScrollInterval;
