@@ -73,7 +73,7 @@ function SmoothScroll() {
     document.body.scrollTop;
   if (First || Offset == Next_Offset){
     if (Offset > 0) {
-      window.scrollBy(0, -ScrollInterval);
+      window.scrollBy(0, -Math.min(Offset,ScrollInterval));
       Next_Offset = Offset - ScrollInterval;
       Aid = requestAnimationFrame(SmoothScroll);
     } 
