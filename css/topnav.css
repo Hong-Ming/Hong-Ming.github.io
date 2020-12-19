@@ -25,6 +25,7 @@
   text-decoration: none;
   font-size: 18px;
   font-weight: 400;
+  z-index: 9999;
 }
 
 #firstnav {
