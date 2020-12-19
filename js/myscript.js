@@ -40,6 +40,9 @@ function SmoothScrollUD() {
     Offset = Offset + TopViewMargin;
   }
   
+  document.getElementById(IdName).addEventListener("click", function(event){
+    event.preventDefault()
+  });
   if (First || Offset == Next_Offset){
   // if (Counter < 50 || Offset == Next_Offset){
     var ScrollAmt;
