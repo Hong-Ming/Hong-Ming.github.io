@@ -40,12 +40,12 @@
   <link rel="stylesheet" href="css/publication.css">
   <link rel="stylesheet" href="css/project.css">
   <link rel="stylesheet" href="css/footer.css">
-  <script src="js/jquery-3.5.1.min.js"></script>
+  <!-- <script src="js/jquery-3.5.1.min.js"></script> -->
   <script src="js/myscript.js"></script>
 
 </head>
 
-<body id="top">
+<body>
   <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KR7V8CX" height="0" width="0"
@@ -59,11 +59,11 @@
     <div class="dropdown">
       <button class="dropbtn" onclick="topnavFunction()"><i class="fas fa-bars"></i></button>
       <div class="dropdown-content" id="myDropdown">
-        <a href="#myhom">Home</a>
-        <a href="#mybio">Biography</a>
-        <a href="#myexp">Experiences</a>
-        <a href="#mypublications">Publications</a>
-        <a href="#myprojects" id="lastnav">Projects</a>
+        <a onclick="SmoothScrollToAnchor('myhom')">Home</a>
+        <a onclick="SmoothScrollToAnchor('mybio')">Biography</a>
+        <a onclick="SmoothScrollToAnchor('myexp')">Experiences</a>
+        <a onclick="SmoothScrollToAnchor('mypublications')">Publications</a>
+        <a id="lastnav" onclick="SmoothScrollToAnchor('myprojects')">Projects</a>
       </div>
     </div>
   </div>
@@ -431,21 +431,11 @@
 
   <!-- Footer -->
   <div class=foot-botton>
-    <div class="back-to-top">
+    <div class="back-to-top" onclick="SmoothScrollToTop()">
       Scroll to Top
     </div>
   </div>
-  <!-- <script type="text/javascript">
-    jQuery(document).ready(function () {
-      var duration = 500;
-      jQuery('.back-to-top').click(function (event) {
-        event.preventDefault();
-        jQuery('html, body').animate({ scrollTop: 0 }, duration);
-        return false;
-      })
-    });
-  </script> -->
-  
+
   <div class="myfooter">
     <div class="foot-left">
       <a href="mailto: hongmingchiu0217@gmail.com" class="ficon-button femail" target="_blank">
