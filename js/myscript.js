@@ -13,12 +13,10 @@ window.onclick = function (e) {
 
 var IdName;
 var Aid = null;
-var Next_Offset = 0;
-var First;
+var Exp_Offset = 0;
 var Counter;
 function SmoothScrollToAnchor(ID) {
   IdName = ID;
-  First = true;
   Counter = 0;
   cancelAnimationFrame(Aid);
   SmoothScrollUD();
@@ -39,26 +37,23 @@ function SmoothScrollUD() {
   if (IdName == "myhom") {
     Offset = Offset + TopViewMargin;
   }
-  
-  document.getElementById(IdName).addEventListener("click", function(event){
-    event.preventDefault()
+
+  document.getElementById(IdName).addEventListener("click", function (event) {
+    event.preventDefault();
   });
-  // if (First || Offset == Next_Offset){
-  if (Counter < 20 || Offset == Next_Offset){
+  if (Counter < 10 || Math.abs(Offset - Exp_Offset) < 5) {
     var ScrollAmt;
     if (Offset > 0) {
-      ScrollAmt = Math.min(100, Math.ceil(Offset / 5))
+      ScrollAmt = Math.min(100, Math.ceil(Offset / 5));
       window.scrollBy(0, -ScrollAmt);
-      Next_Offset = Offset - ScrollAmt;
+      Exp_Offset = Offset - ScrollAmt;
       Aid = requestAnimationFrame(SmoothScrollUD);
-    } 
-    else if (Offset < 0) {
+    } else if (Offset < 0) {
       ScrollAmt = Math.max(-100, Math.floor(Offset / 5));
       window.scrollBy(0, -ScrollAmt);
-      Next_Offset = Offset - ScrollAmt;
+      Exp_Offset = Offset - ScrollAmt;
       Aid = requestAnimationFrame(SmoothScrollUD);
     }
-    First = false;
     Counter = Counter + 1;
   }
 }
@@ -66,11 +61,13 @@ function SmoothScrollUD() {
 var ScrollInterval;
 function SmoothScrollToTop() {
   var duration = 0.5;
-  First = true;
   Counter = 0;
-  ScrollInterval = Math.ceil((window.pageYOffset ||
-    document.documentElement.scrollTop ||
-    document.body.scrollTop) / (duration*60)); 
+  ScrollInterval = Math.ceil(
+    (window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop) /
+      (duration * 60)
+  );
   cancelAnimationFrame(Aid);
   SmoothScroll();
 }
@@ -79,15 +76,12 @@ function SmoothScroll() {
     window.pageYOffset ||
     document.documentElement.scrollTop ||
     document.body.scrollTop;
-  // if (First || Offset == Next_Offset){
-    if (Counter < 10 || Offset == Next_Offset){
-      console.log(Counter)
+  if (Counter < 5 || Math.abs(Offset - Exp_Offset) < 5) {
     if (Offset > 0) {
-      window.scrollBy(0, -Math.min(Offset,ScrollInterval));
-      Next_Offset = Offset - ScrollInterval;
+      window.scrollBy(0, -Math.min(Offset, ScrollInterval));
+      Exp_Offset = Offset - ScrollInterval;
       Aid = requestAnimationFrame(SmoothScroll);
-    } 
-    First = false;
+    }
     Counter = Counter + 1;
   }
 }

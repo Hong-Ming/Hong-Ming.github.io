@@ -18,11 +18,11 @@ figure {
   padding: 0;
 }
 
-body,
-html {
+/* body,
+html { */
   /* height: 100%; */
   /* overflow-x: hidden; */
-}
+/* } */
 
 body {
   z-index: initial;
