@@ -67,6 +67,7 @@ var ScrollInterval;
 function SmoothScrollToTop() {
   var duration = 0.5;
   First = true;
+  Counter = 0;
   ScrollInterval = Math.ceil((window.pageYOffset ||
     document.documentElement.scrollTop ||
     document.body.scrollTop) / (duration*60)); 
@@ -80,11 +81,13 @@ function SmoothScroll() {
     document.body.scrollTop;
   // if (First || Offset == Next_Offset){
     if (Counter < 10 || Offset == Next_Offset){
+      console.log(Counter)
     if (Offset > 0) {
       window.scrollBy(0, -Math.min(Offset,ScrollInterval));
       Next_Offset = Offset - ScrollInterval;
       Aid = requestAnimationFrame(SmoothScroll);
     } 
     First = false;
+    Counter = Counter + 1;
   }
 }
