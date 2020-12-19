@@ -43,8 +43,8 @@ function SmoothScrollUD() {
   document.getElementById(IdName).addEventListener("click", function(event){
     event.preventDefault()
   });
-  if (First || Offset == Next_Offset){
-  // if (Counter < 50 || Offset == Next_Offset){
+  // if (First || Offset == Next_Offset){
+  if (Counter < 20 || Offset == Next_Offset){
     var ScrollAmt;
     if (Offset > 0) {
       ScrollAmt = Math.min(100, Math.ceil(Offset / 5))
