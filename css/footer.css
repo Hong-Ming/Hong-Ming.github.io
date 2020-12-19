@@ -32,24 +32,6 @@
   color: #f9f9f9;
 }
 
-@media screen and (max-width: 800px) {
-  .foot-left,
-  .foot-right {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-    width: -webkit-calc(100% - (30px));
-    width: calc(100% - (30px));
-    min-height: 0;
-  }
-  .foot-left {
-    margin-bottom: 10px;
-  }
-  .foot-right {
-    margin-top: 5px;
-  }
-}
-
 .ficon-button {
   background-color: white;
   border-radius: 2.5rem;
@@ -59,7 +41,7 @@
   height: 2.5rem;
   width: 2.5rem;
   line-height: 2.5rem;
-  margin: 0 5px;
+  margin: 0 5px 12px;
   position: relative;
   text-align: center;
   -webkit-user-select: none;
@@ -185,22 +167,56 @@
     -webkit-text-fill-color: white;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .foot-left,
+  .foot-right {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 0;
+  }
+  .foot-right {
+    margin-top: 0px;
+    width: -webkit-calc(100% - (60px));
+    width: calc(100% - (60px));
+  }
+  .foot-left {
+    margin-top: 15px;
+    width: -webkit-calc(100% - (30px));
+    width: calc(100% - (30px));
+  }
+}
+
 @media screen and (max-width: 600px) {
   .myfooter {
     font-size: 14px;
   }
 }
 
+@media screen and (max-width: 450px) {
+  .foot-right {
+    width: 320px;
+    text-align: justify;
+  }
+}
+
 @media screen and (max-width: 350px) {
   .ficon-button {
-    margin: 0 -webkit-calc((100% - (30px) - (240px))/12);
-    margin: 0 calc((100% - (30px) - (240px)) / 12);
+    margin: 0 -webkit-calc((100% - (30px) - (240px))/12) 10px;
+    margin: 0 calc((100% - (30px) - (240px)) / 12) 10px;
+  }
+  .foot-right {
+    margin-top: 0px;
+    width: -webkit-calc(100% - (30px));
+    width: calc(100% - (30px));
+    text-align: left;
   }
 }
 
 @media screen and (max-width: 299px) {
   .ficon-button {
-    margin: 0 5px;
+    margin: 0 5px 10px;
   }
 }
 
