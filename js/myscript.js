@@ -15,9 +15,11 @@ var IdName;
 var Aid = null;
 var Next_Offset = 0;
 var First;
+var Counter;
 function SmoothScrollToAnchor(ID) {
   IdName = ID;
   First = true;
+  Counter = 0;
   cancelAnimationFrame(Aid);
   SmoothScrollUD();
 }
@@ -38,7 +40,8 @@ function SmoothScrollUD() {
     Offset = Offset + TopViewMargin;
   }
   
-  if (First || Offset == Next_Offset){
+  // if (First || Offset == Next_Offset){
+  if (Counter < 10 || Offset == Next_Offset){
     var ScrollAmt;
     if (Offset > 0) {
       ScrollAmt = Math.min(100, Math.ceil(Offset / 5))
@@ -53,6 +56,7 @@ function SmoothScrollUD() {
       Aid = requestAnimationFrame(SmoothScrollUD);
     }
     First = false;
+    Counter = Counter + 1;
   }
 }
 
