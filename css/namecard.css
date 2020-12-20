@@ -30,7 +30,7 @@
 .nboard {
   max-width: 100%;
   z-index: initial;
-  margin: 75px auto 0;
+  margin: 80px auto 0;
   padding-right: 0px;
   padding-left: 0px;
 }
@@ -227,11 +227,5 @@
   }
   .icon-button {
     margin: 0 2px;
-  }
-}
-/* text size adjustment */
-@media screen and (max-width: 600px) {
-  .nboard {
-    margin: 70px auto 0;
   }
 }
