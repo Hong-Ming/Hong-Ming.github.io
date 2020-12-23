@@ -1,0 +1,3 @@
+Sitemap: https://hong-ming.github.io/sitemap.xml
+User-agent: *
+Disallow: /doc/
