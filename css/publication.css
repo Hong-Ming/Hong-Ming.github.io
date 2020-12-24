@@ -38,7 +38,7 @@
     padding-right: 1%;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     .pub-left,
     .pub-right {
         float: none;
@@ -106,12 +106,6 @@
     font-weight: 700;
 }
 
-@media screen and (max-width: 600px) {
-    .pub-right>.publish>.status {
-        display: none
-    }
-}
-
 .pub-right>.publish>.place {
     color: #0077B5;
     font-weight: 500;
@@ -127,5 +121,9 @@
     }
     .pub-right>.tags, .pub-right>.publish{
         font-size: 16px;
+    }
+    .pub-right>.publish {
+        float: left;
+        width: 100%;
     }
 }
