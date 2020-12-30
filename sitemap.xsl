@@ -7,19 +7,24 @@
     <xsl:template match="/">
         <html xmlns="http://www.w3.org/1999/xhtml">
             <head>
-                <title>XML Sitemap</title>
+                <title>Sitemap</title>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                 <style type="text/css">
-                    html {
-                        background-color: #fbfaf6;
-                    }
 					body {
 						font-family: "Roboto", sans-serif;
                         font-weight: 400;
-						font-size:13px;
+						font-size: 18px;
+                        color: #000000;
                         background-color: #fbfaf6;
+                        position: relative;
+                        margin: 0;
+                        padding: 30px;
+                        height: 100%;
 					}
-					
+					h1 {
+                        margin: 0;
+                        padding: 0;
+                    }
 					#intro {
 						background-color:#CFEBF7;
 						border:1px #2580B2 solid;
@@ -62,13 +67,13 @@
                 </style>
             </head>
             <body>
-                <h1>XML Sitemap</h1>
-                <div id="intro">
+                <h1>Sitemap</h1>
+                <!-- <div id="intro">
                     <p>
 						This is a XML Sitemap which is supposed to be processed by search engines like <a href="http://www.google.com">Google</a>,                        <a href="http://search.msn.com">MSN Search</a> and <a href="http://www.yahoo.com">YAHOO</a>.                        <br />
 						You can find more information about XML sitemaps on <a href="http://sitemaps.org">sitemaps.org</a> and Google's <a href="http://code.google.com/sm_thirdparty.html">list of sitemap programs</a>.
                     </p>
-                </div>
+                </div> -->
                 <div id="content">
                     <table cellpadding="5">
                         <tr style="border-bottom:1px black solid;">
