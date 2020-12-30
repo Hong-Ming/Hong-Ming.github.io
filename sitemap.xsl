@@ -21,31 +21,21 @@
                         padding: 30px;
                         height: 100%;
 					}
-					h1 {
-                        margin: 0;
-                        padding: 0;
+					.sitemap-head {
+                        font-size:36px;
+                        text-decoration: underline;
+                        padding: 0 0 10px 0;
+                        margin:0 0 30px 0;
+                        border-bottom: thin solid #c0c0c0;
                     }
-					#intro {
-						background-color:#CFEBF7;
-						border:1px #2580B2 solid;
-						padding:5px 13px 5px 13px;
-						margin:10px;
-					}
-					
-					#intro p {
-						line-height:	16.8667px;
-					}
-					
-					td {
-						font-size:11px;
-					}
-					
-					th {
+                    th {
 						text-align:left;
 						padding-right:30px;
-						font-size:11px;
+						font-size:15px;
 					}
-					
+					td {
+						font-size:13px;
+					}
 					tr.high {
 						background-color:whitesmoke;
 					}
@@ -67,16 +57,10 @@
                 </style>
             </head>
             <body>
-                <h1>Sitemap</h1>
-                <!-- <div id="intro">
-                    <p>
-						This is a XML Sitemap which is supposed to be processed by search engines like <a href="http://www.google.com">Google</a>,                        <a href="http://search.msn.com">MSN Search</a> and <a href="http://www.yahoo.com">YAHOO</a>.                        <br />
-						You can find more information about XML sitemaps on <a href="http://sitemaps.org">sitemaps.org</a> and Google's <a href="http://code.google.com/sm_thirdparty.html">list of sitemap programs</a>.
-                    </p>
-                </div> -->
+                <div class="sitemap-head">Sitemap</div>
                 <div id="content">
                     <table cellpadding="5">
-                        <tr style="border-bottom:1px black solid;">
+                        <tr>
                             <th>URL</th>
                             <th>Priority</th>
                             <th>Change Frequency</th>
