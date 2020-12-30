@@ -84,7 +84,7 @@
     height: 2.5rem;
     border-radius: 2.5rem;
     margin: -1.25rem;
-    color: #ffffff00;
+    /* color: #ffffff00; */
   }
 }
 
@@ -110,7 +110,7 @@
 }
 
 .fsitemap span {
-  background-color: black;
+  background-color: #FD7E15;
 }
 
 .ficon-button i {
@@ -152,7 +152,7 @@
 }
 
 .ficon-button .icon-sitemap {
-  color: black;
+  color: #FD7E15;
   font-size: 1.2rem;
 }
 
