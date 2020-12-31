@@ -63,6 +63,12 @@ a {
   text-align: justify;
 }
 
+.sitemap-head {
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
 /* text size adjustment */
 @media screen and (max-width: 600px) {
   body {
@@ -72,6 +78,9 @@ a {
     max-width: -webkit-calc(100% - (30px / 2));
     max-width: calc(100% - (30px / 2));
     text-align: left;
+  }
+  .sitemap-head {
+    font-size: 18px;
   }
 }
 
@@ -83,12 +92,6 @@ a {
 .section-head {
   border-bottom: thin solid #c0c0c0;
   margin: 0 0 50px 0;
-}
-
-.sitemap-head {
-  font-weight: 500;
-  font-size: 20px;
-  margin-top: 30px;
 }
 
 .sm-heading {
