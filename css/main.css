@@ -69,6 +69,15 @@ a {
   margin-top: 30px;
 }
 
+.sitemap-content a{
+  font-weight: 500;
+}
+
+.sitemap-content .group-text a{
+  color: #9b3022;
+  font-weight: 700;
+}
+
 /* text size adjustment */
 @media screen and (max-width: 600px) {
   body {
