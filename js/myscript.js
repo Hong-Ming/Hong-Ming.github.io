@@ -34,9 +34,9 @@ function SmoothScrollUD() {
     document.body.scrollTop;
   var TopViewMargin = 55;
   var Offset = TopOffset - EleOffset + TopViewMargin - MarginTop;
-  if (IdName == "myhom") {
-    Offset = Offset + TopViewMargin;
-  }
+  // if (IdName == "myhom") {
+  //   Offset = Offset - TopViewMargin;
+  // }
 
   document.getElementById(IdName).addEventListener("click", function (event) {
     event.preventDefault();
