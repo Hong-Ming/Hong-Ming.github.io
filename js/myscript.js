@@ -32,8 +32,8 @@ function SmoothScrollUD() {
     window.pageYOffset ||
     document.documentElement.scrollTop ||
     document.body.scrollTop;
-  var TopViewMargin = 20;
-  var Offset = TopOffset - EleOffset - TopViewMargin - MarginTop;
+  var TopViewMargin = 55;
+  var Offset = TopOffset - EleOffset + TopViewMargin - MarginTop;
   if (IdName == "myhom") {
     Offset = Offset + TopViewMargin;
   }

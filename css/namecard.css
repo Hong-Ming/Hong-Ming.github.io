@@ -30,9 +30,6 @@
 .nboard {
   max-width: 100%;
   z-index: initial;
-  margin: 80px auto 0;
-  padding-right: 0px;
-  padding-left: 0px;
 }
 
 .nrow {
@@ -86,7 +83,7 @@
 }
 
 .icon-button {
-  background-color: white;
+  /* background-color: white; */
   border-radius: 3.6rem;
   cursor: pointer;
   display: inline-block;
