@@ -25,22 +25,14 @@ function SmoothScrollToAnchor(ID) {
 function SmoothScrollUD() {
   var Elemt = document.getElementById(IdName);
   var EleOffset = Elemt.offsetTop;
-  var MarginTop = parseFloat(
-    window.getComputedStyle(Elemt, null).getPropertyValue("padding-top")
-  );
-  var TopOffset =
-    window.pageYOffset ||
-    document.documentElement.scrollTop ||
-    document.body.scrollTop;
-  var TopViewMargin = 55;
-  var Offset = TopOffset - EleOffset + TopViewMargin - MarginTop;
-  // if (IdName == "myhom") {
-  //   Offset = Offset - TopViewMargin;
-  // }
-
-  document.getElementById(IdName).addEventListener("click", function (event) {
-    event.preventDefault();
-  });
+  var MarginTop = parseFloat(window.getComputedStyle(Elemt, null).getPropertyValue("padding-top"));
+  var TopOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  var NavHeight = 45;
+  var TopViewMargin = 10;
+  var Offset = TopOffset - EleOffset + NavHeight + TopViewMargin - MarginTop;
+  if (IdName == "myhom") {
+    Offset = Offset - TopViewMargin;
+  }
   if (Counter < 10 || Math.abs(Offset - Exp_Offset) < 5) {
     var ScrollAmt;
     if (Offset > 0) {
@@ -62,20 +54,12 @@ var ScrollInterval;
 function SmoothScrollToTop() {
   var duration = 0.5;
   Counter = 0;
-  ScrollInterval = Math.ceil(
-    (window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop) /
-      (duration * 60)
-  );
+  ScrollInterval = Math.ceil((window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop) / (duration * 60));
   cancelAnimationFrame(Aid);
   SmoothScroll();
 }
 function SmoothScroll() {
-  var Offset =
-    window.pageYOffset ||
-    document.documentElement.scrollTop ||
-    document.body.scrollTop;
+  var Offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
   if (Counter < 5 || Math.abs(Offset - Exp_Offset) < 5) {
     if (Offset > 0) {
       window.scrollBy(0, -Math.min(Offset, ScrollInterval));

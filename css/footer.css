@@ -88,7 +88,7 @@
 }
 
 .femail span {
-  background-color: #BB001B;
+  background-color: #bb001b;
 }
 
 .ffacebook span {
@@ -105,11 +105,11 @@
 
 .finstagram span {
   background: #d6249f;
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
 }
 
 .fsitemap span {
-  background-color: #FD7E15;
+  background-color: #fd7e15;
 }
 
 .ficon-button i {
@@ -128,7 +128,7 @@
   z-index: 10;
 }
 .ficon-button .icon-email {
-  color: #BB001B;
+  color: #bb001b;
 }
 .ficon-button .icon-facebook {
   color: #3b5998;
@@ -139,7 +139,7 @@
 
 .ficon-button .icon-instagram {
   background: #d6249f;
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -151,7 +151,7 @@
 }
 
 .ficon-button .icon-sitemap {
-  color: #FD7E15;
+  color: #fd7e15;
   font-size: 1.2rem;
 }
 
