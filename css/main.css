@@ -18,12 +18,6 @@ figure {
   padding: 0;
 }
 
-/* body,
-html { */
-/* height: 100%; */
-/* overflow-x: hidden; */
-/* } */
-
 body {
   z-index: initial;
   font-family: "Roboto", sans-serif;
@@ -31,11 +25,20 @@ body {
   line-height: 1.5;
   font-weight: 400;
   color: #000000;
-  /* background-color: #f9f9f9; */
   background-color: #fbfaf6;
   -webkit-text-size-adjust: 100%;
   position: relative;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1 0 auto;
+  display: block;
+}
+.page-footer {
+  flex-shrink: 0;
 }
 
 strong {
@@ -123,6 +126,7 @@ a {
   max-width: -webkit-calc(1024px - (30px * 2));
   max-width: calc(1024px - (30px * 2));
   margin: 0 auto;
+  /* display: block; */
   /* padding-right: 30px;
   padding-left: 30px; */
 }
@@ -265,10 +269,6 @@ pre > code {
 
 .text-grey {
   color: #828282;
-}
-
-.page-content {
-  padding: 0px 0;
 }
 
 .text-center {
