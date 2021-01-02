@@ -21,7 +21,7 @@
   cursor: pointer;
   color: #f9f9f9;
   text-align: center;
-  padding: 9px 15px;
+  padding: 9px 16px;
   text-decoration: none;
   font-size: 18px;
   font-weight: 400;
@@ -69,8 +69,8 @@ button > i {
   /* overflow: hidden; */
 }
 
-/* When the screen is less than 800 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 800px) {
+/* When the screen is less than 900 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 900px) {
   #lastnav {
     margin-right: 0px;
   }
@@ -96,7 +96,7 @@ button > i {
     margin: 0;
     float: none;
     color: black;
-    padding: 9px 15px;
+    padding: 9px 16px;
     display: block;
     text-align: left;
   }
