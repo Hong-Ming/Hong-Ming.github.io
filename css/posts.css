@@ -1,0 +1,26 @@
+.pos {
+    border-top: thin solid #c0c0c0;
+    margin-top: 30px;
+    /* padding-bottom: 30px; */
+    /* padding-top: 15px; */
+    overflow: auto;
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    /* border: thin solid #c0c0c0; */
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+}
+
+.pos-date {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.pos-name {
+    font-size: 20px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.pos-disc {
+    /* font-size: 12px; */
+    /* font-weight: 300; */
+}
