@@ -1,539 +1,421 @@
 <!DOCTYPE html>
 <html lang="en-US">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4LXQ0S6MC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4LXQ0S6MC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+      gtag("config", "G-N4LXQ0S6MC");
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KR7V8CX");
+    </script>
+    <!-- End Google Tag Manager -->
 
-    gtag('config', 'G-N4LXQ0S6MC');
-  </script>
-  <!-- Google Tag Manager -->
-  <script>
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KR7V8CX');
-  </script>
-  <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="XSYHS0ThYlgD7i4OUVPhKnvXIEwoXzoscJOiaarmdCs" />
+    <title>Hong-Ming Chiu's Home Page</title>
+    <meta name="description" lang="en" content="This is an academic website for Hong-Ming Chiu to share his experiences, projects and publications." />
+    <meta name="keywords" lang="en" content="Hong-Ming Chiu, Hong-Ming, Graph Learning, Machine Learning, Data Science." />
+    <meta property="og:title" content="Hong-Ming Chiu's Home Page" />
+    <meta property="og:description" content="This is an academic website for Hong-Ming Chiu to share his experiences, projects, publications." />
+    <meta property="og:image" content="https://hong-ming.github.io/image/snippet.jpg" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link href="css/fontawesome.css" rel="stylesheet" />
+    <link href="css/brands.css" rel="stylesheet" />
+    <link href="css/solid.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="152x152" href="favicon/favicon152.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/favicon152.png" />
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="google-site-verification" content="XSYHS0ThYlgD7i4OUVPhKnvXIEwoXzoscJOiaarmdCs">
-  <title>Hong-Ming Chiu's Home Page</title>
-  <meta name="description" lang="en"
-    content="This is an academic website for Hong-Ming Chiu to share his experiences, projects and publications.">
-  <meta name="keywords" lang="en" content="Hong-Ming Chiu, Hong-Ming, Graph Learning, Machine Learning, Data Science.">
-  <meta property="og:title" content="Hong-Ming Chiu's Home Page">
-  <meta property="og:description"
-    content="This is an academic website for Hong-Ming Chiu to share his experiences, projects, publications.">
-  <meta property="og:image" content="https://hong-ming.github.io/image/snippet.jpg">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link href="css/fontawesome.css" rel="stylesheet">
-  <link href="css/brands.css" rel="stylesheet">
-  <link href="css/solid.css" rel="stylesheet">
-  <!-- <link rel="icon" type="image/x-icon" href="favicon/favicon.ico"> -->
-  <link rel="icon" type="image/png" sizes="152x152" href="favicon/favicon152.png">
-  <!-- <link rel="icon" type="image/png" sizes="144x144" href="favicon/favicon144.png">
-  <link rel="icon" type="image/png" sizes="120x120" href="favicon/favicon120.png">
-  <link rel="icon" type="image/png" sizes="114x114" href="favicon/favicon114.png">
-  <link rel="icon" type="image/png" sizes="72x72"   href="favicon/favicon72.png">
-  <link rel="icon" type="image/png" sizes="64x64"   href="favicon/favicon64.png">
-  <link rel="icon" type="image/png" sizes="57x57"   href="favicon/favicon57.png">
-  <link rel="icon" type="image/png" sizes="32x32"   href="favicon/favicon32.png">
-  <link rel="icon" type="image/png" sizes="24x24"   href="favicon/favicon24.png">
-  <link rel="icon" type="image/png" sizes="16x16"   href="favicon/favicon16.png"> -->
-  <link rel="apple-touch-icon" sizes="152x152" href="favicon/favicon152.png">
-  <!-- <link rel="apple-touch-icon" sizes="144x144" href="favicon/favicon144.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="favicon/favicon120.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="favicon/favicon114.png">
-  <link rel="apple-touch-icon" sizes="72x72"   href="favicon/favicon72.png">
-  <link rel="apple-touch-icon" sizes="64x64"   href="favicon/favicon64.png">
-  <link rel="apple-touch-icon" sizes="57x57"   href="favicon/favicon57.png">
-  <link rel="apple-touch-icon" sizes="32x32"   href="favicon/favicon32.png">
-  <link rel="apple-touch-icon" sizes="24x24"   href="favicon/favicon24.png">
-  <link rel="apple-touch-icon" sizes="16x16"   href="favicon/favicon16.png"> -->
+    <link rel="canonical" href="https://hong-ming.github.io/" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/topnav.css" />
+    <link rel="stylesheet" href="css/namecard.css" />
+    <link rel="stylesheet" href="css/timeline.css" />
+    <link rel="stylesheet" href="css/publication.css" />
+    <link rel="stylesheet" href="css/project.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <!-- <script src="js/jquery-3.5.1.min.js"></script> -->
+    <script src="js/myscript.js"></script>
+  </head>
 
-  <link rel="canonical" href="https://hong-ming.github.io/">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/topnav.css">
-  <link rel="stylesheet" href="css/namecard.css">
-  <link rel="stylesheet" href="css/timeline.css">
-  <link rel="stylesheet" href="css/publication.css">
-  <link rel="stylesheet" href="css/project.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <!-- <script src="js/jquery-3.5.1.min.js"></script> -->
-  <script src="js/myscript.js"></script>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KR7V8CX" height="0" width="0" style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-</head>
-
-<body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KR7V8CX" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-  <!-- Header -->
-  <header class="topnav">
-    <a id="firstnav" href="https://hong-ming.github.io/">Hong-Ming Chiu</a>
-    <div class="dropdown">
-      <button class="dropbtn" onclick="topnavFunction()"><i class="fas fa-bars"></i></button>
-      <div class="dropdown-content" id="myDropdown">
-        <a onclick="SmoothScrollToAnchor('myhom')">Home</a>
-        <a onclick="SmoothScrollToAnchor('mybio')">Biography</a>
-        <a onclick="SmoothScrollToAnchor('myexp')">Experiences</a>
-        <a onclick="SmoothScrollToAnchor('mypublications')">Publications</a>
-        <a onclick="SmoothScrollToAnchor('myprojects')" id="lastnav">Projects</a>
-      </div>
-    </div>
-  </header>
-  <!-- Page -->
-  <main id="myhom" class="page-content">
-    <!-- Name Card -->
-    <!-- <div id="myhom" style="position: absolute;"></div> -->
-    <div class="nboard">
-      <div class="nrow">
-        <div class="ncol ncol1">
-          <img src="image/myphoto.jpg" alt="Me" class="circle-img" />
+    <!-- Header -->
+    <header class="topnav">
+      <a id="firstnav" href="https://hong-ming.github.io/">Hong-Ming Chiu</a>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="topnavFunction()"><i class="fas fa-bars"></i></button>
+        <div class="dropdown-content" id="myDropdown">
+          <a onclick="SmoothScrollToAnchor('myhom')">Home</a>
+          <a onclick="SmoothScrollToAnchor('mybio')">Biography</a>
+          <a onclick="SmoothScrollToAnchor('myexp')">Experiences</a>
+          <a onclick="SmoothScrollToAnchor('mypublications')">Publications</a>
+          <a onclick="SmoothScrollToAnchor('myprojects')" id="lastnav">Projects</a>
         </div>
-        <div class="ncol ncol2">
-          <div id="my-name">
-            Hong-Ming Chiu
+      </div>
+    </header>
+    <!-- Page -->
+    <main id="myhom" class="page-content">
+      <!-- Name Card -->
+      <!-- <div id="myhom" style="position: absolute;"></div> -->
+      <div class="nboard">
+        <div class="nrow">
+          <div class="ncol ncol1">
+            <img src="image/myphoto.jpg" alt="Me" class="circle-img" />
           </div>
-          <div id="my-title">
-            Research Assistant @ NCTU
-          </div>
-          <div id="my-email">
-            hongmingchiu0217 [at] gmail.com
-          </div>
-          <div class="social-media">
-            <a href="https://github.com/Hong-Ming" class="icon-button github">
-              <i class="fab fa-github icon-github"></i>
-              <span></span><span id="icon-text">GitHub</span>
-            </a>
+          <div class="ncol ncol2">
+            <div id="my-name">Hong-Ming Chiu</div>
+            <div id="my-title">Research Assistant @ NCTU</div>
+            <div id="my-email">hongmingchiu0217 [at] gmail.com</div>
+            <div id="my-info">
+              <a href="https://github.com/Hong-Ming" class="icon-button github">
+                <i class="fab fa-github icon-github"></i>
+                <span></span><span id="icon-text">GitHub</span>
+              </a>
 
-            <a href="https://www.facebook.com/hmchiu2/" class="icon-button facebook">
-              <i class="fab fa-facebook-f icon-facebook"></i>
-              <span></span><span id="icon-text">Facebook</span>
-            </a>
+              <a href="https://www.facebook.com/hmchiu2/" class="icon-button facebook">
+                <i class="fab fa-facebook-f icon-facebook"></i>
+                <span></span><span id="icon-text">Facebook</span>
+              </a>
 
-            <a href="https://www.linkedin.com/in/hmchiu/" class="icon-button linkedin">
-              <i class="fab fa-linkedin-in icon-linkedin"></i>
-              <span></span><span id="icon-text">Linkedin</span>
-            </a>
+              <a href="https://www.linkedin.com/in/hmchiu/" class="icon-button linkedin">
+                <i class="fab fa-linkedin-in icon-linkedin"></i>
+                <span></span><span id="icon-text">Linkedin</span>
+              </a>
 
-            <a href="doc/resume.pdf" class="icon-button resume">
-              <i class="fas fa-id-card icon-resume"></i>
-              <span></span><span id="icon-text">Resume</span>
-            </a>
-
+              <a href="doc/resume.pdf" class="icon-button resume">
+                <i class="fas fa-id-card icon-resume"></i>
+                <span></span><span id="icon-text">Resume</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Page Content -->
-    <div class="wrapper">
+      <!-- Page Content -->
+      <div class="wrapper">
+        <!-- Biography -->
+        <div id="bio" class="bio">
+          <h1 id="mybio" class="md-heading text-center" style="text-decoration: underline">Biography</h1>
+          <div class="bio-body">
+            <p>
+              <strong>Hong-Ming Chiu</strong> is a Research Assistant in <strong>Artificial Intelligence and Multimedia Lab at National Chiao Tung University (NCTU), Hsinchu, Taiwan</strong>. He
+              received his Bachelor's Degree in Electronics Engineering from National Chiao Tung University, Hsinchu, Taiwan. He worked with
+              <a href="https://eenctu.nctu.edu.tw/en/teacher/p1.php?num=145&page=1">Prof. Carrson C. Fung</a> and
+              <a href="https://eenctu.nctu.edu.tw/tw/teacher/p1.php?num=108&page=1">Prof. Tian-Sheuan Chang</a> during his undergrads. He is a member of
+              <strong>IEEE-Eta Kappa Nu, Mu Sigma Chapter</strong> and a former member of <strong>IEEE Student Bench at NCTU</strong>. His research interests include <strong>Machine Learning</strong>,
+              <strong>Optimization</strong> and <strong>Graph Learning</strong>.
+            </p>
+          </div>
+        </div>
 
-      <!-- Biography -->
-      <div id="bio" class="bio">
-        <h1 id="mybio" class="md-heading text-center" style="text-decoration: underline;">Biography</h1>
-        <div class="bio-body">
-          <p><strong>Hong-Ming Chiu</strong> is a Research Assistant in <strong>Artificial Intelligence and
-              Multimedia Lab at National Chiao Tung University (NCTU), Hsinchu, Taiwan</strong>. He received his
-            Bachelor's Degree in Electronics Engineering from National Chiao Tung University, Hsinchu, Taiwan.
-            He worked with <a href='https://eenctu.nctu.edu.tw/en/teacher/p1.php?num=145&page=1'>Prof. Carrson C.
-              Fung</a>
-            and <a href='https://eenctu.nctu.edu.tw/tw/teacher/p1.php?num=108&page=1'>Prof. Tian-Sheuan Chang</a> during
-            his undergrads. He is a member of <strong>IEEE-Eta Kappa Nu, Mu Sigma Chapter</strong> and a former
-            member of <strong>IEEE Student Bench at NCTU</strong>. His research interests include
-            <strong>Machine Learning</strong>, <strong>Optimization</strong> and <strong>Graph Learning</strong>.
+        <!-- Experiences -->
+        <div id="timeline" class="timeline-brief">
+          <h1 id="myexp" class="md-heading text-center" style="text-decoration: underline">Experiences</h1>
+
+          <div class="timeline-body">
+            <div class="timeline-item">
+              <div class="timeline-date">July 2020 - Present</div>
+              <div class="timeline-title"><img class="social-icon" src="image/nctu_logo.png" />Research Assistant @ NCTU</div>
+              <div class="timeline-posi">Artificial Intelligence and Multimedia Lab</div>
+              <div class="timeline-desc">Knowledge-Graph, Recommender System</div>
+              <div class="timeline-host">Host: <a href="http://aimmlab.nctu.edu.tw/whcheng/index.html">Prof. Wen-Huang Cheng</a></div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">Spring 2020</div>
+              <div class="timeline-title"><img class="social-icon" src="image/uiuc_logo.png" />Exchange Student @ UIUC</div>
+              <div class="timeline-posi">Indep. Study @ Coordinated Science Lab</div>
+              <div class="timeline-desc">Model change detection system</div>
+              <div class="timeline-host">Advisor: <a href="http://vvv.ece.illinois.edu/">Prof. Venugopal V. Veeravalli</a></div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">Summer 2019</div>
+              <div class="timeline-title"><img class="social-icon" src="image/usc_logo.png" />Summer Research @ USC</div>
+              <div class="timeline-posi">Signal Transformation, Analysis and Compression Group</div>
+              <div class="timeline-desc">Graph Learning, Variogram, Kriging</div>
+              <div class="timeline-host">
+                Advisor: <a href="https://viterbi.usc.edu/directory/faculty/Ortega/Antonio">Prof. Antonio Ortega</a> &
+                <a href="https://eenctu.nctu.edu.tw/en/teacher/p1.php?num=145&page=1">Prof. Carrson C. Fung</a>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">Mar. 2019 - July 2020</div>
+              <div class="timeline-title"><img class="social-icon" src="image/nctu_logo.png" />Undergraduate Researcher @ NCTU</div>
+              <div class="timeline-posi">Communication Electronics and Signal Processing Lab</div>
+              <div class="timeline-desc">Graph Learning, Machine Learning, Communications</div>
+              <div class="timeline-host">Advisor: <a href="https://eenctu.nctu.edu.tw/en/teacher/p1.php?num=145&page=1">Prof. Carrson C. Fung</a></div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">Jun. 2018 - Jan 2019</div>
+              <div class="timeline-title"><img class="social-icon" src="image/nctu_logo.png" />Undergraduate Researcher @ NCTU</div>
+              <div class="timeline-posi">VLSI Signal Processing Lab</div>
+              <div class="timeline-desc">Model Pruning, Machine Learning, Data Science</div>
+              <div class="timeline-host">Advisor: <a href="https://eenctu.nctu.edu.tw/tw/teacher/p1.php?num=108&page=1">Prof. Tian-Sheuan Chang</a></div>
+            </div>
+            <div class="timeline-start">
+              <div class="timeline-date">Fab. 1997</div>
+              <div class="timeline-title">He was Born</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Publications -->
+        <div class="publications">
+          <h1 id="mypublications" class="md-heading text-center" style="text-decoration: underline">Publications</h1>
+          <div class="pub-list">
+            <!-- publication 2 -->
+            <div class="pub">
+              <div class="pub-left">
+                <img class="intro-img" src="image/gla.jpg" />
+              </div>
+              <div class="pub-right">
+                <div class="title">Graph Learning and Augmentation Based Interpolation of Signal Strength for Location-Aware Communications</div>
+                <div class="authors">
+                  <a class="author group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a
+                  >, <a class="author group-text" href="https://eenctu.nctu.edu.tw/en/teacher/p1.php?num=145&page=1">Carrson C. Fung</a>,
+                  <a class="author group-text" href="https://viterbi.usc.edu/directory/faculty/Ortega/Antonio">Antonio Ortega</a>
+                </div>
+                <div class="desc">
+                  <p>
+                    A graph learning and augmentation (GLA) technique is proposed herein to solve the received signal power interpolation problem, which is important for preemptive resource allocation
+                    in location-aware communications. A graph parameterization results in the proposed GLA interpolator having superior mean-squared error performance and lower computational
+                    complexity than the traditional Gaussian process method. Simulation results and analytical complexity analysis are used to prove the efficacy of the GLA interpolator.
+                  </p>
+                </div>
+                <div class="tags">
+                  <span class="group-text">[ <a class="tag" href="https://ieeexplore.ieee.org/document/9287685">DOI</a> ]</span>
+                  <span class="group-text">[ <a class="tag" href="doc/hmchiu2020gla.pdf">PDF</a> ]</span>
+                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/GLA_Interpolator">Code</a> ]</span>
+                </div>
+                <div class="publish">
+                  <span class="publisher">EUSIPCO 2020</span>
+                  <span class="status">in Amsterdam, NL</span>
+                  <!-- <span class="place">(Virtual)</span> -->
+                </div>
+              </div>
+            </div>
+
+            <!-- publication 1 -->
+            <div class="pub">
+              <div class="pub-left">
+                <img class="intro-img" src="image/adaptnet.jpg" />
+              </div>
+              <div class="pub-right">
+                <div class="title">Run Time Adaptive Network Slimming for Mobile Environments</div>
+                <div class="authors">
+                  <a class="author group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a
+                  >, <a class="author group-text" href="javascript:void(0)">Kuan-Chih Lin</a>,
+                  <a class="author group-text" href="https://eenctu.nctu.edu.tw/tw/teacher/p1.php?num=108&page=1">Tian Sheuan Chang</a>
+                </div>
+                <div class="desc">
+                  <p>
+                    Modern convolutional neural network (CNN) models offer significant performance improvement over previous methods, but suffer from high computational complexity and are not able to
+                    adapt to different run-time needs. To solve the above problem, this paper proposes an inference-stage pruning method that offers multiple operation points in a single model, which
+                    can provide computational power-accuracy modulation during run time. This method can perform on shallow CNN models as well as very deep networks such as Resnet101. Experimental
+                    results show that up to 50% savings in the FLOP are available by trading away less than 10% of the top-1 accuracy.
+                  </p>
+                </div>
+                <div class="tags">
+                  <span class="group-text">[ <a class="tag" href="https://ieeexplore.ieee.org/document/8701884">DOI</a> ]</span>
+                  <span class="group-text">[ <a class="tag" href="doc/hmchiu2019net_slimming.pdf">PDF</a> ]</span>
+                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/Adaptive_Network_Slimming">Code</a> ]</span>
+                </div>
+                <div class="publish">
+                  <span class="publisher">ISCAS 2019</span>
+                  <span class="status">in Sapporo, Japan</span>
+                  <!-- <span class="place">(Virtual)</span> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selected Projects -->
+        <div class="selected-projects">
+          <h1 id="myprojects" class="md-heading text-center" style="text-decoration: underline">Projects</h1>
+          <div class="pub-list">
+            <!-- project 5 -->
+            <div class="pub">
+              <div class="pub-left">
+                <img class="intro-img" src="image/fpga.jpg" />
+              </div>
+              <div class="pub-right">
+                <div class="title">Building Oscilloscope on FPGA</div>
+                <div class="desc">
+                  <p>
+                    We built a simple oscilloscope using <a href="https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/start">Nexys 4 DDR board</a> and PCB. First, the PCB
+                    transforms the input voltage signal into a signal with an acceptable voltage range for the FPGA board input, as well as generating knobs' control signal. The FPGA board then takes
+                    the processed signal and control signal to display waveforms, change voltage scale, adjust sweep time, etc. This work is the final project of the Digital Laboratory class at NCTU.
+                  </p>
+                </div>
+                <div class="tags">
+                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/FPGA_Oscilloscope">Code</a> ]</span>
+                  <span class="group-text">[ <a class="tag" href="https://www.youtube.com/watch?v=sgIzcKYEROs&feature=youtu.be&ab_channel=AlexLi">Video</a> ]</span>
+                </div>
+                <div class="contribute">
+                  Contributors:
+                  <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a>
+                  , <a class="contributor group-text" href="javascript:void(0)">Huan-Jung Lee</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- project 4 -->
+            <div class="pub">
+              <div class="pub-left">
+                <img class="intro-img" src="image/gl.jpg" />
+              </div>
+              <div class="pub-right">
+                <div class="title">Graph Learning: Causal Graph Process (CGP) & Sparse Vector Autoregressive model (SVAR)</div>
+                <div class="desc">
+                  <p>
+                    This work contains the impelmentation and comparison of two graph learning algorithms, <a href="https://ieeexplore.ieee.org/document/7763882"> Causal Graph Process (CGP) </a> and
+                    <a href="https://arxiv.org/abs/1207.0520">Sparse Vector Autoregressive model (SVAR)</a>. These two graph learning methods can be used to derive the graph representation among a
+                    large number of unstructured time series data, and then make predictions on the future data.
+                  </p>
+                </div>
+                <div class="tags">
+                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/CGP_and_SVAR">Code</a> ]</span>
+                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/CGP_and_SVAR/blob/main/Slides/cgp_and_svar.pdf">Slides</a> ]</span>
+                </div>
+                <div class="contribute">
+                  Contributors:
+                  <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- project 3 -->
+            <div class="pub">
+              <div class="pub-left">
+                <img class="intro-img" src="image/mcd.jpg" />
+              </div>
+              <div class="pub-right">
+                <div class="title">Model Change Detection System</div>
+                <div class="desc">
+                  <p>
+                    This is a demo for the model change detection system on a landmine dataset. The model change detection system utilized KL-divergence and machine learning algorithms to classify
+                    landmines data collected from different surface conditions. This demo is built during the independent study in UIUC.
+                  </p>
+                </div>
+                <div class="tags">
+                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/Model_Change_Detection">Code</a> ]</span>
+                </div>
+                <div class="contribute">
+                  Contributors:
+                  <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- project 2 -->
+            <div class="pub">
+              <div class="pub-left">
+                <img class="intro-img" src="image/huffman.jpg" />
+              </div>
+              <div class="pub-right">
+                <div class="title">Huffman Coding Hardware</div>
+                <div class="desc">
+                  <p>
+                    Implemented 8-bit Huffman coding algorithm using System Verilog. The system takes an image as an input, the image contains 100 pixels and each pixel value is an integer between 1
+                    to 6 (inclusive). The system then outputs the Huffman Code for each pixel value based on the source probability distribution (more frequent pixel values will have the shorter
+                    codewords). This is the final project of the Digital Circuit and Systems class in NCTU.
+                  </p>
+                </div>
+                <div class="tags">
+                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/Huffman_Codeing_IC">Code</a> ]</span>
+                </div>
+                <div class="contribute">
+                  Contributors:
+                  <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a>
+                  , <a class="contributor group-text" href="javascript:void(0)">Huan-Jung Lee</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- project 1 -->
+            <div class="pub">
+              <div class="pub-left">
+                <img class="intro-img" src="image/mmc.jpg" />
+              </div>
+              <div class="pub-right">
+                <div class="title">Minimum Mean Cycle Problem</div>
+                <div class="desc">
+                  <p>
+                    Designed an algorithm for finding the Minimum Mean Cycle in a weighted directed graph using dynamic programming. This algorithm is an extension of the Bellman-Ford algorithm for
+                    computing single source shortest paths, and it is capable of finding the minimum mean cycle in polynomial time. This is the final project of the Advanced Algorithm class in NCTU.
+                  </p>
+                </div>
+                <div class="tags">
+                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/Minimum_Mean_Cycle">Code</a> ]</span>
+                </div>
+                <div class="contribute">
+                  Contributors:
+                  <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="page-footer">
+      <div class="foot-botton">
+        <div class="back-to-top" onclick="SmoothScrollToTop()">Scroll to Top</div>
+      </div>
+      <div class="myfooter">
+        <div class="foot-left">
+          <a href="mailto: hongmingchiu0217@gmail.com" class="ficon-button femail"> <i class="fas fa-envelope icon-email"></i><span></span><span id="foot-icon-text">Gmail</span></a>
+
+          <a href="https://www.facebook.com/hmchiu2/" class="ficon-button ffacebook"> <i class="fab fa-facebook-f icon-facebook"></i><span></span><span id="foot-icon-text">Facebook</span></a>
+
+          <a href="https://www.linkedin.com/in/hmchiu/" class="ficon-button flinkedin"> <i class="fab fa-linkedin-in icon-linkedin"></i><span></span><span id="foot-icon-text">Linkedin</span></a>
+
+          <a href="javascript:void(0)" class="ficon-button ftwitter"> <i class="fab fa-twitter icon-twitter"></i><span></span><span id="foot-icon-text">Twitter</span></a>
+
+          <a href="https://www.instagram.com/_hongming/" class="ficon-button finstagram"> <i class="fab fa-instagram icon-instagram"></i><span></span><span id="foot-icon-text">Instagram</span></a>
+
+          <a href="https://hong-ming.github.io/html/sitemap.html" class="ficon-button fsitemap"> <i class="fas fa-sitemap icon-sitemap"></i><span></span><span id="foot-icon-text">Sitemap</span></a>
+        </div>
+        <div class="foot-right">
+          <p>
+            This is an academic website for Hong-Ming Chiu to share his experiences, publications and projects. Some designs of this website are borrowed and modified from
+            <a href="http://hexianghu.com/">Hexiang (Frank) Hu</a>'s.
           </p>
         </div>
       </div>
-
-      <!-- Experiences -->
-      <div id="timeline" class="timeline-brief">
-        <h1 id="myexp" class="md-heading text-center" style="text-decoration: underline;">Experiences</h1>
-
-        <div class="timeline-body">
-
-          <div class="timeline-item">
-            <div class="timeline-date">July 2020 - Present</div>
-            <div class="timeline-title"><img class="social-icon" src="image/nctu_logo.png" />Research Assistant @ NCTU
-            </div>
-            <div class="timeline-posi"">Artificial Intelligence and Multimedia Lab</div>
-          <div class=" timeline-desc">Knowledge-Graph, Recommender System </div>
-            <div class="timeline-host">
-              Host: <a href="http://aimmlab.nctu.edu.tw/whcheng/index.html">Prof. Wen-Huang Cheng</a>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-date">Spring 2020</div>
-            <div class="timeline-title"><img class="social-icon" src="image/uiuc_logo.png" />Exchange Student @ UIUC
-            </div>
-            <div class="timeline-posi"">Indep. Study @ Coordinated Science Lab</div>
-          <div class=" timeline-desc">Model change detection system</div>
-            <div class="timeline-host">
-              Advisor: <a href="http://vvv.ece.illinois.edu/">Prof. Venugopal V. Veeravalli</a>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-date">Summer 2019</div>
-            <div class="timeline-title"><img class="social-icon" src="image/usc_logo.png" />Summer Research @ USC</div>
-            <div class="timeline-posi"">Signal Transformation, Analysis and Compression Group
-          </div>
-          <div class=" timeline-desc">Graph Learning, Variogram, Kriging</div>
-            <div class="timeline-host">
-              Advisor: <a href="https://viterbi.usc.edu/directory/faculty/Ortega/Antonio">Prof. Antonio Ortega</a> &
-              <a href="https://eenctu.nctu.edu.tw/en/teacher/p1.php?num=145&page=1">Prof. Carrson C. Fung</a>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-date">Mar. 2019 - July 2020</div>
-            <div class="timeline-title"><img class="social-icon" src="image/nctu_logo.png" />Undergraduate Researcher @
-              NCTU</div>
-            <div class="timeline-posi"">Communication Electronics and Signal Processing Lab
-          </div>
-          <div class=" timeline-desc">Graph Learning, Machine Learning, Communications</div>
-            <div class="timeline-host">
-              Advisor: <a href="https://eenctu.nctu.edu.tw/en/teacher/p1.php?num=145&page=1">Prof. Carrson C. Fung</a>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-date">Jun. 2018 - Jan 2019</div>
-            <div class="timeline-title"><img class="social-icon" src="image/nctu_logo.png" />Undergraduate Researcher @
-              NCTU</div>
-            <div class="timeline-posi"">VLSI Signal Processing Lab</div>
-          <div class=" timeline-desc">Model Pruning, Machine Learning, Data Science</div>
-            <div class="timeline-host">
-              Advisor: <a href="https://eenctu.nctu.edu.tw/tw/teacher/p1.php?num=108&page=1">Prof. Tian-Sheuan
-                Chang</a>
-            </div>
-          </div>
-          <div class="timeline-start">
-            <div class="timeline-date">Fab. 1997</div>
-            <div class="timeline-title">He was Born</div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Publications -->
-      <div class="publications">
-        <h1 id="mypublications" class="md-heading text-center" style="text-decoration: underline;">Publications</h1>
-        <div class="pub-list">
-
-          <!-- publication 2 -->
-          <div class="pub">
-            <div class="pub-left">
-              <img class="intro-img" src="image/gla.jpg" />
-            </div>
-            <div class="pub-right">
-              <div class="title">
-                Graph Learning and Augmentation Based Interpolation of Signal Strength for Location-Aware Communications
-              </div>
-              <div class="authors">
-                <a class="author group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming
-                    Chiu</strong></a>,
-                <a class="author group-text" href="https://eenctu.nctu.edu.tw/en/teacher/p1.php?num=145&page=1">Carrson
-                  C.
-                  Fung</a>,
-                <a class="author group-text" href="https://viterbi.usc.edu/directory/faculty/Ortega/Antonio">Antonio
-                  Ortega</a>
-              </div>
-              <div class="desc">
-                <p>A graph learning and augmentation (GLA) technique is proposed herein to solve the received signal
-                  power interpolation problem, which is important for preemptive resource allocation in location-aware
-                  communications. A graph parameterization
-                  results in the proposed GLA interpolator having superior mean-squared error performance and lower
-                  computational complexity than the traditional Gaussian process method. Simulation results and
-                  analytical complexity analysis are used to
-                  prove the efficacy of the GLA interpolator.</p>
-              </div>
-              <div class="tags">
-                <span class="group-text">[ <a class="tag" href="https://ieeexplore.ieee.org/document/9287685">DOI</a>
-                  ]</span>
-                <span class="group-text">[ <a class="tag" href="doc/hmchiu2020gla.pdf">PDF</a> ]</span>
-                <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/GLA_Interpolator">Code</a>
-                  ]</span>
-              </div>
-              <div class="publish">
-                <span class="publisher">EUSIPCO 2020</span>
-                <span class="status">in Amsterdam, NL</span>
-                <!-- <span class="place">(Virtual)</span> -->
-              </div>
-            </div>
-          </div>
-
-          <!-- publication 1 -->
-          <div class="pub">
-            <div class="pub-left">
-              <img class="intro-img" src="image/adaptnet.jpg" />
-            </div>
-            <div class="pub-right">
-              <div class="title">
-                Run Time Adaptive Network Slimming for Mobile Environments
-              </div>
-              <div class="authors">
-                <a class="author group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming
-                    Chiu</strong></a>,
-                <a class="author group-text" href="javascript:void(0)">Kuan-Chih Lin</a>,
-                <a class="author group-text" href="https://eenctu.nctu.edu.tw/tw/teacher/p1.php?num=108&page=1">Tian
-                  Sheuan Chang</a>
-              </div>
-              <div class="desc">
-                <p>Modern convolutional neural network (CNN) models offer significant performance improvement over
-                  previous methods, but suffer from high computational complexity and are not able to adapt to different
-                  run-time needs. To solve the above problem,
-                  this paper proposes an inference-stage pruning method that offers multiple operation points in a
-                  single model, which can provide computational power-accuracy modulation during run time. This method
-                  can perform on shallow CNN models as
-                  well as very deep networks such as Resnet101. Experimental results show that up to 50% savings in the
-                  FLOP are available by trading away less than 10% of the top-1 accuracy.</p>
-              </div>
-              <div class="tags">
-                <span class="group-text">[ <a class="tag" href="https://ieeexplore.ieee.org/document/8701884">DOI</a>
-                  ]</span>
-                <span class="group-text">[ <a class="tag" href="doc/hmchiu2019net_slimming.pdf">PDF</a> ]</span>
-                <span class="group-text">[ <a class="tag"
-                    href="https://github.com/Hong-Ming/Adaptive_Network_Slimming">Code</a> ]</span>
-              </div>
-              <div class="publish">
-                <span class="publisher">ISCAS 2019</span>
-                <span class="status">in Sapporo, Japan</span>
-                <!-- <span class="place">(Virtual)</span> -->
-              </div>
-            </div>
-
-
-
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Selected Projects -->
-      <div class="selected-projects">
-        <h1 id="myprojects" class="md-heading text-center" style="text-decoration: underline;">Projects</h1>
-        <div class="pub-list">
-
-          <!-- project 5 -->
-          <div class="pub">
-            <div class="pub-left">
-              <img class="intro-img frame" src="image/fpga.jpg" />
-            </div>
-            <div class="pub-right">
-              <div class="title">
-                Building Oscilloscope on FPGA
-              </div>
-              <div class="desc">
-                <p> We built a simple oscilloscope using <a
-                    href='https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/start'>Nexys 4 DDR
-                    board</a> and PCB. First, the PCB transforms the input voltage signal into a signal with an
-                  acceptable
-                  voltage range for the FPGA board input, as well as generating knobs' control signal. The FPGA
-                  board then takes the processed signal and control signal to display waveforms, change
-                  voltage scale, adjust sweep time, etc. This work is the final project of the Digital Laboratory class
-                  at
-                  NCTU.
-                </p>
-              </div>
-              <div class="tags">
-                <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/FPGA_Oscilloscope">Code</a>
-                  ]</span>
-                <span class="group-text">[ <a class="tag"
-                    href="https://www.youtube.com/watch?v=sgIzcKYEROs&feature=youtu.be&ab_channel=AlexLi">Video</a>
-                  ]</span>
-              </div>
-              <div class="contribute">
-                Contributors:
-                <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming
-                    Chiu</strong></a>,
-                <a class="contributor group-text" href="javascript:void(0)">Huan-Jung Lee</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- project 4 -->
-          <div class="pub">
-            <div class="pub-left">
-              <img class="intro-img frame" src="image/gl.jpg" />
-            </div>
-            <div class="pub-right">
-              <div class="title">
-                Graph Learning: Causal Graph Process (CGP) & Sparse Vector Autoregressive model (SVAR)
-              </div>
-              <div class="desc">
-                <p> This work contains the impelmentation and comparison of two graph learning algorithms, <a
-                    href="https://ieeexplore.ieee.org/document/7763882"> Causal Graph Process (CGP) </a> and <a
-                    href="https://arxiv.org/abs/1207.0520">Sparse Vector Autoregressive model (SVAR)</a>. These two
-                  graph
-                  learning methods can be used to derive the graph representation among a large number of unstructured
-                  time
-                  series data, and then make predictions on the future data.
-                </p>
-              </div>
-              <div class="tags">
-                <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/CGP_and_SVAR">Code</a>
-                  ]</span>
-                <span class="group-text">[ <a class="tag"
-                    href="https://github.com/Hong-Ming/CGP_and_SVAR/blob/main/Slides/cgp_and_svar.pdf">Slides</a>
-                  ]</span>
-              </div>
-              <div class="contribute">
-                Contributors:
-                <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming
-                    Chiu</strong></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- project 3 -->
-          <div class="pub">
-            <div class="pub-left">
-              <img class="intro-img frame" src="image/mcd.jpg" />
-            </div>
-            <div class="pub-right">
-              <div class="title">
-                Model Change Detection System
-              </div>
-              <div class="desc">
-                <p> This is a demo for the model change detection system on a landmine dataset. The model change
-                  detection
-                  system utilized KL-divergence and machine learning algorithms to classify landmines data collected
-                  from
-                  different surface conditions. This demo is built during the independent study in UIUC.
-
-                </p>
-              </div>
-              <div class="tags">
-                <span class="group-text">[ <a class="tag"
-                    href="https://github.com/Hong-Ming/Model_Change_Detection">Code</a> ]</span>
-              </div>
-              <div class="contribute">
-                Contributors:
-                <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- project 2 -->
-          <div class="pub">
-            <div class="pub-left">
-              <img class="intro-img frame" src="image/huffman.jpg" />
-            </div>
-            <div class="pub-right">
-              <div class="title">
-                Huffman Coding Hardware
-              </div>
-              <div class="desc">
-                <p> Implemented 8-bit Huffman coding algorithm using System Verilog. The system takes an image as an
-                  input,
-                  the image contains 100 pixels and each pixel value is an integer between 1 to 6 (inclusive). The
-                  system then outputs the Huffman Code for each pixel value based on the source probability distribution
-                  (more frequent pixel values will have the shorter codewords). This is the final project of the
-                  Digital Circuit and Systems class in NCTU.
-
-                </p>
-              </div>
-              <div class="tags">
-                <span class="group-text">[ <a class="tag"
-                    href="https://github.com/Hong-Ming/Huffman_Codeing_IC">Code</a> ]</span>
-              </div>
-              <div class="contribute">
-                Contributors:
-                <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming
-                    Chiu</strong></a>,
-                <a class="contributor group-text" href="javascript:void(0)">Huan-Jung Lee</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- project 1 -->
-          <div class="pub">
-            <div class="pub-left">
-              <img class="intro-img frame" src="image/mmc.jpg" />
-            </div>
-            <div class="pub-right">
-              <div class="title">
-                Minimum Mean Cycle Problem
-              </div>
-              <div class="desc">
-                <p> Designed an algorithm for finding the Minimum Mean Cycle in a weighted directed graph using dynamic
-                  programming. This algorithm is an extension of the Bellman-Ford algorithm for computing single source
-                  shortest paths, and it is capable of finding the minimum mean cycle in polynomial time. This is the
-                  final
-                  project of the Advanced Algorithm class in NCTU.
-                </p>
-              </div>
-              <div class="tags">
-                <span class="group-text">[ <a class="tag"
-                    href="https://github.com/Hong-Ming/Minimum_Mean_Cycle">Code</a> ]</span>
-              </div>
-              <div class="contribute">
-                Contributors:
-                <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming
-                    Chiu</strong></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </main>
-  <!-- Footer -->
-  <footer class="page-footer">
-    <div class=foot-botton>
-      <div class="back-to-top" onclick="SmoothScrollToTop()">
-        Scroll to Top
-      </div>
-    </div>
-    <div class="myfooter">
-      <div class="foot-left">
-        <a href="mailto: hongmingchiu0217@gmail.com" class="ficon-button femail">
-          <i class="fas fa-envelope icon-email"></i><span></span><span id="foot-icon-text">Gmail</span></a>
-
-        <a href="https://www.facebook.com/hmchiu2/" class="ficon-button ffacebook">
-          <i class="fab fa-facebook-f icon-facebook"></i><span></span><span id="foot-icon-text">Facebook</span></a>
-
-        <a href="https://www.linkedin.com/in/hmchiu/" class="ficon-button flinkedin">
-          <i class="fab fa-linkedin-in icon-linkedin"></i><span></span><span id="foot-icon-text">Linkedin</span></a>
-
-        <a href="javascript:void(0)" class="ficon-button ftwitter">
-          <i class="fab fa-twitter icon-twitter"></i><span></span><span id="foot-icon-text">Twitter</span></a>
-
-        <a href="https://www.instagram.com/_hongming/" class="ficon-button finstagram">
-          <i class="fab fa-instagram icon-instagram"></i><span></span><span id="foot-icon-text">Instagram</span></a>
-
-        <a href="https://hong-ming.github.io/html/sitemap.html" class="ficon-button fsitemap">
-          <i class="fas fa-sitemap icon-sitemap"></i><span></span><span id="foot-icon-text">Sitemap</span></a>
-
-      </div>
-      <div class="foot-right">
-        <p>This is an academic website for Hong-Ming Chiu to share his
-          experiences, publications and projects. Some designs of this website are borrowed and modified
-          from <a href='http://hexianghu.com/'>Hexiang (Frank) Hu</a>'s.</p>
-      </div>
-    </div>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>
