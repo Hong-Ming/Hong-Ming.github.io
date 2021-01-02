@@ -73,6 +73,12 @@ a {
   text-decoration: underline;
 }
 
+.link-path, .link-path a{
+  font-weight: 300;
+  font-size: 14px;
+  color: #000000;
+}
+
 .sitemap-content a {
   font-weight: 500;
 }
