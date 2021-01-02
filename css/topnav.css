@@ -21,7 +21,7 @@
   cursor: pointer;
   color: #f9f9f9;
   text-align: center;
-  padding: 9px 16px;
+  padding: 9px 15px;
   text-decoration: none;
   font-size: 18px;
   font-weight: 400;
@@ -96,8 +96,7 @@ button > i {
     margin: 0;
     float: none;
     color: black;
-    padding: 9px 16px;
-    /* text-decoration: none; */
+    padding: 9px 15px;
     display: block;
     text-align: left;
   }
