@@ -1,6 +1,10 @@
 Sitemap: https://hong-ming.github.io/sitemap.xml
 User-agent: *
+Disallow: /css/
+Disallow: /js/
 Disallow: /doc/
 Disallow: /image/
 Disallow: /favicon/
 Disallow: /webfonts/
+Disallow: /Posts/
+Allow: /Posts/index.html
