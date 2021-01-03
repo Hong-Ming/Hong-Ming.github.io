@@ -6,5 +6,5 @@ Disallow: /doc/
 Disallow: /image/
 Disallow: /favicon/
 Disallow: /webfonts/
-Disallow: /Posts/
-Allow: /Posts/index.html
+Disallow: /posts/
+Allow: /posts/index.html
