@@ -300,7 +300,7 @@ code {
 pre {
   border: 1px solid #e8e8e8;
   border-radius: 3px;
-  font-family: 'Source Code Pro', monospace;
+  /* font-family: 'Source Code Pro', monospace; */
   font-weight: 400;
   font-size: 0.8em;
   /* padding: 8px 12px;

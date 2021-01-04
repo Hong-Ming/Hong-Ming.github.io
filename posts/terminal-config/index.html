@@ -141,10 +141,10 @@
               <strong>Static loading</strong>
               <p>This is probably the fastest way to load plugins. First, create the <a href="#zsh_plugin">.zsh_plugin.txt</a> file and run.</p>
               <pre style="padding: 9px 18px"><code class="language-bash">
-                $ antibody bundle &lt ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+                $ <span style="color: #dd4a68;">antibody</span> bundle &lt ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
               </code></pre>
               <p>Then put the following code into <a href="#zshrc">.zshrc</a></p>
-              <pre style="padding: 9px 18px"><code class="language-editorconfig">
+              <pre style="padding: 9px 18px"><code class="language-shell">
                 source ~/.zsh_plugins.sh
               </code></pre>
             </li>
@@ -157,11 +157,11 @@
             <a href="https://www.nerdfonts.com/">Nerd Fonts</a>, run the follwoing command in your terminal
           </p>
           <pre style="padding: 9px 18px"><code class="language-bash">
-            $ brew tap homebrew/cask-fonts && brew cask install font-&ltFONT NAME>-nerd-font
+            $ <span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts && <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-<span style="color: #000000;">&lt</span>FONT NAME<span style="color: #000000;">></span>-nerd-font
           </code></pre>
-          For example, to install <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack">Hack Regular Nerd Font Complete</a>
+          For example, to install <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack">Hack Nerd Font</a>
           <pre style="padding: 9px 18px"><code class="language-bash">
-            $ brew tap homebrew/cask-fonts && brew cask install font-hack-nerd-font
+            $ <span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts && <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-hack-nerd-font
           </code></pre>
 
           <div class="post-head">Packages</div>
@@ -185,27 +185,16 @@
 
           <div class="post-head">Configuration Files</div>
           <div id="zshrc"><i class="fas fa-file-alt"></i> .zshrc</div>
-          <pre style="max-height: 400px"><code class="language-editorconfig">
+          <pre style="max-height: 400px"><code class="language-shell">
             # If you come from bash you might have to change your $PATH.
             # export PATH=$HOME/bin:/usr/local/bin:$PATH
-            # export PATH=/usr/local/bin:$PATH
             export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
             # Path to your oh-my-zsh installation.
             export ZSH=/Users/hongming/.oh-my-zsh
 
-            # Set name of the theme to load. Optionally, if you set this to "random"
-            # it'll load a random theme each time that oh-my-zsh is loaded.
-            # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-            # ZSH_THEME="ys"
+            # Set name of the theme to load.
             POWERLEVEL9K_MODE='nerdfont-complete'
-
-            # Set list of themes to load
-            # Setting this variable when ZSH_THEME=random
-            # cause zsh load theme from this variable instead of
-            # looking in ~/.oh-my-zsh/themes/
-            # An empty array have no effect
-            # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
             # Uncomment the following line to use case-sensitive completion.
             # CASE_SENSITIVE="true"
@@ -245,10 +234,8 @@
             # Would you like to use another custom folder than $ZSH/custom?
             # ZSH_CUSTOM=/path/to/new-custom-folder
 
-            # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-            # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-            # Example format: plugins=(rails git textmate ruby lighthouse)
-            # Add wisely, as too many plugins slow down shell startup.
+            # Plugin loader from oh-my-zsh, we will not load any plugin here.
+            # All plugins will be loaded from Antibody 
             plugins=()
 
             # Oh My Zsh
@@ -267,31 +254,21 @@
             # User configuration
 
             # export MANPATH="/usr/local/man:$MANPATH"
-
+            
             # You may need to manually set your language environment
             # export LANG=en_US.UTF-8
-
+            
             # Preferred editor for local and remote sessions
             # if [[ -n $SSH_CONNECTION ]]; then
             #   export EDITOR='vim'
             # else
             #   export EDITOR='mvim'
             # fi
-
+            
             # Compilation flags
             # export ARCHFLAGS="-arch x86_64"
 
-            # ssh
-            # export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-            # Set personal aliases, overriding those provided by oh-my-zsh libs,
-            # plugins, and themes. Aliases can be placed here, though oh-my-zsh
-            # users are encouraged to define aliases within the ZSH_CUSTOM folder.
-            # For a full list of active aliases, run `alias`.
-            #
-            # Example aliases
-            # alias zshconfig="mate ~/.zshrc"
-            # alias ohmyzsh="mate ~/.oh-my-zsh"
+            # Set personal aliases
             alias matlab="/Applications/MATLAB_R2019a.app/bin/matlab -nodesktop -nosplash"
             alias cat="bat --paging=never"
             alias rm="trash"
