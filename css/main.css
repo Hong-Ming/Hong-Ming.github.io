@@ -277,28 +277,41 @@ blockquote > :last-child {
   margin-bottom: 0;
 }
 
-pre,
+/* pre,
 code {
-  font-size: 15px;
   border: 1px solid #e8e8e8;
   border-radius: 3px;
-  background-color: #eef;
-}
+} */
 
-code {
+/* code {
   padding: 1px 5px;
+} */
+
+.command-markdown{
+  background: #f5f2f0;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 2px 4px;
+  font-size: 0.8em;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 400;
 }
 
 pre {
-  padding: 8px 12px;
-  overflow-x: scroll;
+  border: 1px solid #e8e8e8;
+  border-radius: 3px;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 400;
+  font-size: 0.8em;
+  /* padding: 8px 12px;
+  overflow-x: scroll; */
 }
 
-pre > code {
+/* pre > code {
   border: 0;
   padding-right: 0;
   padding-left: 0;
-}
+} */
 
 .group-text {
   white-space: nowrap;
