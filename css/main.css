@@ -73,6 +73,13 @@ a {
   text-decoration: underline;
 }
 
+.post-head {
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 30px;
+  text-decoration: underline;
+}
+
 .link-path, .link-path a{
   font-weight: 300;
   font-size: 14px;
@@ -370,6 +377,18 @@ pre > code {
 
 .text-center {
   text-align: center;
+}
+
+.img-center {
+  display: block;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+@media screen and (max-width: 1000px) {
+  .img-center {
+    max-width: 100%;
+  }
 }
 
 hr.soft {
