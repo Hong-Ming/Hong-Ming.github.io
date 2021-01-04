@@ -23,6 +23,15 @@
   </head>
 
   <body>
+    <style>
+      :target {
+        padding-top: 0px;
+        margin-top: 0px;
+      }
+      .topnav {
+        position: relative
+      }
+    </style>
     <header class="topnav">
       <a id="firstnav" href="https://hong-ming.github.io/">Hong-Ming Chiu</a>
       <div class="dropdown">
@@ -143,7 +152,7 @@
               <pre style="padding: 9px 18px"><code class="language-bash">
                 $ <span style="color: #dd4a68;">antibody</span> bundle &lt ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
               </code></pre>
-              <p>Then put the following code into <a href="#zshrc">.zshrc</a></p>
+              <p>Then put the following code into <a href="#zshrc">.zshrc</a>. See <a href="#zshrcfile.62">line 62</a> in my <span class="command-markdown">.zshrc</span></p>
               <pre style="padding: 9px 18px"><code class="language-shell">
                 source ~/.zsh_plugins.sh
               </code></pre>
@@ -157,11 +166,11 @@
             <a href="https://www.nerdfonts.com/">Nerd Fonts</a>, run the follwoing command in your terminal
           </p>
           <pre style="padding: 9px 18px"><code class="language-bash">
-            $ <span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts && <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-<span style="color: #000000;">&lt</span>FONT NAME<span style="color: #000000;">></span>-nerd-font
+            $ <span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts &amp&amp <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-<span style="color: #000000;">&lt</span>FONT NAME<span style="color: #000000;">></span>-nerd-font
           </code></pre>
           For example, to install <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack">Hack Nerd Font</a>
           <pre style="padding: 9px 18px"><code class="language-bash">
-            $ <span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts && <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-hack-nerd-font
+            $ <span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts &amp&amp <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-hack-nerd-font
           </code></pre>
 
           <div class="post-head">Packages</div>
@@ -171,21 +180,68 @@
               <a href="https://github.com/athityakumar/colorls">colorls</a>
               <p>
                 This package coloralized the <span class="command-markdown">ls</span> command. This package requires <a href="https://www.ruby-lang.org/en/">Ruby</a> and
-                <a href="https://www.nerdfonts.com/">Nerd Fonts</a>. To customize the folders' and files' icon, run the following in terminal.
+                <a href="https://www.nerdfonts.com/">Nerd Fonts</a>. To customize the folders' and files' icon, run the following in terminal to get the customization files.
               </p>
               <pre style="padding: 9px 18px"><code class="language-bash">
                 $ cp -r $(dirname $(gem which colorls))/yaml ~/.config/colorls
               </code></pre>
               <p>
                 I have done some customization on the icons. To use my customization, replace <span class="command-markdown">~/.config/colorls/folders.yaml</span> and
-                <span class="command-markdown">~/.config/colorls/files.yaml</span> with this <a href="#folders_yaml">folders.yaml</a> and <a href="#files_yaml">files.yaml</a>.
+                <span class="command-markdown">~/.config/colorls/files.yaml</span> with this <a href="#folders_yaml">folders.yaml</a> and <a href="#files_yaml">files.yaml</a> respectively.
               </p>
+            </li>
+            <li>
+              <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.5em"></i></span>
+              <a href="https://github.com/sharkdp/bat">bat</a>
+              <p>This package coloralized the <span class="command-markdown">cat</span> command.</p>
+            </li>
+            <li>
+              <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.5em"></i></span>
+              <a href="https://github.com/sindresorhus/trash-cli">trash-CLI</a>
+              <p>This package moves files into system trash can after running <span class="command-markdown">rm</span> command.</p>
+            </li>
+          </ul>
+
+          <div class="post-head">Plugins</div>
+          <ul class="fa-ul">
+            <li>
+              <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+              <a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a>
+            </li>
+            <li>
+              <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+              <a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a>
+            </li>
+            <li>
+              <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+              <a href="https://github.com/zsh-users/zsh-completions">zsh-completions</a>
+            </li>
+            <li>
+              <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+              <a href="https://github.com/zsh-users/zsh-completions">powerlevel9k</a>
+              <p>see <a href="#zshrcfile.91-156">this</a></p>
+            </li>
+            <li>
+              <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+              <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git">git</a>
+            </li>
+            <li>
+              <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+              <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colored-man-pages">colored-man-pages</a>
+            </li>
+            <li>
+              <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+              <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/autojump">autojump</a>
+            </li>
+            <li>
+              <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+              <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/pip">pip</a>
             </li>
           </ul>
 
           <div class="post-head">Configuration Files</div>
           <div id="zshrc"><i class="fas fa-file-alt"></i> .zshrc</div>
-          <pre style="max-height: 400px"><code class="language-shell">
+          <pre id="zshrcfile" class="line-numbers"><code class="language-shell">
             # If you come from bash you might have to change your $PATH.
             # export PATH=$HOME/bin:/usr/local/bin:$PATH
             export PATH="/usr/local/opt/python/libexec/bin:$PATH"
@@ -344,7 +400,7 @@
             POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('status' 'time')
           </code></pre>
           <div id="zsh_plugin"><i class="fas fa-file-alt"></i> .zsh_plugin.txt</div>
-          <pre style="max-height: 400px"><code class="language-editorconfig">
+          <pre class="line-numbers"><code class="language-editorconfig">
             robbyrussell/oh-my-zsh path:plugins/git
             robbyrussell/oh-my-zsh path:plugins/colored-man-pages
             robbyrussell/oh-my-zsh path:plugins/autojump
@@ -355,7 +411,7 @@
             zsh-users/zsh-completions
           </code></pre>
           <div id="folders_yaml"><i class="fas fa-file-alt"></i> folders.yaml</div>
-          <pre style="max-height: 400px"><code class="language-yaml">
+          <pre class="line-numbers"><code class="language-yaml">
             .atom:        "\ue764"
             .git:         "\uf1d3"
             .github:      "\uf408"
@@ -369,7 +425,7 @@
             node_modules: "\ue718"
           </code></pre>
           <div id="files_yaml"><i class="fas fa-file-alt"></i> files.yaml</div>
-          <pre style="max-height: 400px"><code class="language-yaml">
+          <pre class="line-numbers"><code class="language-yaml">
             ai:           "\ue7b4"
             android:      "\ue70e"
             apple:        "\uf179"
@@ -461,6 +517,9 @@
           <i class="fas fa-angle-double-right"></i>
         </a>
       </div> -->
+      <div class="back-to-top-botton">
+        <div class="back-to-top" onclick="SmoothScrollToTop()">Scroll to Top</div>
+      </div>
       <div class="myfooter">
         <div class="foot-left">
           <a href="mailto: hongmingchiu0217@gmail.com" class="ficon-button femail"> <i class="fas fa-envelope icon-email"></i><span></span><span id="foot-icon-text">Gmail</span></a>
