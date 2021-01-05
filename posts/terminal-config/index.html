@@ -189,7 +189,7 @@
                 I have done some customization on the icons. To use my customization, replace <span class="command-markdown">~/.config/colorls/folders.yaml</span> and
                 <span class="command-markdown">~/.config/colorls/files.yaml</span> with this <a href="#folders_yaml">folders.yaml</a> and <a href="#files_yaml">files.yaml</a> respectively.
               </p>
-              <p>Put an alias into <a href="#zshrc">.zshrc</a> to overwrite the default command. See <a href="#zshrcfile.87-88">line 87-88</a> in my <span class="command-markdown">.zshrc</span></p>
+              <p>Put an alias into <a href="#zshrc">.zshrc</a> to overwrite the default command. See <a href="#zshrcfile.85-86">line 85-86</a> in my <span class="command-markdown">.zshrc</span></p>
               <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
                 alias ls="colorls -X --dark --sort-dirs"
                 alias lc="colorls -X --tree --dark"
@@ -200,7 +200,7 @@
               <a href="https://github.com/sharkdp/bat">bat</a>
               <p>
                 This package coloralized the <span class="command-markdown">cat</span> command. For Mac user, recommended install it through <a href="https://brew.sh/">Homebrew</a>. Put an alias into
-                <a href="#zshrc">.zshrc</a> to overwrite the default command. See <a href="#zshrcfile.85">line 85</a> in my <span class="command-markdown">.zshrc</span>
+                <a href="#zshrc">.zshrc</a> to overwrite the default command. See <a href="#zshrcfile.83">line 83</a> in my <span class="command-markdown">.zshrc</span>
               </p>
               <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
                 alias cat="bat --paging=never"
@@ -211,7 +211,7 @@
               <a href="https://github.com/sindresorhus/trash-cli">trash-CLI</a>
               <p>
                 This package moves files into system trash can after running <span class="command-markdown">rm</span> command. Installed it through <span class="command-markdown">nmp</span>. Put an
-                alias into <a href="#zshrc">.zshrc</a> to overwrite the default command. See <a href="#zshrcfile.86">line 86</a> in my <span class="command-markdown">.zshrc</span>
+                alias into <a href="#zshrc">.zshrc</a> to overwrite the default command. See <a href="#zshrcfile.84">line 84</a> in my <span class="command-markdown">.zshrc</span>
               </p>
               <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
                 alias rm="trash"
@@ -236,7 +236,7 @@
             <li>
               <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
               <a href="https://github.com/zsh-users/zsh-completions">powerlevel9k</a>
-              <p>see <a href="#zshrcfile.93-157">this</a></p>
+              <p>see <a href="#zshrcfile.91-155">this</a></p>
             </li>
             <li>
               <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
@@ -317,12 +317,10 @@
             source $(dirname $(gem which colorls))/tab_complete.sh
             # homebrew
             export PATH="/usr/local/sbin:$PATH"
-
-            # plug in (see .zsh_plugin.txt)
-            # Antibody 
-            source ~/.zsh_plugins.sh
             # initialize completion for zsh for zsh-completions
             compinit -i -D
+            # loading plugins using Antibody  (see .zsh_plugin.txt)
+            source ~/.zsh_plugins.sh
 
             # User configuration
 
