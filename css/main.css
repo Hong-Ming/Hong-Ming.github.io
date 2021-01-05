@@ -307,13 +307,13 @@ code {
 }
 
 .command-markdown{
-  background: #f5f2f0;
-  border: 1px solid #e8e8e8;
-  border-radius: 8px;
-  padding: 2px 4px;
-  font-size: 0.8em;
-  /* font-family: 'Source Code Pro', monospace; */
-  font-family: 'Roboto Mono', monospace;
+  /* background: #f5f2f0; */
+  background: #1b1f230d;
+  /* border: 1px solid #e8e8e8; */
+  border-radius: 6px;
+  padding: .2em .4em;
+  font-size: 75%;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-weight: 400;
 }
 
