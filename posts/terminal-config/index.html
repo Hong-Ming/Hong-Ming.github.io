@@ -95,7 +95,7 @@
               </li>
               <li>
                 <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
-                <a href="https://github.com/sindresorhus/trash-cli">trash-CLI</a>
+                <a href="https://github.com/sindresorhus/trash-cli">trash-cli</a>
               </li>
             </ul>
             <li>
@@ -137,6 +137,48 @@
               </li>
             </ul>
           </ul>
+
+          <div class="post-head">Shell</div>
+          <p>We are going to use <a href="https://www.zsh.org/">Zsh</a> as the terminal shell. To install <span class="command-markdown">zsh</span> on Mac, run the follwoing commands.</p>
+          <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+            <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> zsh
+          </code></pre>
+          <p>Change default shell to <span class="command-markdown">zsh</span>.</p>
+          <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+            <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">chsh</span> -s /usr/local/bin/zsh
+          </code></pre>
+
+          <div class="post-head">Framework</div>
+          <p>
+            I use <a href="https://ohmyz.sh/">On My Zsh</a> to manage my Zsh configuration. <a href="https://ohmyz.sh/">On My Zsh</a> can be installed from
+            <span class="command-markdown">curl</span> or <span class="command-markdown">wget</span>.
+          </p>
+          <p>To install <span class="command-markdown">curl</span></p>
+          <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+            <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> curl
+          </code></pre>
+          <p>To install <span class="command-markdown">wget</span></p>
+          <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+            <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> wget
+          </code></pre>
+          <p>Install <a href="https://ohmyz.sh/">On My Zsh</a> from <span class="command-markdown">curl</span></p>
+          <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+            <span class="terminal-prompt">$ </span>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+          </code></pre>
+          <p>Install <a href="https://ohmyz.sh/">On My Zsh</a> from <span class="command-markdown">wget</span></p>
+          <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+            <span class="terminal-prompt">$ </span>sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+          </code></pre>
+
+          <div class="post-head">Package Manager</div>
+          <p>
+            <a href="https://brew.sh/">Homebrew</a> is a package manager for Mac, just like <span class="command-markdown">apt-get</span> in Debian based linux systems,
+            <span class="command-markdown">rpm</span> in Red Hat-ish Linux systems and <span class="command-markdown">yum</span> in RedHat based systems.
+          </p>
+          <p>Install <a href="https://brew.sh/">Homebrew</a> from <span class="command-markdown">curl</span></p>
+          <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+            <span class="terminal-prompt">$ </span>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          </code></pre>
 
           <div class="post-head">Plugin Manager</div>
           <p>
@@ -208,7 +250,7 @@
             </li>
             <li>
               <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.5em"></i></span>
-              <a href="https://github.com/sindresorhus/trash-cli">trash-CLI</a>
+              <a href="https://github.com/sindresorhus/trash-cli">trash-cli</a>
               <p>
                 This package moves files into system trash can after running <span class="command-markdown">rm</span> command. Installed it through <span class="command-markdown">nmp</span>. Put an
                 alias into <a href="#zshrc">.zshrc</a> to overwrite the default command. See <a href="#zshrcfile.84">line 84</a> in my <span class="command-markdown">.zshrc</span>
@@ -390,7 +432,7 @@
             POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="yellow"
             POWERLEVEL9K_SHORTEN_DIR_LENGTH="40"
             POWERLEVEL9K_SHORTEN_STRATEGY="truncate_absolute_chars"
-            #  STATUS
+            # STATUS
             POWERLEVEL9K_STATUS_CROSS="true"
             POWERLEVEL9K_STATUS_OK_BACKGROUND="none"
             POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
