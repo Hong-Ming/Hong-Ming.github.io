@@ -7,6 +7,7 @@
     <title>Post</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet" />
     <link href="../../css/fontawesome.css" rel="stylesheet" />
     <link href="../../css/brands.css" rel="stylesheet" />
@@ -149,11 +150,11 @@
               <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.5em"></i></span>
               <strong>Static loading</strong>
               <p>This is probably the fastest way to load plugins. First, create the <a href="#zsh_plugin">.zsh_plugin.txt</a> file and run.</p>
-              <pre style="padding: 9px 18px"><code class="language-bash">
-                $ <span style="color: #dd4a68;">antibody</span> bundle &lt ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+              <pre style="padding: 9px 18px"  data-toolbar-order=""><code class="language-bash">
+                <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">antibody</span> bundle &lt ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
               </code></pre>
               <p>Then put the following code into <a href="#zshrc">.zshrc</a>. See <a href="#zshrcfile.62">line 62</a> in my <span class="command-markdown">.zshrc</span></p>
-              <pre style="padding: 9px 18px"><code class="language-shell">
+              <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
                 source ~/.zsh_plugins.sh
               </code></pre>
             </li>
@@ -165,12 +166,12 @@
             recommended to only install fonts that you want to use from <a href="https://brew.sh/">Homebrew</a>. To install a specific type of font in
             <a href="https://www.nerdfonts.com/">Nerd Fonts</a>, run the follwoing command in your terminal
           </p>
-          <pre style="padding: 9px 18px"><code class="language-bash">
-            $ <span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts &amp&amp <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-<span style="color: #000000;">&lt</span>FONT NAME<span style="color: #000000;">></span>-nerd-font
+          <pre style="padding: 9px 18px"  data-toolbar-order=""><code class="language-bash">
+            <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts &amp&amp <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-<span style="color: #000000;">&lt</span>FONT NAME<span style="color: #000000;">></span>-nerd-font
           </code></pre>
           For example, to install <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack">Hack Nerd Font</a>
-          <pre style="padding: 9px 18px"><code class="language-bash">
-            $ <span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts &amp&amp <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-hack-nerd-font
+          <pre style="padding: 9px 18px"  data-toolbar-order=""><code class="language-bash">
+            <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts &amp&amp <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-hack-nerd-font
           </code></pre>
 
           <div class="post-head">Packages</div>
@@ -182,8 +183,8 @@
                 This package coloralized the <span class="command-markdown">ls</span> command. This package requires <a href="https://www.ruby-lang.org/en/">Ruby</a> and
                 <a href="https://www.nerdfonts.com/">Nerd Fonts</a>. To customize the folders' and files' icon, run the following in terminal to get the customization files.
               </p>
-              <pre style="padding: 9px 18px"><code class="language-bash">
-                $ cp -r $(dirname $(gem which colorls))/yaml ~/.config/colorls
+              <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+                <span class="terminal-prompt">$ </span>cp -r $(dirname $(gem which colorls))/yaml ~/.config/colorls
               </code></pre>
               <p>
                 I have done some customization on the icons. To use my customization, replace <span class="command-markdown">~/.config/colorls/folders.yaml</span> and
@@ -241,7 +242,7 @@
 
           <div class="post-head">Configuration Files</div>
           <div id="zshrc"><i class="fas fa-file-alt"></i> .zshrc</div>
-          <pre id="zshrcfile" class="line-numbers"><code class="language-shell">
+          <pre id="zshrcfile" class="linkable-line-numbers line-numbers"><code class="language-shell">
             # If you come from bash you might have to change your $PATH.
             # export PATH=$HOME/bin:/usr/local/bin:$PATH
             export PATH="/usr/local/opt/python/libexec/bin:$PATH"

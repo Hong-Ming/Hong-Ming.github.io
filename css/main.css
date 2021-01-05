@@ -287,23 +287,46 @@ code {
   padding: 1px 5px;
 } */
 
+.unselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.terminal-prompt{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: 'Roboto Mono', monospace;
+}
+
 .command-markdown{
   background: #f5f2f0;
   border: 1px solid #e8e8e8;
   border-radius: 8px;
   padding: 2px 4px;
   font-size: 0.8em;
-  font-family: 'Source Code Pro', monospace;
+  /* font-family: 'Source Code Pro', monospace; */
+  font-family: 'Roboto Mono', monospace;
   font-weight: 400;
 }
 
 pre {
   border: 1px solid #e8e8e8;
   border-radius: 3px;
-  font-weight: 400;
+  font-size: 16px;
   /* max-height: 400px; */
   /* padding: 8px 12px;
   overflow-x: scroll; */
+}
+pre, code{
+  font-weight: 400;
 }
 
 /* pre > code {

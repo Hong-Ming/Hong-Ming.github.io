@@ -226,7 +226,7 @@ pre[class*="language-"].line-numbers > code {
 .line-numbers .line-numbers-rows {
 	position: absolute;
 	pointer-events: none;
-	top: 0;
+	top: -2px;
 	font-size: 100%;
 	left: -3.8em;
 	width: 3em; /* works for line-numbers below 1000 lines */
@@ -243,6 +243,7 @@ pre[class*="language-"].line-numbers > code {
 	.line-numbers-rows > span {
 		display: block;
 		counter-increment: linenumber;
+		/* line-height: 1em; */
 	}
 
 		.line-numbers-rows > span:before {
