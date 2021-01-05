@@ -7,7 +7,7 @@
     <title>Post</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
     <link href="../../css/fontawesome.css" rel="stylesheet" />
     <link href="../../css/brands.css" rel="stylesheet" />
     <link href="../../css/solid.css" rel="stylesheet" />
@@ -29,7 +29,7 @@
         margin-top: 0px;
       }
       .topnav {
-        position: relative
+        position: relative;
       }
     </style>
     <header class="topnav">
@@ -149,7 +149,7 @@
               <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.5em"></i></span>
               <strong>Static loading</strong>
               <p>This is probably the fastest way to load plugins. First, create the <a href="#zsh_plugin">.zsh_plugin.txt</a> file and run.</p>
-              <pre style="padding: 9px 18px"  data-toolbar-order=""><code class="language-bash">
+              <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
                 <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">antibody</span> bundle &lt ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
               </code></pre>
               <p>Then put the following code into <a href="#zshrc">.zshrc</a>. See <a href="#zshrcfile.62">line 62</a> in my <span class="command-markdown">.zshrc</span></p>
@@ -165,11 +165,11 @@
             recommended to only install fonts that you want to use from <a href="https://brew.sh/">Homebrew</a>. To install a specific type of font in
             <a href="https://www.nerdfonts.com/">Nerd Fonts</a>, run the follwoing command in your terminal
           </p>
-          <pre style="padding: 9px 18px"  data-toolbar-order=""><code class="language-bash">
+          <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
             <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts &amp&amp <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-<span style="color: #000000;">&lt</span>FONT NAME<span style="color: #000000;">></span>-nerd-font
           </code></pre>
           For example, to install <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack">Hack Nerd Font</a>
-          <pre style="padding: 9px 18px"  data-toolbar-order=""><code class="language-bash">
+          <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
             <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts &amp&amp <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-hack-nerd-font
           </code></pre>
 
@@ -189,16 +189,33 @@
                 I have done some customization on the icons. To use my customization, replace <span class="command-markdown">~/.config/colorls/folders.yaml</span> and
                 <span class="command-markdown">~/.config/colorls/files.yaml</span> with this <a href="#folders_yaml">folders.yaml</a> and <a href="#files_yaml">files.yaml</a> respectively.
               </p>
+              <p>Put an alias into <a href="#zshrc">.zshrc</a> to overwrite the default command. See <a href="#zshrcfile.87-88">line 87-88</a> in my <span class="command-markdown">.zshrc</span></p>
+              <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
+                alias ls="colorls -X --dark --sort-dirs"
+                alias lc="colorls -X --tree --dark"
+              </code></pre>
             </li>
             <li>
               <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.5em"></i></span>
               <a href="https://github.com/sharkdp/bat">bat</a>
-              <p>This package coloralized the <span class="command-markdown">cat</span> command.</p>
+              <p>
+                This package coloralized the <span class="command-markdown">cat</span> command. For Mac user, recommended install it through <a href="https://brew.sh/">Homebrew</a>. Put an alias into
+                <a href="#zshrc">.zshrc</a> to overwrite the default command. See <a href="#zshrcfile.85">line 85</a> in my <span class="command-markdown">.zshrc</span>
+              </p>
+              <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
+                alias cat="bat --paging=never"
+              </code></pre>
             </li>
             <li>
               <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.5em"></i></span>
               <a href="https://github.com/sindresorhus/trash-cli">trash-CLI</a>
-              <p>This package moves files into system trash can after running <span class="command-markdown">rm</span> command.</p>
+              <p>
+                This package moves files into system trash can after running <span class="command-markdown">rm</span> command. Installed it through <span class="command-markdown">nmp</span>. Put an
+                alias into <a href="#zshrc">.zshrc</a> to overwrite the default command. See <a href="#zshrcfile.86">line 86</a> in my <span class="command-markdown">.zshrc</span>
+              </p>
+              <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
+                alias rm="trash"
+              </code></pre>
             </li>
           </ul>
 
@@ -219,7 +236,7 @@
             <li>
               <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
               <a href="https://github.com/zsh-users/zsh-completions">powerlevel9k</a>
-              <p>see <a href="#zshrcfile.91-156">this</a></p>
+              <p>see <a href="#zshrcfile.93-157">this</a></p>
             </li>
             <li>
               <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
@@ -331,9 +348,10 @@
             alias ls="colorls -X --dark --sort-dirs"
             alias lc="colorls -X --tree --dark"
 
-            # powerlevel9k format code
-            # Time format
+            # Format for time command
             TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S'
+
+            # powerlevel9k format code
             # Icon
             OS_ICON='\uf179'
             POWERLEVEL9K_APPLE_ICON='\uf179'
@@ -351,10 +369,10 @@
             POWERLEVEL9K_VCS_GIT_ICON=''
             POWERLEVEL9K_VCS_GIT_GITHUB_ICON=''
             POWERLEVEL9K_VCS_GIT_GITLAB_ICON='\uf296'
-            POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\uf01a'
-            POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\uf01b'
-            POWERLEVEL9K_VCS_BRANCH_ICON=$'\ue0a0 '
-            POWERLEVEL9K_VCS_STAGED_ICON=$'\uf055'
+            POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\uf01a '
+            POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\uf01b '
+            POWERLEVEL9K_VCS_BRANCH_ICON='\ue0a0 '
+            POWERLEVEL9K_VCS_STAGED_ICON='\uf055'
             POWERLEVEL9K_VCS_UNSTAGED_ICON='\uf06a'
             POWERLEVEL9K_VCS_UNTRACKED_ICON='\uf00d'
             # prompt in new line
@@ -385,12 +403,12 @@
             POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="none"
             POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="white"
             # VCS
-            POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='none'
-            POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='009'
-            POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='none'
-            POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='033'
-            POWERLEVEL9K_VCS_CLEAN_BACKGROUND='none'
-            POWERLEVEL9K_VCS_CLEAN_FOREGROUND='green'
+            POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="none"
+            POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="009"
+            POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="none"
+            POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="033"
+            POWERLEVEL9K_VCS_CLEAN_BACKGROUND="none"
+            POWERLEVEL9K_VCS_CLEAN_FOREGROUND="green"
             # TIME
             POWERLEVEL9K_TIME_BACKGROUND="none"
             POWERLEVEL9K_TIME_FOREGROUND="white"
