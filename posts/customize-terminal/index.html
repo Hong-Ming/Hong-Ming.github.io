@@ -30,6 +30,10 @@
       .topnav {
         position: relative;
       }
+      .clink {
+        font-weight: inherit;
+        color: inherit;
+      }
     </style>
   </head>
 
@@ -65,27 +69,27 @@
             <ul class="fa-ul">
               <li>
                 <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
-                <strong>Shell: </strong><a href="https://www.zsh.org/">Zsh</a>
+                <strong><a class="clink" href="#shell">Shell</a>: </strong><a href="https://www.zsh.org/">Zsh</a>
               </li>
               <li>
                 <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
-                <strong>Framework: </strong><a href="https://ohmyz.sh/">On My Zsh</a>
+                <strong><a class="clink" href="#framework">Framework</a>: </strong><a href="https://ohmyz.sh/">On My Zsh</a>
               </li>
               <li>
                 <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
-                <strong>Fonts: </strong><a href="https://www.nerdfonts.com/">Nerd Fonts</a>
+                <strong><a class="clink" href="#fonts">Fonts</a>: </strong><a href="https://www.nerdfonts.com/">Nerd Fonts</a>
               </li>
               <li>
                 <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
-                <strong>Package Manager: </strong><a href="https://brew.sh/">Homebrew</a>
+                <strong><a class="clink" href="#package-manager">Package Manager</a>: </strong><a href="https://brew.sh/">Homebrew</a>
               </li>
               <li>
                 <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
-                <strong>Plugin Manager: </strong><a href="https://github.com/zdharma/zinit">Zinit</a>
+                <strong><a class="clink" href="#plugin-manager">Plugin Manager</a>: </strong><a href="https://github.com/zdharma/zinit">Zinit</a>
               </li>
               <li>
                 <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
-                <strong>Packages:</strong>
+                <strong><a class="clink" href="#packages">Packages</a>:</strong>
               </li>
               <ul class="fa-ul" style="margin-left: 24px; margin-bottom: 0px">
                 <li>
@@ -103,7 +107,7 @@
               </ul>
               <li>
                 <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
-                <strong>Plugins:</strong>
+                <strong><a class="clink" href="#plugins">Plugins</a>:</strong>
               </li>
               <ul class="fa-ul" style="margin-left: 24px; margin-bottom: 0px">
                 <li>
@@ -133,7 +137,7 @@
               </ul>
               <li>
                 <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
-                <strong>Configruation Files:</strong>
+                <strong><a class="clink" href="#configuration-files">Configuration Files</a>:</strong>
               </li>
               <ul class="fa-ul" style="margin-left: 24px; margin-bottom: 0px">
                 <li>
@@ -237,7 +241,7 @@
                 <a href="https://github.com/athityakumar/colorls">colorls</a>
                 <p>
                   This package coloralized the <span class="command-markdown">ls</span> command. This package requires <a href="https://www.ruby-lang.org/en/">Ruby</a> and
-                  <a href="https://www.nerdfonts.com/">Nerd Fonts</a>. To customize the folders' and files' icon, run the following in terminal to get the customization files.
+                  <a href="https://www.nerdfonts.com/">Nerd Fonts</a>. Installed it through <span class="command-markdown">gem</span>. To customize the folders' and files' icon, run the following in terminal to get the customization files.
                 </p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
                   <span class="terminal-prompt">$ </span>cp -r $(dirname $(gem which colorls))/yaml ~/.config/colorls
@@ -246,7 +250,7 @@
                   I have done some customization on the icons. To use my customization, replace <span class="command-markdown">~/.config/colorls/folders.yaml</span> and
                   <span class="command-markdown">~/.config/colorls/files.yaml</span> with this <a href="#folders_yaml">folders.yaml</a> and <a href="#files_yaml">files.yaml</a> respectively.
                 </p>
-                <p>Put an alias into <a href="#zshrc">.zshrc</a> to overwrite the default command. See <a href="#zshrcfile.85-86">line 85-86</a> in my <span class="command-markdown">.zshrc</span></p>
+                <p>Put an alias into <a href="#zshrc">.zshrc</a> to overwrite the default command.</p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
                   alias ls="colorls -X --dark --sort-dirs"
                   alias lc="colorls -X --tree --dark"
@@ -257,7 +261,7 @@
                 <a href="https://github.com/sharkdp/bat">bat</a>
                 <p>
                   This package coloralized the <span class="command-markdown">cat</span> command. For Mac user, recommended install it through <a href="https://brew.sh/">Homebrew</a>. Put an alias
-                  into <a href="#zshrc">.zshrc</a> to overwrite the default command. See <a href="#zshrcfile.83">line 83</a> in my <span class="command-markdown">.zshrc</span>
+                  into <a href="#zshrc">.zshrc</a> to overwrite the default command.
                 </p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
                   alias cat="bat --paging=never"
@@ -268,7 +272,7 @@
                 <a href="https://github.com/sindresorhus/trash-cli">trash-cli</a>
                 <p>
                   This package moves files into system trash can after running <span class="command-markdown">rm</span> command. Installed it through <span class="command-markdown">nmp</span>. Put an
-                  alias into <a href="#zshrc">.zshrc</a> to overwrite the default command. See <a href="#zshrcfile.84">line 84</a> in my <span class="command-markdown">.zshrc</span>
+                  alias into <a href="#zshrc">.zshrc</a> to overwrite the default command.
                 </p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
                   alias rm="trash"
@@ -283,8 +287,8 @@
                 <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
                 <a href="https://github.com/romkatv/powerlevel10k">powerlevel10k</a>
                 <p>
-                  Powerlevel10k is a highly customizable theme for Zsh. This theme support instant pormpt, add the follwing code into <span class="command-markdown">.zshrc</span> to enable to instant
-                  promte.
+                  Powerlevel10k is a highly customizable theme for Zsh. This theme support instant prompt, add the follwing code into <span class="command-markdown">.zshrc</span> to enable to instant
+                  prompe.
                 </p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
                   if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -340,12 +344,12 @@
           <div id="configuration-files">
             <div class="post-head">Configuration Files</div>
             <div id="zshrc"><i class="fas fa-file-alt"></i> .zshrc</div>
-            <p>
+            <!-- <p>
               <strong>Jump to Configuration Code</strong>: <a href="#zshrcfile.5-52,60-61">Oh My Zsh</a> | <a href="#zshrcfile.63-63">Homebrew</a> | <a href="#zshrcfile.65-75">Zinit</a> |
               <a href="#zshrcfile.61-62,98-99">colorls</a> | <a href="#zshrcfile.96">bat</a> | <a href="#zshrcfile.97">trash-cli</a> | <a href="#zshrcfile.54-57,77-79,104-168">powerlevel10k</a> |
               <a href="#zshrcfile.91">zsh-syntax-highlighting</a> | <a href="#zshrcfile.92">zsh-autosuggestions</a> | <a href="#zshrcfile.87-90">zsh-completions</a> |
               <a href="#zshrcfile.81-84">autojump</a> | <a href="#zshrcfile.81-84">colored-man-pages</a>
-            </p>
+            </p> -->
             <pre id="zshrcfile" class="linkable-line-numbers line-numbers"><code class="language-shell">
               # If you come from bash you might have to change your $PATH.
               export PATH=$HOME/bin:/usr/local/bin:$PATH
