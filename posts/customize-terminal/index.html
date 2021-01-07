@@ -116,6 +116,10 @@
                 </li>
                 <li>
                   <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="https://github.com/zsh-users/zsh-history-substring-search">zsh-history-substring-search</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
                   <a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a>
                 </li>
                 <li>
@@ -125,6 +129,10 @@
                 <li>
                   <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
                   <a href="https://github.com/zsh-users/zsh-completions">zsh-completions</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="https://github.com/zsh-users/zaw">zaw</a>
                 </li>
                 <li>
                   <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
@@ -241,7 +249,8 @@
                 <a href="https://github.com/athityakumar/colorls">colorls</a>
                 <p>
                   This package coloralized the <span class="command-markdown">ls</span> command. This package requires <a href="https://www.ruby-lang.org/en/">Ruby</a> and
-                  <a href="https://www.nerdfonts.com/">Nerd Fonts</a>. Installed it through <span class="command-markdown">gem</span>. To customize the folders' and files' icon, run the following in terminal to get the customization files.
+                  <a href="https://www.nerdfonts.com/">Nerd Fonts</a>. Installed it through <span class="command-markdown">gem</span>. To customize the folders' and files' icon, run the following in
+                  terminal to get the customization files.
                 </p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
                   <span class="terminal-prompt">$ </span>cp -r $(dirname $(gem which colorls))/yaml ~/.config/colorls
@@ -250,7 +259,7 @@
                   I have done some customization on the icons. To use my customization, replace <span class="command-markdown">~/.config/colorls/folders.yaml</span> and
                   <span class="command-markdown">~/.config/colorls/files.yaml</span> with this <a href="#folders_yaml">folders.yaml</a> and <a href="#files_yaml">files.yaml</a> respectively.
                 </p>
-                <p>Put an alias into <a href="#zshrc">.zshrc</a> to overwrite the default command.</p>
+                <p>Put an alias into <span class="command-markdown">.zshrc</span> to overwrite the default command.</p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
                   alias ls="colorls -X --dark --sort-dirs"
                   alias lc="colorls -X --tree --dark"
@@ -261,7 +270,7 @@
                 <a href="https://github.com/sharkdp/bat">bat</a>
                 <p>
                   This package coloralized the <span class="command-markdown">cat</span> command. For Mac user, recommended install it through <a href="https://brew.sh/">Homebrew</a>. Put an alias
-                  into <a href="#zshrc">.zshrc</a> to overwrite the default command.
+                  into <span class="command-markdown">.zshrc</span> to overwrite the default command.
                 </p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
                   alias cat="bat --paging=never"
@@ -272,7 +281,7 @@
                 <a href="https://github.com/sindresorhus/trash-cli">trash-cli</a>
                 <p>
                   This package moves files into system trash can after running <span class="command-markdown">rm</span> command. Installed it through <span class="command-markdown">nmp</span>. Put an
-                  alias into <a href="#zshrc">.zshrc</a> to overwrite the default command.
+                  alias into <span class="command-markdown">.zshrc</span> to overwrite the default command.
                 </p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
                   alias rm="trash"
@@ -282,6 +291,11 @@
           </div>
           <div id="plugins">
             <div class="post-head">Plugins</div>
+            <p>
+              The following plugins can all be downloaded and loaded from installed and loaded by <a href="https://github.com/zdharma/zinit">Zinit</a>, except for
+              <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/autojump">autojump</a>, which requires installation from <a href="https://brew.sh/">Homebrew</a>. For the detail of
+              loading plugins, see <span class="command-markdown"><a href="#zshrc">.zshrc</a></span> for reference.
+            </p>
             <ul class="fa-ul">
               <li>
                 <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
@@ -295,37 +309,37 @@
                     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
                   fi
                 </code></pre>
-                <p>This plugin can be installed and loaded by <a href="https://github.com/zdharma/zinit">Zinit</a>, see <a href="#zshrc">.zshrc</a> for detail.</p>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <a href="https://github.com/zsh-users/zsh-history-substring-search">zsh-history-substring-search</a>
+                <p>This plugin provides the similar clean-room implementation of the <a href="http://fishshell.com/">Fish shell's</a> history search feature.</p>
               </li>
               <li>
                 <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
                 <a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a>
-                <p>
-                  This plugin provides syntax highlighting for Zsh. This plugin can be installed and loaded by <a href="https://github.com/zdharma/zinit">Zinit</a>, see <a href="#zshrc">.zshrc</a> for
-                  detail.
-                </p>
+                <p>This plugin provides syntax highlighting for Zsh.</p>
               </li>
               <li>
                 <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
                 <a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a>
-                <p>
-                  This plugin suggests commands as you type based on history and completions. This plugin can be installed and loaded by <a href="https://github.com/zdharma/zinit">Zinit</a>, see
-                  <a href="#zshrc">.zshrc</a> for detail.
-                </p>
+                <p>This plugin suggests commands as you type based on history and completions.</p>
               </li>
               <li>
                 <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
                 <a href="https://github.com/zsh-users/zsh-completions">zsh-completions</a>
-                <p>
-                  This plugin provides additional completion definitions for Zsh. This plugin can be installed and loaded by <a href="https://github.com/zdharma/zinit">Zinit</a>, see
-                  <a href="#zshrc">.zshrc</a> for detail.
-                </p>
+                <p>This plugin provides additional completion definitions for Zsh.</p>
+              </li>
+              <li>
+                <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <a href="https://github.com/zsh-users/zaw">zaw</a>
+                <p>This plugin provides searching utility for aliases, commands, history, files, etc, for zsh.</p>
               </li>
               <li>
                 <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
                 <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/autojump">autojump</a>
                 <p>
-                  This plugin provides additional completion definitions for Zsh. This plugin need to be install by <a href="https://brew.sh/">Homebrew</a> first than can be loaded by
+                  This plugin provides a faster way to navigate your filesystem. This plugin need to be install by <a href="https://brew.sh/">Homebrew</a> first than can be loaded by
                   <a href="https://github.com/zdharma/zinit">Zinit</a>. To install it, run the following command in terminal.
                 </p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
@@ -335,9 +349,7 @@
               <li>
                 <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
                 <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colored-man-pages">colored-man-pages</a>
-                <p>
-                  This plugin adds colors to man pages. This plugin can be installed and loaded by <a href="https://github.com/zdharma/zinit">Zinit</a>, see <a href="#zshrc">.zshrc</a> for detail.
-                </p>
+                <p>This plugin adds colors to man pages.</p>
               </li>
             </ul>
           </div>
@@ -430,19 +442,21 @@
               # Load Powerlevel10 theme
               <span style="color: #dd4a68;">zinit</span> <span style="color: #0077aa;">ice</span> depth=1
               <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">light</span> romkatv/powerlevel10k
-
-              # Load ZSH plugins
-              <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">lucid</span> <span style="color: #ee9900;">light-mode</span> for \
-                  OMZP::autojump \
-                  OMZP::colored-man-pages \
               
               # Load zsh completions, syntax-highlighting add autosuggestions
               <span style="color: #dd4a68;">zinit</span> <span style="color: #0077aa;">ice</span> <span style="color: #ee9900;">blockf</span> atpull="zinit creinstall -q ."
               <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">light</span> zsh-users/zsh-completions
               <span style="color: #dd4a68;">autoload</span> <span style="color: #dd4a68;">compinit</span>
               <span style="color: #dd4a68;">compinit</span>
-              <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">light</span> zsh-users/zsh-syntax-highlighting
-              <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">light</span> zsh-users/zsh-autosuggestions
+              # Load plugins
+              <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">lucid</span> <span style="color: #ee9900;">light-mode</span> for \
+                  OMZP::autojump \
+                  OMZP::colored-man-pages \
+                  supercrabtree/k \
+                  zsh-users/zaw \
+                  zsh-users/zsh-autosuggestions \
+                  zsh-users/zsh-syntax-highlighting \
+                  zsh-users/zsh-history-substring-search
 
               # Set personal aliases
               alias matlab="/Applications/MATLAB_R2019a.app/bin/matlab -nodesktop -nosplash"
