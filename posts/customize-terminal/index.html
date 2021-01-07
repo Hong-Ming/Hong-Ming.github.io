@@ -131,6 +131,24 @@
                   <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colored-man-pages">colored-man-pages</a>
                 </li>
               </ul>
+              <li>
+                <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
+                <strong>Configruation Files:</strong>
+              </li>
+              <ul class="fa-ul" style="margin-left: 24px; margin-bottom: 0px">
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="#zshrc">.zshrc</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="#folders_yaml">folders.yaml</a>
+                </li>
+                <li>
+                  <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
+                  <a href="#files_yaml">files.yaml</a>
+                </li>
+              </ul>
             </ul>
           </div>
           <div id="shell">
@@ -314,8 +332,7 @@
                 <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
                 <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colored-man-pages">colored-man-pages</a>
                 <p>
-                  This plugin adds colors to man pages. This plugin can be installed and loaded by <a href="https://github.com/zdharma/zinit">Zinit</a>, see
-                  <a href="#zshrc">.zshrc</a> for detail.
+                  This plugin adds colors to man pages. This plugin can be installed and loaded by <a href="https://github.com/zdharma/zinit">Zinit</a>, see <a href="#zshrc">.zshrc</a> for detail.
                 </p>
               </li>
             </ul>
@@ -323,11 +340,15 @@
           <div id="configuration-files">
             <div class="post-head">Configuration Files</div>
             <div id="zshrc"><i class="fas fa-file-alt"></i> .zshrc</div>
+            <p>
+              <strong>Jump to Configuration Code</strong>: <a href="#zshrcfile.5-52,60-61">Oh My Zsh</a> | <a href="#zshrcfile.63-63">Homebrew</a> | <a href="#zshrcfile.65-75">Zinit</a> |
+              <a href="#zshrcfile.61-62,98-99">colorls</a> | <a href="#zshrcfile.96">bat</a> | <a href="#zshrcfile.97">trash-cli</a> | <a href="#zshrcfile.54-57,77-79,104-168">powerlevel10k</a> |
+              <a href="#zshrcfile.91">zsh-syntax-highlighting</a> | <a href="#zshrcfile.92">zsh-autosuggestions</a> | <a href="#zshrcfile.87-90">zsh-completions</a> |
+              <a href="#zshrcfile.81-84">autojump</a> | <a href="#zshrcfile.81-84">colored-man-pages</a>
+            </p>
             <pre id="zshrcfile" class="linkable-line-numbers line-numbers"><code class="language-shell">
               # If you come from bash you might have to change your $PATH.
-              # export PATH=$HOME/bin:/usr/local/bin:$PATH
-              # export PATH=/usr/local/bin:$PATH
-              export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+              export PATH=$HOME/bin:/usr/local/bin:$PATH
 
               # Path to your oh-my-zsh installation.
               export ZSH=$HOME/.oh-my-zsh
@@ -376,7 +397,7 @@
               # Would you like to use another custom folder than $ZSH/custom?
               # ZSH_CUSTOM=/path/to/new-custom-folder
 
-              # Oh-My-ZSH plugins loader
+              # Oh-My-ZSH plugins loader, we will load plugins from Zinit
               plugins=()
 
               # Powerlevel10k instant prompt
@@ -392,7 +413,7 @@
               export PATH="/usr/local/sbin:$PATH"
               # zinit
               source "$HOME/.zinit/bin/zinit.zsh"
-              autoload -Uz _zinit
+              <span style="color: #dd4a68;">autoload</span> -Uz _zinit
               (( ${+_comps} )) && _comps[zinit]=_zinit
 
               # Load a few important annexes, without Turbo
