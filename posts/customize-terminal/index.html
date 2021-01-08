@@ -34,8 +34,8 @@
         font-weight: inherit;
         color: inherit;
       }
-      p{
-        margin-bottom:10px;
+      p {
+        margin-bottom: 10px;
       }
     </style>
   </head>
@@ -139,7 +139,7 @@
                 </li>
                 <li>
                   <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
-                  <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/autojump">autojump</a>
+                  <a href="https://github.com/agkozak/zsh-z">z</a>
                 </li>
                 <li>
                   <span class="fa-li" style="top: -0.15em"><i class="far fa-circle" style="font-size: 0.4em"></i></span>
@@ -180,32 +180,44 @@
           <div id="framework">
             <div class="post-head">Framework</div>
             <p>
-              I use <a href="https://ohmyz.sh/">On My Zsh</a> to manage my Zsh configuration. <a href="https://ohmyz.sh/">On My Zsh</a> can be installed from
-              <span class="command-markdown">curl</span> or <span class="command-markdown">wget</span>.
+              <a href="https://ohmyz.sh/">On My Zsh</a> is a framework for <span class="command-markdown">zsh</span>. It makes easier to manage your
+              <span class="command-markdown">zsh</span> configuration. However, after few years of usage, I realized that I don't need to use the whole framework, and all I need are some of its
+              <span class="command-markdown">.zsh</span> files and plugins. Therefore, I prefer just load its <span class="command-markdown">.zsh</span> files and plugins I need using
+              <span class="command-markdown">zinit</span> instead of installing and loading the whold framework. It follwing is an example of loading
+              <span class="command-markdown">completion.zsh</span> library file and <span class="command-markdown">colored-man-pages</span> plugins using
+              <span class="command-markdown">zinit</span> in <span class="command-markdown">.zshrc</span>.
             </p>
-            <p>To install <span class="command-markdown">curl</span></p>
             <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
-              <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> curl
+              <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">lucid</span> <span style="color: #ee9900;">light-mode</span> for \
+                  OMZL::completion.zsh \
+                  OMZP::colored-man-pages
             </code></pre>
-            <p>To install <span class="command-markdown">wget</span></p>
+            <p>
+              If you want to use the whole framework, do the following steps. <a href="https://ohmyz.sh/">On My Zsh</a> can be installed from <span class="command-markdown">curl</span> or
+              <span class="command-markdown">wget</span>.
+            </p>
+            <p>Install <span class="command-markdown">curl</span> or <span class="command-markdown">wget</span></p>
             <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
-              <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> wget
+              <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> curl # install curl
+              <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> wget # install wget
             </code></pre>
-            <p>Install <a href="https://ohmyz.sh/">On My Zsh</a> from <span class="command-markdown">curl</span></p>
+            <p>Install <a href="https://ohmyz.sh/">On My Zsh</a> from <span class="command-markdown">curl</span> or <span class="command-markdown">wget</span></p>
             <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
-              <span class="terminal-prompt">$ </span>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+              <span class="terminal-prompt">$ </span>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # for curl
+              <span class="terminal-prompt">$ </span>sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"   # for wget
             </code></pre>
-            <p>Install <a href="https://ohmyz.sh/">On My Zsh</a> from <span class="command-markdown">wget</span></p>
+            <p>Finally, put the follwing code into <span class="command-markdown">.zshrc</span> to source the <a href="https://ohmyz.sh/">On My Zsh</a> framework.</p>
             <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
-              <span class="terminal-prompt">$ </span>sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+              export ZSH=$HOME/.oh-my-zsh
+              source $ZSH/oh-my-zsh.sh
             </code></pre>
           </div>
           <div id="fonts">
             <div class="post-head">Fonts</div>
             <p>
-              I use <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack">Hack Regular Nerd Font Complete</a> with <strong>Size 14</strong> or
-              <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo">Meslo LG M Regular Nerd Font Complete</a> with <strong>Size 14</strong> in my terminal. For Mac user,
-              recommended to only install fonts that you want to use from <a href="https://brew.sh/">Homebrew</a>. To install a specific type of font in
+              I use <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack">Hack Regular Nerd Font Complete</a> or
+              <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo">Meslo LG M Regular Nerd Font Complete</a> in my terminal, both with size 14. For Mac user,
+              recommended to only install fonts that you want to use from <span class="command-markdown">homebrew</span>. To install a specific type of font in
               <a href="https://www.nerdfonts.com/">Nerd Fonts</a>, run the follwoing command in your terminal
             </p>
             <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
@@ -235,8 +247,8 @@
             <div class="post-head">Plugin Manager</div>
             <p>
               To speed up the loading time for plugins, I choose to use <a href="https://github.com/zdharma/zinit">Zinit</a> as my plugin manager. Note that it's better to not use
-              <a href="https://ohmyz.sh/">On My Zsh</a> to load all your plugins if you use a lot of plugins in your termianl (like me <i class="far fa-laugh-squint"></i>), because it will slow down
-              the terminal loading time.
+              <span class="command-markdown">on my zsh</span> to load all your plugins if you use a lot of plugins in your termianl (like me <i class="far fa-laugh-squint"></i>), because it will slow
+              down the terminal loading time.
             </p>
             <p>To install <a href="https://github.com/zdharma/zinit">Zinit</a>, run the following command.</p>
             <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
@@ -252,15 +264,16 @@
                 <a href="https://github.com/athityakumar/colorls">colorls</a>
                 <p>
                   This package coloralized the <span class="command-markdown">ls</span> command. This package requires <a href="https://www.ruby-lang.org/en/">Ruby</a> and
-                  <a href="https://www.nerdfonts.com/">Nerd Fonts</a>. Installed it through <span class="command-markdown">gem</span>. To customize the folders' and files' icon, run the following in
-                  terminal to get the customization files.
+                  <a href="https://www.nerdfonts.com/">Nerd Fonts</a>. Installed it through Ruby <span class="command-markdown">gem</span>. To customize the folders' and files' icon, run the following
+                  in terminal to get the customization files.
                 </p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
                   <span class="terminal-prompt">$ </span>cp -r $(dirname $(gem which colorls))/yaml ~/.config/colorls
                 </code></pre>
                 <p>
                   I have done some customization on the icons. To use my customization, replace <span class="command-markdown">~/.config/colorls/folders.yaml</span> and
-                  <span class="command-markdown">~/.config/colorls/files.yaml</span> with this <a href="#folders_yaml">folders.yaml</a> and <a href="#files_yaml">files.yaml</a> respectively.
+                  <span class="command-markdown">~/.config/colorls/files.yaml</span> with this <span class="command-markdown"><a href="#folders_yaml">folders.yaml</a></span> and
+                  <span class="command-markdown"><a href="#files_yaml">files.yaml</a></span> respectively.
                 </p>
                 <p>Put an alias into <span class="command-markdown">.zshrc</span> to overwrite the default command.</p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
@@ -272,8 +285,8 @@
                 <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
                 <a href="https://github.com/sharkdp/bat">bat</a>
                 <p>
-                  This package coloralized the <span class="command-markdown">cat</span> command. For Mac user, recommended install it through <a href="https://brew.sh/">Homebrew</a>. Put an alias
-                  into <span class="command-markdown">.zshrc</span> to overwrite the default command.
+                  This package coloralized the <span class="command-markdown">cat</span> command. For Mac user, recommended install it through <span class="command-markdown">homebrew</span>. Put an
+                  alias into <span class="command-markdown">.zshrc</span> to overwrite the default command.
                 </p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
                   alias cat="bat --paging=never"
@@ -283,8 +296,8 @@
                 <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
                 <a href="https://github.com/sindresorhus/trash-cli">trash-cli</a>
                 <p>
-                  This package moves files into system trash can after running <span class="command-markdown">rm</span> command. Installed it through <span class="command-markdown">nmp</span>. Put an
-                  alias into <span class="command-markdown">.zshrc</span> to overwrite the default command.
+                  This package moves files into system trash can after running <span class="command-markdown">rm</span> command. Installed it through Node Package Manager
+                  <span class="command-markdown">npm</span>. Put an alias into <span class="command-markdown">.zshrc</span> to overwrite the default command.
                 </p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
                   alias rm="trash"
@@ -295,8 +308,9 @@
           <div id="plugins">
             <div class="post-head">Plugins</div>
             <p>
-              The following plugins can all be downloaded and loaded from installed and loaded by <a href="https://github.com/zdharma/zinit">Zinit</a>, except for
-              <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/autojump">autojump</a>, which requires installation from <a href="https://brew.sh/">Homebrew</a>. For the detail of
+              The following plugins can all be downloaded and loaded from <span class="command-markdown">zinit</span>. Note that if you use plugins that are not written in shell of have other
+              dependency, you might have to install it from package manager first. For example, one of the famous <span class="command-markdown">oh my zsh</span> plugin, autojump, has python
+              dependency, so it has to be installed from <span class="command-markdown">homebrew</span> then can be loaded from <span class="command-markdown">zinit</span>. To see more details of
               loading plugins, see <span class="command-markdown"><a href="#zshrc">.zshrc</a></span> for reference.
             </p>
             <ul class="fa-ul">
@@ -312,9 +326,11 @@
                     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
                   fi
                 </code></pre>
-                <p>To customize terminal's prompt, icon, color, etc. Add Powerlevel9k configuration options into <span class="command-markdown">.zshrc</span> or run
-                <span class="command-markdown">p10k configure</span> command in terminal. An example of Powerlevel9k configuration options code can be found in my
-                <span class="command-markdown"><a href="#zshrc">.zshrc</a></span></p>
+                <p>
+                  To customize terminal's prompt, icon, color, etc. Add Powerlevel9k configuration options into <span class="command-markdown">.zshrc</span> or run
+                  <span class="command-markdown">p10k configure</span> command in terminal. An example of Powerlevel9k configuration options code can be found in my
+                  <span class="command-markdown"><a href="#zshrc">.zshrc</a></span>
+                </p>
               </li>
               <li>
                 <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
@@ -343,14 +359,8 @@
               </li>
               <li>
                 <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
-                <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/autojump">autojump</a>
-                <p>
-                  This plugin provides a faster way to navigate your filesystem. This plugin need to be install by <a href="https://brew.sh/">Homebrew</a> first than can be loaded by
-                  <a href="https://github.com/zdharma/zinit">Zinit</a>. To install it, run the following command in terminal.
-                </p>
-                <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
-                  <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> autojump
-                </code></pre>
+                <a href="https://github.com/agkozak/zsh-z">z</a>
+                <p>This plugin provides a faster way to navigate your filesystem.</p>
               </li>
               <li>
                 <span class="fa-li" style="top: -0.15em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
@@ -372,15 +382,6 @@
               # If you come from bash you might have to change your $PATH.
               export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-              # Path to your oh-my-zsh installation.
-              export ZSH=$HOME/.oh-my-zsh
-
-              # ZSH theme loader
-              # ZSH_THEME="ys"
-
-              # Set list of themes to load
-              # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
               # Uncomment the following line to use case-sensitive completion.
               # CASE_SENSITIVE="true"
 
@@ -388,47 +389,19 @@
               # sensitive completion must be off. _ and - will be interchangeable.
               # HYPHEN_INSENSITIVE="true"
 
-              # Uncomment the following line to disable bi-weekly auto-update checks.
-              # DISABLE_AUTO_UPDATE="true"
-
-              # Uncomment the following line to change how often to auto-update (in days).
-              # export UPDATE_ZSH_DAYS=13
-
-              # Uncomment the following line to disable colors in ls.
-              # DISABLE_LS_COLORS="true"
-
-              # Uncomment the following line to disable auto-setting terminal title.
-              # DISABLE_AUTO_TITLE="true"
-
-              # Uncomment the following line to enable command auto-correction.
-              # ENABLE_CORRECTION="true"
-
               # Uncomment the following line to display red dots whilst waiting for completion.
               COMPLETION_WAITING_DOTS="true"
-
-              # Uncomment the following line if you want to disable marking untracked files
-              # under VCS as dirty. This makes repository status check for large repositories
-              # much, much faster.
-              # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
               # Uncomment the following line if you want to change the command execution time
               # stamp shown in the history command output.
               # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
               HIST_STAMPS="yyyy-mm-dd"
 
-              # Would you like to use another custom folder than $ZSH/custom?
-              # ZSH_CUSTOM=/path/to/new-custom-folder
-
-              # Oh My ZSH plugins loader, we will load plugins from Zinit
-              plugins=()
-
               # Powerlevel10k instant prompt
               if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
                 source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
               fi
 
-              # Oh My Zsh
-              source $ZSH/oh-my-zsh.sh
               # colorls
               source $(dirname $(gem which colorls))/tab_complete.sh
               # Homebrew
@@ -457,13 +430,20 @@
 
               # Load remaining plugins
               <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">lucid</span> <span style="color: #ee9900;">light-mode</span> for \
-                  OMZP::autojump \
                   OMZP::colored-man-pages \
+                  agkozak/zsh-z \
                   supercrabtree/k \
                   zsh-users/zaw \
                   zsh-users/zsh-autosuggestions \
                   zsh-users/zsh-syntax-highlighting \
                   zsh-users/zsh-history-substring-search
+
+              # Load oh my zsh lib file
+              <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">lucid</span> <span style="color: #ee9900;">light-mode</span> for \
+                  OMZL::completion.zsh \
+                  OMZL::history.zsh \
+                  OMZL::key-bindings.zsh \
+                  OMZL::directories.zsh
 
               # Set personal aliases
               alias matlab="/Applications/MATLAB_R2019a.app/bin/matlab -nodesktop -nosplash"
@@ -471,6 +451,7 @@
               alias rm="trash"
               alias ls="colorls -X --dark --sort-dirs"
               alias lc="colorls -X --tree --dark"
+              alias j="z"
 
               # Format for time command
               TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S'
