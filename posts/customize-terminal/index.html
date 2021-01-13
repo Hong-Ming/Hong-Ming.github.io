@@ -184,8 +184,8 @@
               <span class="command-markdown">zsh</span> configuration. However, after few years of usage, I realized that I don't need to use the whole framework, and all I need are some of its
               <span class="command-markdown">.zsh</span> files and plugins. Therefore, I prefer just load its <span class="command-markdown">.zsh</span> files and plugins I need using
               <span class="command-markdown">zinit</span> instead of installing and loading the whold framework. It follwing is an example of loading
-              <span class="command-markdown">completion.zsh</span> library file and <span class="command-markdown">colored-man-pages</span> plugins using
-              <span class="command-markdown">zinit</span> in <span class="command-markdown">.zshrc</span>.
+              <span class="command-markdown">completion.zsh</span> library file and <span class="command-markdown">colored-man-pages</span> plugins using <span class="command-markdown">zinit</span> in
+              <span class="command-markdown">.zshrc</span>.
             </p>
             <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
               <span style="color: #dd4a68;">zinit</span> <span style="color: #ee9900;">lucid</span> <span style="color: #ee9900;">light-mode</span> for \
@@ -216,9 +216,9 @@
             <div class="post-head">Fonts</div>
             <p>
               I use <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack">Hack Regular Nerd Font Complete</a> or
-              <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo">Meslo LG M Regular Nerd Font Complete</a> in my terminal, both with size 14. For Mac user,
-              recommended to only install fonts that you want to use from <span class="command-markdown">homebrew</span>. To install a specific type of font in
-              <a href="https://www.nerdfonts.com/">Nerd Fonts</a>, run the follwoing command in your terminal
+              <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo">Meslo LG M Regular Nerd Font Complete</a> in my terminal, both with size 14. For Mac user, recommended
+              to only install fonts that you want to use from <span class="command-markdown">homebrew</span>. To install a specific type of font in <a href="https://www.nerdfonts.com/">Nerd Fonts</a>,
+              run the follwoing command in your terminal
             </p>
             <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
               <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> tap homebrew/cask-fonts &amp&amp <span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> --cask font-<span style="color: #000000;">&lt</span>FONT NAME<span style="color: #000000;">></span>-nerd-font
@@ -264,9 +264,21 @@
                 <a href="https://github.com/athityakumar/colorls">colorls</a>
                 <p>
                   This package coloralized the <span class="command-markdown">ls</span> command. This package requires <a href="https://www.ruby-lang.org/en/">Ruby</a> and
-                  <a href="https://www.nerdfonts.com/">Nerd Fonts</a>. Installed it through Ruby <span class="command-markdown">gem</span>. To customize the folders' and files' icon, run the following
-                  in terminal to get the customization files.
+                  <a href="https://www.nerdfonts.com/">Nerd Fonts</a>. Installed it through Ruby <span class="command-markdown">gem</span>. To install <span class="command-markdown">gem</span>
                 </p>
+                <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+                  <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> ruby
+                </code></pre>
+                <p>
+                  <strong>IMPORTANT!</strong>: remember to set up your <span class="command-markdown">ruby</span> and <span class="command-markdown">gem</span> path in
+                  <span class="command-markdown">.zshrc</span> to have the <span class="command-markdown">ruby</span> installed from <span class="command-markdown">homebrew</span> first in your PATH
+                  (run <span class="command-markdown">brew info ruby</span> to see more information), do not use the system <span class="command-markdown">ruby</span> to install
+                  <span class="command-markdown">colorls</span>. To install <span class="command-markdown">colorls</span>
+                </p>
+                <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+                  <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">gem</span> <span style="color: #000000;">install</span> colorls
+                </code></pre>
+                <p>To customize the folders' and files' icon, run the following in terminal to get the customization files.</p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
                   <span class="terminal-prompt">$ </span>cp -r $(dirname $(gem which colorls))/yaml ~/.config/colorls
                 </code></pre>
@@ -284,10 +296,11 @@
               <li>
                 <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
                 <a href="https://github.com/sharkdp/bat">bat</a>
-                <p>
-                  This package coloralized the <span class="command-markdown">cat</span> command. For Mac user, recommended install it through <span class="command-markdown">homebrew</span>. Put an
-                  alias into <span class="command-markdown">.zshrc</span> to overwrite the default command.
-                </p>
+                <p>This package coloralized the <span class="command-markdown">cat</span> command. For Mac user, recommended install it through <span class="command-markdown">homebrew</span></p>
+                <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+                  <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> bat
+                </code></pre>
+                <p>Put an alias into <span class="command-markdown">.zshrc</span> to overwrite the default command.</p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
                   alias cat="bat --paging=never"
                 </code></pre>
@@ -296,9 +309,15 @@
                 <span class="fa-li" style="top: -0.2em"><i class="fas fa-circle" style="font-size: 0.4em"></i></span>
                 <a href="https://github.com/sindresorhus/trash-cli">trash-cli</a>
                 <p>
-                  This package moves files into system trash can after running <span class="command-markdown">rm</span> command. Installed it through Node Package Manager
-                  <span class="command-markdown">npm</span>. Put an alias into <span class="command-markdown">.zshrc</span> to overwrite the default command.
+                  This package moves files into system trash can after running <span class="command-markdown">rm</span> command. Installed it through
+                  <a href="https://www.npmjs.com/">Node Package Manager</a> <span class="command-markdown">npm</span>. To install <span class="command-markdown">npm</span> and
+                  <span class="command-markdown">trash-cli</span>
                 </p>
+                <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-bash">
+                  <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">brew</span> <span style="color: #000000;">install</span> node
+                  <span class="terminal-prompt">$ </span><span style="color: #dd4a68;">npm</span> <span style="color: #000000;">install</span> --global trash-cli
+                </code></pre>
+                <p>Put an alias into <span class="command-markdown">.zshrc</span> to overwrite the default command.</p>
                 <pre style="padding: 9px 18px" data-toolbar-order=""><code class="language-shell">
                   alias rm="trash"
                 </code></pre>
@@ -467,12 +486,16 @@
               POWERLEVEL9K_MODE='nerdfont-complete'
               POWERLEVEL9K_OS_ICON='\uf179'
               POWERLEVEL9K_APPLE_ICON='\uf179'
+              POWERLEVEL9K_PYTHON_ICON='\uf81f'
               POWERLEVEL9K_HOME_ICON='\uf015'
               POWERLEVEL9K_HOME_SUB_ICON='\uf07b'
               POWERLEVEL9K_FOLDER_ICON='\uf07b'
+              POWERLEVEL9K_ETC_ICON='\uf013'
+              POWERLEVEL9K_LOCK_ICON='\uf023'
               POWERLEVEL9K_OK_ICON='\uf00c'
               POWERLEVEL9K_FAIL_ICON='\uf00d'
               POWERLEVEL9K_CARRIAGE_RETURN_ICON='\uf00d'
+              POWERLEVEL9K_LEFT_SEGMENT_END_SEPARATOR=''
               POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
               POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=''
               POWERLEVEL9K_TIME_ICON=''
@@ -488,7 +511,7 @@
               POWERLEVEL9K_VCS_UNSTAGED_ICON='\uf06a'
               POWERLEVEL9K_VCS_UNTRACKED_ICON='\uf00d'
               # Prompt in new line
-              POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+              POWERLEVEL9K_PROMPT_ON_NEWLINE="true"
               # Prompt in first and second line 
               POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
               POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%F{red}%} \uf155 %{%F{white}%}"
@@ -496,35 +519,39 @@
               POWERLEVEL9K_OS_ICON_BACKGROUND="none"
               POWERLEVEL9K_OS_ICON_FOREGROUND="white"
               # CONTEXT
-              POWERLEVEL9K_CONTEXT_TEMPLATE="%{%F{039}%}%n%{%F{white}%} at %{%F{green}%}%m%{%F{white}%} in"
+              POWERLEVEL9K_CONTEXT_TEMPLATE="%{%F{039}%}%n%{%F{white}%} at %{%F{010}%}%m%{%F{white}%} in"
               POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="none"
               POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="white"
               # DIR
               POWERLEVEL9K_DIR_HOME_BACKGROUND="none"
-              POWERLEVEL9K_DIR_HOME_FOREGROUND="yellow"
+              POWERLEVEL9K_DIR_HOME_FOREGROUND="011"
               POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="none"
-              POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="yellow"
+              POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="011"
+              POWERLEVEL9K_DIR_ETC_BACKGROUND="none"
+              POWERLEVEL9K_DIR_ETC_FOREGROUND="011"
               POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="none"
-              POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="yellow"
+              POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="011"
               POWERLEVEL9K_SHORTEN_DIR_LENGTH="40"
               POWERLEVEL9K_SHORTEN_STRATEGY="truncate_absolute_chars"
+              # DIR_WRITABLE
+              POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="none"
+              POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="009"
               # VCS
               POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="none"
               POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="009"
               POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="none"
               POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="033"
               POWERLEVEL9K_VCS_CLEAN_BACKGROUND="none"
-              POWERLEVEL9K_VCS_CLEAN_FOREGROUND="green"
+              POWERLEVEL9K_VCS_CLEAN_FOREGROUND="010"
               # Anaconda
               POWERLEVEL9K_ANACONDA_BACKGROUND="none"
-              POWERLEVEL9K_ANACONDA_FOREGROUND="green"
+              POWERLEVEL9K_ANACONDA_FOREGROUND="010"
               POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
               POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
-              POWERLEVEL9K_PYTHON_ICON='\uf81f'
               # STATUS
               POWERLEVEL9K_STATUS_CROSS="true"
               POWERLEVEL9K_STATUS_OK_BACKGROUND="none"
-              POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
+              POWERLEVEL9K_STATUS_OK_FOREGROUND="010"
               POWERLEVEL9K_STATUS_ERROR_BACKGROUND="none"
               POWERLEVEL9K_STATUS_ERROR_FOREGROUND="009"
               # TIME
@@ -532,8 +559,8 @@
               POWERLEVEL9K_TIME_FOREGROUND="white"
               POWERLEVEL9K_TIME_FORMAT="\uf017 %D{%H:%M:%S}"
               # Prompt element
-              POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('os_icon' 'context_joined' 'dir_joined' 'vcs_joined' 'anaconda_joined')
-              POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('status' 'time')
+              POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon_joined context_joined dir_joined vcs_joined anaconda_joined)
+              POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(dir_writable status <span style="color: #000000;">time</span>)
             </code></pre>
             <div id="folders_yaml"><i class="fas fa-file-alt"></i> folders.yaml</div>
             <pre id="foldersfile" class="linkable-line-numbers line-numbers"><code class="language-yaml">
