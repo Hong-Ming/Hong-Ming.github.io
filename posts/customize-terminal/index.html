@@ -380,7 +380,15 @@
             </p> -->
             <pre id="zshrcfile" class="linkable-line-numbers line-numbers"><code class="language-shell">
               # If you come from bash you might have to change your $PATH.
-              export PATH=$HOME/bin:/usr/local/bin:$PATH
+              export PATH="/usr/local/bin:$PATH"
+              # Python path
+              export PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
+              # Ruby path
+              export PATH="/usr/local/opt/ruby/bin:$PATH"
+              # Gem path
+              export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
+              # Homebrew
+              export PATH="/usr/local/sbin:$PATH"
 
               # Uncomment the following line to use case-sensitive completion.
               # CASE_SENSITIVE="true"
@@ -401,11 +409,12 @@
               if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
                 source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
               fi
-
+              
+              # Anaconda
+              # source $HOME/anaconda3/bin/activate
+              # conda deactivate
               # colorls
               source $(dirname $(gem which colorls))/tab_complete.sh
-              # Homebrew
-              export PATH="/usr/local/sbin:$PATH"
               # Zinit
               source "$HOME/.zinit/bin/zinit.zsh"
               <span style="color: #dd4a68;">autoload</span> -Uz _zinit
@@ -489,6 +498,10 @@
               # OS
               POWERLEVEL9K_OS_ICON_BACKGROUND="none"
               POWERLEVEL9K_OS_ICON_FOREGROUND="white"
+              # CONTEXT
+              POWERLEVEL9K_CONTEXT_TEMPLATE="%{%F{039}%}%n%{%F{white}%} at %{%F{green}%}%m%{%F{white}%} in"
+              POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="none"
+              POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="white"
               # DIR
               POWERLEVEL9K_DIR_HOME_BACKGROUND="none"
               POWERLEVEL9K_DIR_HOME_FOREGROUND="yellow"
@@ -498,16 +511,6 @@
               POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="yellow"
               POWERLEVEL9K_SHORTEN_DIR_LENGTH="40"
               POWERLEVEL9K_SHORTEN_STRATEGY="truncate_absolute_chars"
-              # STATUS
-              POWERLEVEL9K_STATUS_CROSS="true"
-              POWERLEVEL9K_STATUS_OK_BACKGROUND="none"
-              POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
-              POWERLEVEL9K_STATUS_ERROR_BACKGROUND="none"
-              POWERLEVEL9K_STATUS_ERROR_FOREGROUND="009"
-              # CONTEXT
-              POWERLEVEL9K_CONTEXT_TEMPLATE="%{%F{039}%}%n%{%F{white}%} at %{%F{green}%}%m%{%F{white}%} in"
-              POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="none"
-              POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="white"
               # VCS
               POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="none"
               POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="009"
@@ -515,12 +518,24 @@
               POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="033"
               POWERLEVEL9K_VCS_CLEAN_BACKGROUND="none"
               POWERLEVEL9K_VCS_CLEAN_FOREGROUND="green"
+              # Anaconda
+              POWERLEVEL9K_ANACONDA_BACKGROUND="none"
+              POWERLEVEL9K_ANACONDA_FOREGROUND="green"
+              POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
+              POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
+              POWERLEVEL9K_PYTHON_ICON='\uf81f'
+              # STATUS
+              POWERLEVEL9K_STATUS_CROSS="true"
+              POWERLEVEL9K_STATUS_OK_BACKGROUND="none"
+              POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
+              POWERLEVEL9K_STATUS_ERROR_BACKGROUND="none"
+              POWERLEVEL9K_STATUS_ERROR_FOREGROUND="009"
               # TIME
               POWERLEVEL9K_TIME_BACKGROUND="none"
               POWERLEVEL9K_TIME_FOREGROUND="white"
               POWERLEVEL9K_TIME_FORMAT="\uf017 %D{%H:%M:%S}"
               # Prompt element
-              POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('os_icon' 'context_joined' 'dir_joined' 'vcs_joined')
+              POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('os_icon' 'context_joined' 'dir_joined' 'vcs_joined' 'anaconda_joined')
               POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('status' 'time')
             </code></pre>
             <div id="folders_yaml"><i class="fas fa-file-alt"></i> folders.yaml</div>
