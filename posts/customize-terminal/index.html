@@ -480,7 +480,13 @@
 
               # Format for time command
               TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S'
-
+              # Zsh-syntax-highlighting format
+              ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+              <span style="color: #ee9900;">ZSH_HIGHLIGHT_STYLES</span>[bracket-level-1]='fg=magenta'
+              <span style="color: #ee9900;">ZSH_HIGHLIGHT_STYLES</span>[bracket-level-2]='fg=magenta'
+              <span style="color: #ee9900;">ZSH_HIGHLIGHT_STYLES</span>[bracket-level-3]='fg=magenta'
+              <span style="color: #ee9900;">ZSH_HIGHLIGHT_STYLES</span>[bracket-level-4]='fg=magenta'
+              <span style="color: #ee9900;">ZSH_HIGHLIGHT_STYLES</span>[bracket-level-5]='fg=magenta'
               # Powerlevel10k format code
               # Icon
               POWERLEVEL9K_MODE='nerdfont-complete'
@@ -533,9 +539,6 @@
               POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="011"
               POWERLEVEL9K_SHORTEN_DIR_LENGTH="40"
               POWERLEVEL9K_SHORTEN_STRATEGY="truncate_absolute_chars"
-              # DIR_WRITABLE
-              POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="none"
-              POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="009"
               # VCS
               POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="none"
               POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="009"
@@ -548,6 +551,9 @@
               POWERLEVEL9K_ANACONDA_FOREGROUND="010"
               POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
               POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
+              # DIR_WRITABLE
+              POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="none"
+              POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="009"
               # STATUS
               POWERLEVEL9K_STATUS_CROSS="true"
               POWERLEVEL9K_STATUS_OK_BACKGROUND="none"
@@ -559,7 +565,7 @@
               POWERLEVEL9K_TIME_FOREGROUND="white"
               POWERLEVEL9K_TIME_FORMAT="\uf017 %D{%H:%M:%S}"
               # Prompt element
-              POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon_joined context_joined dir_joined vcs_joined anaconda_joined)
+              POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context_joined dir_joined vcs_joined anaconda_joined)
               POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(dir_writable status <span style="color: #000000;">time</span>)
             </code></pre>
             <div id="folders_yaml"><i class="fas fa-file-alt"></i> folders.yaml</div>
