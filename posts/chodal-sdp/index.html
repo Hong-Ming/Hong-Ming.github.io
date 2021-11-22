@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chordal Graph and Semidefinite Programs</title>
+    <meta name="description" lang="en" content="This post is to keep my terminal customization and configuration files so that I can quickly rebuild my terminal in other machine." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+    <link href="../../css/fontawesome.css" rel="stylesheet" />
+    <link href="../../css/brands.css" rel="stylesheet" />
+    <link href="../../css/solid.css" rel="stylesheet" />
+    <link href="../../css/regular.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="152x152" href="../../favicon/favicon152.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="../../favicon/favicon152.png" />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/posts.css" />
+    <link rel="stylesheet" href="../../css/topnav.css" />
+    <link rel="stylesheet" href="../../css/footer.css" />
+    <link rel="stylesheet" href="../../css/latex.css" />
+    <script src="../../js/myscript.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          tags: "ams",
+        },
+      };
+    </script>
+    <style>
+      :target {
+        padding-top: 0px;
+        margin-top: 0px;
+      }
+      .topnav {
+        position: relative;
+      }
+      .clink {
+        font-weight: inherit;
+        color: inherit;
+      }
+      p {
+        margin-bottom: 5px;
+        text-align: justify;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="topnav">
+      <a id="firstnav" href="https://hong-ming.github.io/">Hong-Ming Chiu</a>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="topnavFunction()"><i class="fas fa-bars"></i></button>
+        <div class="dropdown-content" id="myDropdown">
+          <a href="/">Home</a>
+          <a href="../../index.html#mybio">Biography</a>
+          <a href="../../index.html#myexp">Experiences</a>
+          <a href="../../index.html#mypublications">Publications</a>
+          <a href="../../index.html#myprojects">Projects</a>
+          <a href="/posts/" id="lastnav">Posts</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="post-wrapper">
+        <div class="lg-heading section-head">Chordal Graph and Semidefinite Programs</div>
+        <div class="link-path">
+          <i class="fas fa-home"></i> <a href="/">Home</a>/<a href="/posts/">Posts</a>/<span style="text-decoration: underline">Chordal Graph and Semidefinite Programs</span>
+        </div>
+
+        <div class="post-content">
+          <!-- Macros -->
+          <!-- prettier-ignore -->
+          <span>
+            $
+            \def\a{{\bf a}}
+            \def\b{{\bf b}}
+            \def\d{{\bf d}}
+            \def\r{{\bf r}}
+            \def\x{{\bf x}}
+            \def\y{{\bf y}}
+            \def\A{{\bf A}}
+            \def\C{{\bf C}}
+            \def\D{{\bf D}}
+            \def\H{{\bf H}}
+            \def\I{{\bf I}}
+            \def\L{{\bf L}}
+            \def\S{{\bf S}}
+            \def\X{{\bf X}}
+            \def\Y{{\bf Y}}
+            \def\0{{\bf 0}}
+            \def\1{{\bf 1}}
+            \def\real{\mathbb R}
+            \def\adj{\text{adj}}
+            $
+          </span>
+          <div id="introduction">
+            <div class="section" text="The Fundamental Difficulties of Solving SDP"></div>
+            <div class="subsection" text="Denseness of SDP"></div>
+            <p>
+              Given a standard form semidefinite program (SDP)
+              <!-- prettier-ignore -->
+              <span>
+              \begin{align}\label{eq:sdp_primal}
+              \begin{split}
+                  \min_{\X} \quad & \C\bullet\X \\
+                  \textrm{s.t.} \quad & \A_i\bullet\X=b_i \quad i=1,\ldots,m \\
+                  \quad & \X \succeq 0
+              \end{split}
+              \end{align}
+              and its dual
+              \begin{align}\label{eq:sdp_dual}
+              \begin{split}
+                  \max_{\y,\ \S} \quad & \b^\mathrm{T}\y\\
+                  \textrm{s.t.} \quad & \sum_{i=1}^{m}y_i\A_i+\S=\C\qquad\quad\ \ \\
+                  \quad & \S \succeq 0,
+              \end{split}
+              \end{align}
+              </span>
+              where $\A_i,\ \C,\ \X,\ \S\in\mathrm{S^n}$, $\b,\ \y\in\real^n$ and $\C\bullet\X=\mathrm{Tr}(\C\X)$. The fundamental difficulty of solving (\ref{eq:sdp_primal}) is that the variable $\X$
+              is generally dense, even in the case when $\C$ and $\A_i$'s are sparse. When $\X$ is a dense matrix, the number of variables we need to solve is $n(n+1)/2$. It might seem straightforward
+              to exploit the sparsity pattern in the dual problem (\ref{eq:sdp_dual}), where the slack variable $\S$ has the (aggregated) sparsity pattern of $\C,\ \A_1,\ldots ,\A_m$. Nonetheless,
+              compute the gradient of log-barrier function $\phi(\S)=\log\det{\S}$ requires the inverse of $\S$, which is generally a dense matrix.
+            </p>
+            <div class="definition" text="Sparsity Pattern">
+              A sparsity pattern $\mathrm{E}=\{(i,j)\}$ is a set of position, and a matrix $\A$ is said to have the sparsity pattern of $\mathrm{V}$ if for all $(i,j)\notin\mathrm{E}$ we have
+              $A_{i,j}=0$. It is assume that all the diagonal entires are in $\mathrm{E}$.
+            </div>
+            <div class="subsection" text="Per-iteration Cost of Interior Point Method is High"></div>
+            <p>
+              Although SDP can be efficiently solved by interior point method (IMP) in just a few iteration, however, at each iteration of IMP, we have to solve a normal equation \[\H\Delta\y=\r,\] to
+              evaluate the Newton step $\Delta\y$. In general, $\H\in\mathrm{S^m}$ is fully dense; therefore $O(m^3)$ time is required to form $\H$ and solve $\Delta\y$, this result in $O(n^6)$ time
+              complexity per-iteration because $n\leq m^2$ and requires $O(n^{6.5}\log(1/\epsilon))$ time to obtain the $\epsilon$-accuracy solution using IMP.
+            </p>
+            <p>
+              When the SDP is chordal sparse. That is, the (aggregated) sparsity pattern of $\C,\A_1,\ldots,\A_m$ is chordal sparse. We can achieve lower computational complexity to form $\H$ and
+              solve $\H\Delta\y=\r$ at each iteration of interior point method. In this blog post, we elaborate two methods to exploit chordal structure in SDP proposed by Martin S. Andersen in 2010
+              [<a href="https://link.springer.com/article/10.1007/s12532-010-0016-2" target="_blank">1</a>] and Richard Y. Zhang in 2020 [<a
+                href="https://link.springer.com/article/10.1007/s10107-020-01516-y"
+                target="_blank"
+                >2</a
+              >].
+            </p>
+            <!-- <div class="definition" text='Projection onto Sparsity Pattern'>
+                A projection $\Y$ of a matrix $\X$ onto a sparsity pattern is denoted $\Y=\mathrm{P_E(\X)}$, i.e., $Y_{i,j}=X_{i,j}$ if $(i,j)\in\mathrm E$ and otherwise $Y_{i,j}=0$.
+            </div> -->
+            <p>
+              <span style="font-weight: 700">Notation: </span> Uppercase (lowercase) bold face letters indicate matrices (column vectors). $A_{ij}$ denotes the $(i,j)^{th}$ element of $\A$. $\A
+              \succeq 0$ designates $\A$ as a symmetric positive semidefinite matrix. ${\rm Tr}(\cdot)$ denotes the trace of the matrix. $\mathrm{G(V,E)}$ denotes a graph with vertex set $\mathrm V$
+              and edge set $\mathrm E\subseteq \mathrm{V\times V}$. $\adj(v)$ denotes a set of adjacent vertices of vertex $v$. $\mathrm{S}^{n}$ is the set of symmetric matrices of order $n$.
+              $\mathrm{S_+^n}$ and $\mathrm{S_{++}^n}$ are the sets of positive semidefinite, positive definite matrices, respectively. $\mathrm{S_E^n}$ is the subspace of $\mathrm{S^n}$ of matrices
+              with sparsity pattern $\mathrm E$. $\mathrm{S_{E,+}^{n}}$ and $\mathrm{S_{E,++}^{n}}$ are the sets of positive semidefinite and positive definite matrices in $\mathrm{S_E^n}$.
+              $\mathrm{P_E(S_+^n)}=\left\{\mathrm{P_E}(\X) \mid \X \succeq 0\right\}$ is the cone of matrices in $\mathrm{S_E^n}$ that have a positive semidefinite completion, and
+              $\mathrm{P_E(S_{++}^n)}$ is the interior of $\mathrm{P_E(S_+^n)} .$ The functions $\phi(\cdot)$ is logarithmic barrier functions for $\mathrm{S_{E,+}^{n}}$.
+            </p>
+          </div>
+          <div id="chordal_graph">
+            <div class="section" text="Chordal Graph"></div>
+            <p>
+              In many applications, we can break the underlying problems into solving a series of sparse normal equations \[\A\x=\b,\] where $\A$ is sparse and $\A\succ 0$. A standard approach to
+              solve $\x$ is to perform Cholesky factorization on $\A=\L\L^T$, then solve $\L\d=\b$ following by $\L^T\x=\d$. Since $\L$ is a lower triangular matrix, solving $\L\d=\b$ and $\L^T\x=\d$
+              only requires back substitution, the computational complexity to solve $\x$ is cubic time if $\L$ is dense, but achieve linear time if $\L$ is sparse. In this section, we will show that
+              if $\A$ has chordal structure, then its sparsity structure remains the same after Cholesky factorization.
+            </p>
+            <div class="subsection" text="Vertex Elimination"></div>
+            <p>To understand chordal structure, one must learn the concept of vertex elimination. Given an undirected graph $\mathrm{G(V,E)}$, the vertex elimination is defined as follow.</p>
+            <ol style="margin-bottom: 5px">
+              <li>Pick any vertex $v\in\mathrm V$ and remove it from the graph.</li>
+              <li>Connect all the neighbors of $v$ together.</li>
+              <li>Repeat step 1 and 2 until $\mathrm V=\{\emptyset\}$.</li>
+            </ol>
+            <p>The number of edges introduced during the process of vertex elimination depends on the order of elimination.</p>
+            <div class="example" id="exp1">
+              <p>Consider a star graph</p>
+              <img src="fig1.png" class="img-center" style="max-height: 4cm; margin-bottom: 5px" />
+              <p><span style="font-weight: 700">Case 1: </span> elimination order $=(v_1\to v_2\to v_3\to v_4\to v_5)$</p>
+              <img src="fig2.png" class="img-center" style="max-height: 4cm; margin-bottom: 5px" />
+              <p><span style="font-weight: 700">Case 2: </span> elimination order $=(v_2\to v_3\to v_4\to v_5\to v_1)$</p>
+              <img src="fig3.png" class="img-center" style="max-height: 4cm; margin-bottom: 5px" />
+              <p>
+                In case 1, we add $6$ edges during the process of elimination. However, in case 2, we don have to add any edges. We call the elimination order that does not introduce new edges during
+                the vertex elimination the perfect elimination ordering.
+              </p>
+            </div>
+            <div class="definition" , text="Perfect Elimination Ordering">
+              An elimination order is call the perfect elimination ordering if there is no edge being added during the process of vertex elimination.
+            </div>
+            <div class="subsection" text="Cholesky Factorization"></div>
+            <p>
+              he idea of vertex elimination is tightly related to Cholesky factorization. In fact, if the graphical structure of $\A$ has the perfect elimination ordering, the Cholesky factor of $\A$
+              will have the same structure if rows and columns of $\A$ are arranged in perfect elimination order. This idea is illustrated as follow.
+            </p>
+            <div class="example">
+              <p>
+                Using the same graph and elimination order in Example <strong><a class="clink" href="#exp1"> 1</a></strong
+                >, and let the number in each vertex denotes the order of elimination.
+              </p>
+              <p><span style="font-weight: 700">Case 1: </span> rows and columns of $\A$ are not in perfect elimination ordering</p>
+              <img src="fig4.png" class="img-center" style="max-height: 4cm; margin-bottom: 5px" />
+              <p><span style="font-weight: 700">Case 2: </span> rows and columns of $\A$ are in perfect elimination ordering</p>
+              <img src="fig5.png" class="img-center" style="max-height: 4cm; margin-bottom: 5px" />
+            </div>
+            <p>
+              The element in matrix that were zeros in $\A$ but become non-zero in $\L$ is called fill-in (the elements marked in red in case 1). In case 1, the Cholesky factor has 6 fill-in and
+              become fully dense. However, if we permute the $\A$ into the perfect elimination order as shown in case 2, the Cholesky factor has no fill-in.
+            </p>
+            <div class="proof">
+              Partition $\A$ and compute its Schur complement, we have
+              <!-- prettier-ignore -->
+              <span>
+                \begin{align*}
+                  \A = \begin{bmatrix}
+                    d_1 & \b_1^T \\
+                    \b_1 & \C_1
+                  \end{bmatrix}=
+                  \underbrace{\begin{bmatrix}
+                    1 & \0^T \\
+                    \frac{1}{d_1}\b_1 & \I
+                  \end{bmatrix}}_{\L_1}
+                  \underbrace{\begin{bmatrix}
+                    d_1 & \0^T \\
+                    \0 & \C_1-\frac{1}{d_1}\b_1\b_1^T
+                  \end{bmatrix}}_{\D_1}
+                  \begin{bmatrix}
+                    1 & \0^T \\
+                    \frac{1}{d_1}\b_1 & \I
+                  \end{bmatrix}^T.
+                \end{align*}
+              </span>
+              This expression give us the first column of Cholesky factor $\sqrt{d_1}\begin{bmatrix}1\\\frac{1}{d_1}\b_1\end{bmatrix}$. Obviously, the fill-in are cause by the term $\b_1\b_1^T$ in
+              $\D_1$. Let $\a_1=\begin{bmatrix}d_1\\\b_1\end{bmatrix}$ be the first column of $\A$, because of the term $\b_1\b_1^T$ in $\D_1$, if $(1,i)$-th and $(1,j)$-th elements in $\a_1$ is not
+              zero, $i,j>1$, then the $(i,j)$-th element of $\D_1$ become nonzero. Graphically, it is equivalent to saying that if $(1,i)$, $(1,j)$ are connected, then $(i,j)$ will become connected
+              after eliminating vertex $1$, which is exactly the process of vertex elimination. The Cholesky factor can be obtained from performing the similar partition on $\D_1$ then compute its
+              Schur complement to obtain $\D_2$, and then repeat this process until we get $\D_n$ (see Appendix~\ref{sec:CF} for details). If rows and columns of $\A$ are in perfect elimination order,
+              then each $\D_1,\ldots,\D_n$ will have no fill-in, it follows that the Cholesky factor of $\A$ will have no fill-in as well. In the following, we use the matrix $\A$ in the case 1 above
+              to illustrate this idea.
+            </div>
+            <p>Partition $\A$ and compute its Schur complement, we have</p>
+            <!-- prettier-ignore -->
+            <span>
+              \begin{align*}
+                \A=\begin{bmatrix}
+                5 & 1 & 1 & 1 & 1\\
+                1 & 1 &   &   &  \\
+                1 &   & 1 &   &  \\
+                1 &   &   & 1 &  \\
+                1 &   &   &   & 1
+              \end{bmatrix}=\underbrace{\begin{bmatrix}
+                1   &   &   &   &  \\
+                0.2 & 1 &   &   &  \\
+                0.2 &   & 1 &   &  \\
+                0.2 &   &   & 1 &  \\
+                0.2 &   &   &   & 1
+              \end{bmatrix}}_{\L_1}\underbrace{\begin{bmatrix}
+                5 &   &   &   &  \\
+                  & 0.8 & \color{#DD3403}-0.2 & \color{#DD3403}-0.2 & \color{#DD3403}-0.2 \\
+                  & \color{#DD3403}-0.2 & 0.8 & \color{#DD3403}-0.2 & \color{#DD3403}-0.2 \\
+                  & \color{#DD3403}-0.2 & \color{#DD3403}-0.2 & 0.8 & \color{#DD3403}-0.2 \\
+                  & \color{#DD3403}-0.2 & \color{#DD3403}-0.2 & \color{#DD3403}-0.2 & 0.8
+              \end{bmatrix}}_{\D_1}\begin{bmatrix}
+                1   &   &   &   &  \\
+                0.2 & 1 &   &   &  \\
+                0.2 &   & 1 &   &  \\
+                0.2 &   &   & 1 &  \\
+                0.2 &   &   &   & 1
+              \end{bmatrix}^T.
+              \end{align*}
+            </span>
+            <p>The graphical structure of $\C_1-\frac{1}{d_1}\b_1\b_1^T$ is the graphical structure of $\A$ after eliminating vertex $1$.</p>
+            <img src="fig6.png" class="img-center" style="max-height: 6cm; margin-bottom: 5px" />
+            <p>Notice that not every graph has perfect elimination ordering, and the perfect elimination ordering (if exists) is not unique in general. Graphs that have the perfect elimination ordering are called the chordal graph.</p>
+            <div class="theorem" text="Chordal Graph">
+              An undirected graph is chordal if and only if it has the perfect elimination ordering.
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="page-footer" style="margin-top: 50px">
+      <div class="back-to-top-botton">
+        <div class="back-to-top" onclick="SmoothScrollToTop()">Scroll to Top</div>
+      </div>
+      <div class="myfooter">
+        <div class="foot-left">
+          <a href="mailto: hongmingchiu0217@gmail.com" class="ficon-button femail"> <i class="fas fa-envelope icon-email"></i><span></span><span id="foot-icon-text">Gmail</span></a>
+
+          <a href="https://www.facebook.com/hmchiu2/" class="ficon-button ffacebook"> <i class="fab fa-facebook-f icon-facebook"></i><span></span><span id="foot-icon-text">Facebook</span></a>
+
+          <a href="https://www.linkedin.com/in/hmchiu/" class="ficon-button flinkedin"> <i class="fab fa-linkedin-in icon-linkedin"></i><span></span><span id="foot-icon-text">LinkedIn</span></a>
+
+          <a href="javascript:void(0)" class="ficon-button ftwitter"> <i class="fab fa-twitter icon-twitter"></i><span></span><span id="foot-icon-text">Twitter</span></a>
+
+          <a href="https://www.instagram.com/_hongming/" class="ficon-button finstagram"> <i class="fab fa-instagram icon-instagram"></i><span></span><span id="foot-icon-text">Instagram</span></a>
+
+          <a href="/sitemap/" class="ficon-button fsitemap"> <i class="fas fa-sitemap icon-sitemap"></i><span></span><span id="foot-icon-text">Sitemap</span></a>
+        </div>
+        <div class="foot-right">
+          <p>
+            This is an academic website for Hong-Ming Chiu to share his experiences, publications and projects. Some designs of this website are borrowed and modified from
+            <a href="http://hexianghu.com/">Hexiang (Frank) Hu</a>'s.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
