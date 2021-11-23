@@ -74,3 +74,16 @@ body {
   content: "Proof. ";
   font-style: italic;
 }
+.cite{
+  font-weight: 500;
+}
+.cite:before{
+  font-weight: 400;
+  color: black;
+  content: "[";
+}
+.cite:after{
+  font-weight: 400;
+  color: black;
+  content: "]";
+}
