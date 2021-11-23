@@ -50,6 +50,10 @@ body {
   content: "Example " counter(exp) ". ";
   font-weight: 700;
 }
+.example[text]:before {
+  content: "Example " counter(exp) " (" attr(text) "). ";
+  font-weight: 700;
+}
 .section {
   counter-reset: ssec;
   counter-increment: sec;
@@ -74,16 +78,46 @@ body {
   content: "Proof. ";
   font-style: italic;
 }
-.cite{
+.qed{
+  display: block;
+  text-align: right;
+}
+.cite {
   font-weight: 500;
 }
-.cite:before{
+.cite:before {
   font-weight: 400;
   color: black;
   content: "[";
 }
-.cite:after{
+.cite:after {
   font-weight: 400;
   color: black;
   content: "]";
+}
+.eqref {
+  font-weight: 500;
+}
+.eqref:before {
+  font-weight: 400;
+  color: black;
+  content: "(";
+}
+.eqref:after {
+  font-weight: 400;
+  color: black;
+  content: ")";
+}
+.ref {
+  font-weight: 500;
+}
+.caption {
+  margin: 0 20px 15px 20px;
+  font-size: 16px;
+}
+.theorem:before,
+.lemma:before,
+.example:before,
+.definition:before {
+  font-size: 20px;
 }
