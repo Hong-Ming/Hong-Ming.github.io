@@ -8,8 +8,6 @@ body {
 }
 .theorem:before {
   content: "Theorem " counter(thm) ".";
-  font-weight: 700;
-  font-style: normal;
 }
 .theorem[text]:before {
   content: "Theorem " counter(thm) " (" attr(text) "). ";
@@ -21,8 +19,6 @@ body {
 }
 .lemma:before {
   content: "Lemma " counter(lem) ".";
-  font-weight: 700;
-  font-style: normal;
 }
 .lemma[text]:before {
   content: "Lemma " counter(lem) " (" attr(text) "). ";
@@ -30,13 +26,9 @@ body {
 .definition {
   counter-increment: def;
   display: block;
-  font-style: normal;
-  margin: 10px 0 10px 0;
 }
 .definition:before {
   content: "Definition " counter(def) ".";
-  font-weight: 700;
-  font-style: normal;
 }
 .definition[text]:before {
   content: "Definition " counter(def) " (" attr(text) "). ";
@@ -44,19 +36,17 @@ body {
 .example {
   counter-increment: exp;
   display: block;
-  font-style: normal;
 }
 .example:before {
   content: "Example " counter(exp) ". ";
-  font-weight: 700;
 }
 .example[text]:before {
   content: "Example " counter(exp) " (" attr(text) "). ";
-  font-weight: 700;
 }
 .section {
   counter-reset: ssec;
   counter-increment: sec;
+  margin: 20px 0 5px 0;
 }
 .section[text]:before {
   content: counter(sec) "\00a0\00a0\00a0\00a0"attr(text);
@@ -65,9 +55,19 @@ body {
 }
 .subsection {
   counter-increment: ssec;
+  margin: 10px 0 5px 0;
 }
 .subsection[text]:before {
   content: counter(sec) "." counter(ssec) "\00a0\00a0\00a0\00a0"attr(text);
+  font-weight: 700;
+  font-size: 24px;
+}
+.appsubsection {
+  counter-increment: ssec;
+  margin: 10px 0 5px 0;
+}
+.appsubsection[text]:before {
+  content: counter(ssec, upper-alpha) "\00a0\00a0\00a0\00a0"attr(text);
   font-weight: 700;
   font-size: 24px;
 }
@@ -75,7 +75,7 @@ body {
   display: block;
 }
 .proof:before {
-  content: "Proof. ";
+  content: "Proof.\00a0\00a0";
   font-style: italic;
 }
 .qed{
@@ -84,6 +84,7 @@ body {
 }
 .cite {
   font-weight: 500;
+  color:#1E3877;
 }
 .cite:before {
   font-weight: 400;
@@ -97,6 +98,7 @@ body {
 }
 .eqref {
   font-weight: 500;
+  color:#1E3877;
 }
 .eqref:before {
   font-weight: 400;
@@ -109,15 +111,43 @@ body {
   content: ")";
 }
 .ref {
+  font: "TeX";
   font-weight: 500;
+  color: #DD3403;
 }
 .caption {
   margin: 0 20px 15px 20px;
   font-size: 16px;
 }
+.caption[text]:before{
+  content: attr(text) ": ";
+  font-weight: 700;
+  font-family: 'STIX Two Text', serif;
+}
+.theorem,
+.lemma,
+.example,
+.definition{
+  margin: 10px 0 10px 0;
+}
 .theorem:before,
 .lemma:before,
 .example:before,
 .definition:before {
-  font-size: 20px;
+  font-weight: 700;
+  font-style: normal;
 }
+.theorem,
+.lemma,
+.example,
+.definition,
+.section,
+.subsection,
+.proof:before,
+.qed,
+.cite,
+.eqref,
+.ref{
+  font-family: 'STIX Two Text', serif;
+}
+

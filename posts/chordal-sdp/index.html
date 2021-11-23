@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
     <link href="../../css/fontawesome.css" rel="stylesheet" />
     <link href="../../css/brands.css" rel="stylesheet" />
     <link href="../../css/solid.css" rel="stylesheet" />
@@ -51,6 +54,10 @@
       }
       body {
         text-align: justify;
+        font-size: 20px;
+      }
+      .MathJax {
+        font-size: 1em !important;
       }
     </style>
   </head>
@@ -87,7 +94,9 @@
             \def\b{{\bf b}}
             \def\c{{\bf c}}
             \def\d{{\bf d}}
+            \def\q{{\bf q}}
             \def\r{{\bf r}}
+            \def\w{{\bf w}}
             \def\x{{\bf x}}
             \def\y{{\bf y}}
             \def\A{{\bf A}}
@@ -107,6 +116,7 @@
             \def\real{\mathbb R}
             \def\adj{\text{adj}}
             \def\svec{\text{svec}}
+            \def\diag{\text{diag}}
             $
           </span>
           <div id="introduction">
@@ -151,6 +161,7 @@
               $\L\d=\b$ and $\L^\mathrm{T}\x=\d$ only requires back substitution, the computational complexity to solve $\x$ is cubic time if $\L$ is dense, but achieve linear time if $\L$ is sparse.
               In this section, we will show that if $\A$ has chordal structure, then its sparsity structure remains the same after Cholesky factorization.
             </p>
+            <div class="definition" text="Chordal Graph">An undirected graph is chordal if every induce cycle has length 3.</div>
             <div class="subsection" text="Vertex Elimination"></div>
             <p>To understand chordal structure, one must learn the concept of vertex elimination. Given an undirected graph $\mathrm{G(V,E)}$, the vertex elimination is defined as follow.</p>
             <ol style="margin-bottom: 5px">
@@ -180,8 +191,7 @@
               will have the same structure if rows and columns of $\A$ are arranged in perfect elimination order. This idea is illustrated as follow.
             </p>
             <div class="example">
-              Using the same graph and elimination order in Example <strong><a class="clink" href="#exp1"> 1</a></strong
-              >, and let the number in each vertex denotes the order of elimination.
+              Using the same graph and elimination order in Example <a class="ref" href="#exp1"> 1</a>, and let the number in each vertex denotes the order of elimination.
               <p><span style="font-weight: 700">Case 1: </span> rows and columns of $\A$ are not in perfect elimination ordering</p>
               <img src="fig3.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
               <p><span style="font-weight: 700">Case 2: </span> rows and columns of $\A$ are in perfect elimination ordering</p>
@@ -189,35 +199,37 @@
             </div>
             <p>
               The element in matrix that were zeros in $\A$ but become non-zero in $\L$ is called fill-in (the elements marked in red in case 1). In case 1, the Cholesky factor has 6 fill-in and
-              become fully dense. However, if we permute the $\A$ into the perfect elimination order as shown in case 2, the Cholesky factor has no fill-in.
+              become fully dense. However, if we permute the $\A$ into the perfect elimination order as shown in case 2, the Cholesky factor has no fill-in. Here, we give a conceptual explanation for
+              this result, for more detail and rigorous proof, see <a class="ref" href="#appendix">Appendix</a>. Partition $\A$ and compute its Schur complement, we have
             </p>
-            <div class="proof">
-              Partition $\A$ and compute its Schur complement, we have
-              <img src="equ1.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+            <img src="equ1.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+            <p>
               This expression give us the first column of Cholesky factor $\sqrt{d_1}\begin{bmatrix}1\\\frac{1}{d_1}\b_1\end{bmatrix}$. Obviously, the fill-in are cause by the term
               $\b_1\b_1^\mathrm{T}$ in $\D_1$. Let $\a_1=\begin{bmatrix}d_1\\\b_1\end{bmatrix}$ be the first column of $\A$, because of the term $\b_1\b_1^\mathrm{T}$ in $\D_1$, if $(1,i)$-th and
               $(1,j)$-th elements in $\a_1$ is not zero, $i,j>1$, then the $(i,j)$-th element of $\D_1$ become nonzero. Graphically, it is equivalent to saying that if $(1,i)$, $(1,j)$ are connected,
               then $(i,j)$ will become connected after eliminating vertex $1$, which is exactly the process of vertex elimination. The Cholesky factor can be obtained from performing the similar
-              partition on $\D_1$ then compute its Schur complement to obtain $\D_2$, and then repeat this process until we get $\D_n$ (see Appendix~\ref{sec:CF} for details). If rows and columns of
-              $\A$ are in perfect elimination order, then each $\D_1,\ldots,\D_n$ will have no fill-in, it follows that the Cholesky factor of $\A$ will have no fill-in as well.
+              partition on $\D_1$ then compute its Schur complement to obtain $\D_2$, and then repeat this process until we get $\D_n$ (see <a class="ref" href="#appendix">Appendix</a> for details).
+              If rows and columns of $\A$ are in perfect elimination order, then each $\D_1,\ldots,\D_n$ will have no fill-in, it follows that the Cholesky factor of $\A$ will have no fill-in as well.
+            </p>
+            <div class="lemma" text="no fill-in">
+              Let $\boldsymbol{A}\succ 0$ be a symmetric matrix. If $\boldsymbol{A}$ is in perfect elimination ordering, then its Cholesky factor $\boldsymbol{L}$ has no fill-in.
             </div>
-            <div class="qed">$\square$</div>
             <p>In the following, we use the matrix $\A$ in the case 1 above to illustrate this idea. Partition $\A$ and compute its Schur complement, we have</p>
             <img src="equ2.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <p>The graphical structure of $\C_1-\frac{1}{d_1}\b_1\b_1^\mathrm{T}$ is the graphical structure of $\A$ after eliminating vertex $1$.</p>
             <img src="fig5.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <p>
-              Notice that not every graph has perfect elimination ordering, and the perfect elimination ordering (if exists) is not unique in general. Graphs that have the perfect elimination ordering
-              are called the chordal graph.
+              Notice that not every graph has perfect elimination ordering, and the perfect elimination ordering (if exists) is not unique in general. Fulkerson et at.
+              <a class="cite" href="https://msp.org/pjm/1965/15-3/pjm-v15-n3-p11-s.pdf">2</a> showed that graphs that have the perfect elimination ordering are exactly the chordal graphs.
             </p>
-            <div class="theorem" text="Chordal Graph">An undirected graph is chordal if and only if it has the perfect elimination ordering.</div>
+            <div class="theorem" text="Fulkerson et at. 1965">An undirected graph is chordal if and only if it has the perfect elimination ordering.</div>
             <div class="subsection" text="Clique Tree"></div>
             <p>
               Any chordal graph $\mathrm{G(V,E)}$ can be turn into a tree that has the clique (maximal complete subgraph) of $\mathrm G$ being its vertex. This idea is illustrated in the following
-              example borrowed from <a class="cite" href="https://www.seas.ucla.edu/~vandenbe/publications/chordalsdp.pdf" target="_blank">2</a>.
+              example borrowed from <a class="cite" href="https://www.seas.ucla.edu/~vandenbe/publications/chordalsdp.pdf" target="_blank">3</a>.
             </p>
-            <div class="example">
-              The chordal graph in p.29 of <a class="cite" href="https://www.seas.ucla.edu/~vandenbe/publications/chordalsdp.pdf" target="_blank">2</a> and its clique tree. Let $W$ denotes a set of
+            <div class="example" id="exp3">
+              The chordal graph in p.29 of <a class="cite" href="https://www.seas.ucla.edu/~vandenbe/publications/chordalsdp.pdf" target="_blank">3</a> and its clique tree. Let $W$ denotes a set of
               cliques.
               <img src="fig6.png" class="img-center" style="max-width: 100%; margin: 5px auto" />
             </div>
@@ -236,10 +248,10 @@
             <div class="subsection" text="Clique Tree Conversion for SDP"></div>
             <p>
               Suppose $\C, \A_1,\ldots,\A_m\in \mathrm{S_E^n}$.
-              <a class="cite" href="https://epubs.siam.org/doi/abs/10.1137/S105262340240851X?mobileUi=0&" target="_blank">3</a>
-              <a class="cite" href="https://link.springer.com/article/10.1007/s10107-002-0351-9" target="_blank">4</a>
+              <a class="cite" href="https://epubs.siam.org/doi/abs/10.1137/S105262340240851X?mobileUi=0&" target="_blank">4</a>
               <a class="cite" href="https://link.springer.com/article/10.1007/s10107-002-0351-9" target="_blank">5</a>
-              <a class="cite" href="https://arxiv.org/abs/cs/0412009" target="_blank">6</a>
+              <a class="cite" href="https://link.springer.com/article/10.1007/s10107-002-0351-9" target="_blank">6</a>
+              <a class="cite" href="https://arxiv.org/abs/cs/0412009" target="_blank">7</a>
               proposed to reformulated SDP as
             </p>
             <img src="equ3.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
@@ -249,7 +261,7 @@
             </div>
             <p>
               If we further suppose $\mathrm{G(V,E)}$ is chordal and let $W_1,\ldots,W_l$ denotes the cliques of $\mathrm G$, and $\X[W_j,W_j]$ denotes sub-matrices corresponding to clique $W_j$.
-              Grone et al. <a class="cite" href="https://www.seas.ucla.edu/~vandenbe/publications/chordalsdp.pdf" target="_blank">6</a> showed that this problem can be further relaxed into the
+              Grone et al. <a class="cite" href="https://www.seas.ucla.edu/~vandenbe/publications/chordalsdp.pdf" target="_blank">7</a> showed that this problem can be further relaxed into the
               optimization problem that only enforce the positive semidefiniteness constraint on each $\X[W_j,W_j]$
             </p>
             <img src="equ4.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
@@ -275,43 +287,105 @@
               semidefinite cone. This process is called positive semidefinite completion and is given as follow
             </p>
             <img id="psd-completion" src="equ6.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
-            <p>Figure <a href="#fig1">1</a>, illustrate the process of solving SDP through the clique tree conversion (CTC) following by the positive semidefinite completion (PSD Completion)</p>
+            <p>Figure <a class="ref" href="#fig1">1</a>, illustrate the process of solving SDP through the clique tree conversion (CTC) following by the positive semidefinite completion (PSD Completion)</p>
             <img src="fig9.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
-            <div class="caption" id="fig1">
-              Figure 1: The graphical illustration of the solving SDP <a class="eqref" href="#sdp">1</a> through clique tree conversion <a class="eqref" href="#ctc">2</a> and positive semidefinite
+            <div class="caption" text="Figure 1" id="fig1">
+              The graphical illustration of the solving SDP <a class="eqref" href="#sdp">1</a> through clique tree conversion <a class="eqref" href="#ctc">2</a> and positive semidefinite
               completion <a class="eqref" href="#psd-completion">3</a>. The feasible set of <a class="eqref" href="#sdp">1</a> and <a class="eqref" href="#ctc">2</a> are shown in blue and orange
               respectively. $\widehat \X$ denotes an optimizer of <a class="eqref" href="#ctc">2</a>, and $\widehat \Z$ denotes the solution obtained after
               <a class="eqref" href="#psd-completion">3</a>, which is an optimizer of SDP. Obviously, if $\widehat\X$ were in blue set, then we can skip (PSD Completion).
             </div>
             <p>The clique tree conversion can be vectorizes into a linear conic program in standard form</p>
-            <img id="ctc" src="equ7.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+            <img id="vctc" src="equ7.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <p>
               where $\mathcal K=\mathrm{S^{|W_1|}_+}\times,\ldots,\times, \mathrm{S_+}^{|\mathrm W_l|}$. Let $f(n)=n(n+1)/2$ be a function outputs the number of elements in the lower triangular part
               of $n\times n$ matrix. $\svec(\A)\in\real^{f(n)}$ be the weighted vectorization of the lower triangular part of $n\times n$ matrix $\A$ such that
               $\svec(\A)^\mathrm{T}\svec(\B)=\A\bullet\B$. Then $\c,\x\in\real^{n'}$, $\A\in\real^{m\times n'}$, $n'=\sum_{j=1}^lf(|W_j|)$ is given by
             </p>
-            <img id="ctc" src="equ8.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+            <img src="equ8.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <p>
               In addition $\N\in\real^{m'\times n'}$ is a block matrix, where $m'=\sum_{i=1}^lf(|W_i\cap W_{p(i)}|)$ and $p(i)$ is the parent of vertex $i$ in the clique tree. $\N$ and its blocks
               $\N_{i,j}\in\real^{f(|W_i\cap W_{p(i)}|)\times f(|W_j|)}$ are defined as
             </p>
-            <img id="ctc" src="equ9.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+            <img src="equ9.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <div class="subsection" text="Partial Separability"></div>
             <p>The constraint $\sum_{j=1}^l\A_{ij}\bullet\X_j=b_i$ is said to be partially separable if and only if there exists some $\A_i'$ and $i'\in\{1,\ldots,l\}$ such that</p>
-            <img id="ctc" src="equ10.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+            <img src="equ10.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <div class="example" text="MAX k-CUT">
-              Frieze et at. <a class="cite" href="https://link.springer.com/article/10.1007/BF02523688" target="_blank">7</a> proposed a randomized algorithm to approximate MAX k-CUP base on solving
-              <img id="ctc" src="equ11.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+              Frieze et at. <a class="cite" href="https://link.springer.com/article/10.1007/BF02523688" target="_blank">8</a> proposed a randomized algorithm to approximate MAX k-CUP base on solving
+              <img src="equ11.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
               Observe that each constraint affect a single matrix element, therefore this problem is partially separable.
             </div>
             <p>When SDP is partially separable, the blocks of matrix $\A$ in <a class="eqref" href="#vctc">4</a> becomes</p>
-            <img id="ctc" src="equ12.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+            <img src="equ12.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <div class="subsection" text="Dualize Clique Tree Conversion"></div>
             <p>
               Zhang et al. proposed to exploit sparsity structure of $\H$ using the dualizing technique of Lofberg
-              <a class="cite" href="https://www.tandfonline.com/doi/abs/10.1080/10556780802553325?journalCode=goms20" target="_blank">8</a>. The dual of <a class="eqref" href="#vctc">4</a> is given by
+              <a class="cite" href="https://www.tandfonline.com/doi/abs/10.1080/10556780802553325?journalCode=goms20" target="_blank">9</a>. The dual of <a class="eqref" href="#vctc">4</a> is given by
             </p>
-            
+            <img id="normal" src="equ13.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+            <p>
+              where $\mathcal K^*=\mathcal K$ is the dual cone of $\mathcal K$. The dualization technique of Lofberg
+              <a class="cite" href="https://www.tandfonline.com/doi/abs/10.1080/10556780802553325?journalCode=goms20" target="_blank">9</a> swap the role played by primal and dual problem
+            </p>
+            <img id="lofberg" src="equ14.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+            <p>
+              where $f=m+m'$ is the number of equality constraint. Observe that the dual problem of <a class="eqref" href="#lofberg">6</a> is exactly the same as the primal problem in
+              <a class="eqref" href="#normal">5</a>. Applying the IPM to solve <a class="eqref" href="#lofberg">6</a>. The normal equation we need to solve at each iteration takes the form
+            </p>
+            <img src="equ15.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+            <p>
+              where $\D_s$ is a block diagonal matrix such that $\D_s=\diag(\D_{s1},\ldots,\D_{sl})$, $\D_{si}\in\real^{f(|W_i|)\times f(|W_i|)}$ and $\D_{s,i}\succeq 0$. $\D_f$ is low-rank
+              perturbation such that $\D_f=\sigma\I+\w\w^\mathrm{T}$. Let
+            </p>
+            <img src="equ16.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+            <p>and apply Sherman-Morrison-Woodbury, we have</p>
+            <img id="normal-eq" src="equ17.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+            <p>
+              The block sparsity pattern of $\N^\mathrm{T}\N$ coincides with the tree graph $\mathrm{G(W,T)}$, and $\A^\mathrm{T}\A$ is a block diagonal matrix under the partially separable
+              assumption. As a result, the block sparsity pattern of $\H$ is chordal. Example 7 give a concrete example.
+            </p>
+            <div class="example">
+              Using the chordal graph $\mathrm{G(V,E)}$ and its tree graph $\mathrm{G(W,T)}$ in Example <a class="ref" href="#exp3">3</a> $(n=9,l=6)$. Suppose $m=5$ and $i'=\{2,4,1,2,5\}$, then the
+              $\A$ and $\A^\mathrm{T}\A$ has the following structure
+              <img src="equ18.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+              where $\a_i'=\svec(\A'_i)$, and $\tilde\A_i\in\real^{f(|W_i|)\times f(|W_i|)}$ are some dense matrix. Suppose we index the tree graph $\mathrm{G(W,T)}$ in post-order, then $\N$ and
+              $\N^\mathrm{T}\N$ has the following structure
+              <img src="equ19.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+              where $\tilde\N_{i,j}\in\real^{f(|W_i|)\times f(|W_j|)}$ are some dense matrix. Therefore, $\D_s+\A^\mathrm{T}\A+\N^\mathrm{T}\N$ has the following block structure
+              <img src="equ20.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+              coincides with the graphical structure of tree graph $\mathrm{G(W,T)}$.
+            </div>
+            <div class="theorem" text="no block fill" id="thm3">
+              Let $\boldsymbol{H}\succ 0$ be a symmetric block matrix. If the block sparsity pattern of $\boldsymbol{H}$ is chordal, then its Cholseky factor has no block fill.
+            </div>
+            <div class="proof">
+              Adapt the proof in <a class="ref" href="#appendix">Appendix</a>. Partition $\H$ and compute its Schur complement, we have
+              <img src="equ21.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+              The block fill-in is caused by $\B_1\D_{11}^{-1}\B_1^\mathrm{T}$ in $\D_1$. It then follows that when the block sparsity pattern of $\H$ is chordal, then the sparsity pattern of $\C_1$
+              will be the same as the sparsity pattern of $\B_1\D_{11}^{-1}\B_1^\mathrm{T}$. The Cholesky factor can be obtained by applying the similar partition on $\D_1$ and computes its Schur
+              complement, and then repeat this process until we obtain the block diagonal matrix $\D_n$.
+            </div>
+            <div class="qed">$\square$</div>
+            <p>
+              Observe that evaluating $\H^{-1}\q$ is the same as solving $\q'$ such that $\H\q'=\q$. $\q'$ can be solved by first factorizing $\H=\L\L^\mathrm{T}$, and then solve $\L\b=\q$ follows by
+              $\L^\mathrm{T}\q'=\b$. By Theorem <a class="ref" href="#thm3">3</a>, $\L$ has no block fill; therefore, $\L$ can be factorized in $O(\beta^3n)$ and $\q'$ can be solved in $O(\beta^2n)$,
+              where $\beta=\max_jf(|W_j|)$. This result allows us to evaluate $\Delta\y$ in <a class="eqref" href="#normal-eq">7</a> in $O(\omega^6n)$ time, where $\omega=\max_j|W_j|$ and
+              $\beta\leq\omega^2$. As a result, the computational complexity to obtain the $\epsilon$-accuracy solution using IPM is $O(w^6n^{1.5}\log(1/\epsilon))$. Notice Zhang's method is better
+              than Andersen's method when the number of equality constraints $m$ is large. Specifically, when $m$ is of $O(\omega n)$ then Andersen's method requires
+              $O(\omega^3n^{3.5}\log(1/\epsilon))$ time complexity , which is comparable to the cubic time complexity of direct IMP when the number of constraint $m$ is of $O(n)$.
+            </p>
+          </div>
+          <div id="appendix">
+            <div class="section" text="Appendix"></div>
+            <div class="appsubsection" text="Proof of Lemma 1"></div>
+            <div class="proof">
+              Suppose $\A\in\mathrm{S_{E}^n}$. Partition $\A$ and computes its Schur complement, we have
+              <img src="equ2.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+            </div>
+          </div>
+          <div id="reference">
+            <div class="section" text="Reference"></div>
           </div>
         </div>
       </div>
