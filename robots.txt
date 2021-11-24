@@ -9,4 +9,3 @@ Disallow: /webfonts/
 Disallow: /resume/
 Disallow: /*.png$
 Disallow: /*.jpg$
-Disallow: /posts/index.html
