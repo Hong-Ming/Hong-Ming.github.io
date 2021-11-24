@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
     <link href="../../css/fontawesome.css" rel="stylesheet" />
     <link href="../../css/brands.css" rel="stylesheet" />
     <link href="../../css/solid.css" rel="stylesheet" />
@@ -114,7 +114,6 @@
             \def\0{{\bf 0}}
             \def\1{{\bf 1}}
             \def\real{\mathbb R}
-            \def\adj{\text{adj}}
             \def\svec{\text{svec}}
             \def\diag{\text{diag}}
             $
@@ -126,38 +125,38 @@
               Given a standard form semidefinite program (SDP) and its dual
               <img id="sdp" src="equ0.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
               where $\A_i,\ \C,\ \X,\ \S\in\mathrm{S^n}$, $\b,\ \y\in\real^n$ and $\C\bullet\X=\mathrm{Tr}(\C\X)$. The fundamental difficulty of solving SDP is that the variable $\X$ is generally
-              dense, even in the case when $\C$ and $\A_i$'s are sparse. When $\X$ is a dense matrix, the number of variables we need to solve is $n(n+1)/2$. It might seem straightforward to exploit
-              the sparsity pattern in the dual problem, where the slack variable $\S$ has the (aggregated) sparsity pattern of $\C,\ \A_1,\ldots ,\A_m$. Nonetheless, compute the gradient of
-              log-barrier function $\phi(\S)=\log\det{\S}$ requires the inverse of $\S$, which is generally a dense matrix.
+              dense, even in the case when $\C$ and $\A_i$'s are sparse. It might seem straightforward to exploit the sparsity pattern in the dual problem, where the slack variable $\S$ has the
+              (aggregated) sparsity pattern of $\C,\ \A_1,\ldots ,\A_m$. Nonetheless, compute the gradient of log-barrier function $\phi(\S)=\log\det{\S}$ requires the inverse of $\S$, which is
+              generally a dense matrix.
             </p>
             <div class="definition" text="Sparsity Pattern">
               A sparsity pattern $\mathrm{E}=\{(i,j)\}$ is a set of position, and a matrix $\A$ is said to have the sparsity pattern of $\mathrm{V}$ if for all $(i,j)\notin\mathrm{E}$ we have
               $A_{i,j}=0$. It is assume that all the diagonal entires are in $\mathrm{E}$.
             </div>
-            <div class="subsection" text="Per-iteration Cost of Interior Point Method is High"></div>
+            <div class="subsection" text="Per-iteration Cost of Interior-Point Method is High"></div>
             <p>
-              Although SDP can be efficiently solved by interior point method (IMP) in just a few iteration, however, at each iteration of IMP, we have to solve a normal equation \[\H\Delta\y=\r,\] to
-              evaluate the Newton step $\Delta\y$. In general, $\H\in\mathrm{S^m}$ is fully dense; therefore $O(m^3)$ time is required to form $\H$ and solve $\Delta\y$, this result in $O(n^6)$ time
-              complexity per-iteration because $n\leq m^2$ and requires $O(n^{6.5}\log(1/\epsilon))$ time to obtain the $\epsilon$-accuracy solution using IMP.
+              Although SDP can be efficiently solved by interior-point method (IPM) in just a few iterations, however, at each iteration of IPM, we have to solve a normal equation \[\H\Delta\y=\r,\]
+              to evaluate the Newton step $\Delta\y$. In general, $\H\in\mathrm{S^m}$ is fully dense; therefore $O(m^3)$ time is required to form $\H$ and solve $\Delta\y$, this result in $O(n^6)$
+              time complexity per-iteration because $n\leq m^2$ and $O(n^{6.5}\log(1/\epsilon))$ time to obtain the $\epsilon$-accuracy solution using IPM.
             </p>
             <p>
               When the SDP is chordal sparse. That is, the (aggregated) sparsity pattern of $\C,\A_1,\ldots,\A_m$ is chordal sparse. We can achieve lower computational complexity to form $\H$ and
-              solve $\H\Delta\y=\r$ at each iteration of interior point method. In this blog post, we elaborate one method to exploit chordal structure in SDP proposed by Richard Y. Zhang in 2020
+              solve $\Delta\y$ at each iteration of IPM. In this blog post, we elaborate a method to exploit chordal structure in SDP proposed by Zhang et al.
               <a class="cite" href="https://link.springer.com/article/10.1007/s10107-020-01516-y" target="_blank">1</a>.
             </p>
             <p>
-              <span style="font-weight: 700">Notation: </span> Uppercase (lowercase) bold face letters indicate matrices (column vectors). $A_{ij}$ denotes the $(i,j)^{th}$ element of $\A$. $\A
-              \succeq 0$ designates $\A$ as a symmetric positive semidefinite matrix. ${\rm Tr}(\cdot)$ denotes the trace of the matrix. $\mathrm{G(V,E)}$ denotes a graph with vertex set $\mathrm V$
-              and edge set $\mathrm E\subseteq \mathrm{V\times V}$. $\adj(v)$ denotes a set of adjacent vertices of vertex $v$. $\mathrm{S}^{n}$ is the set of symmetric matrices of order $n$.
-              $\mathrm{S_+^n}$ and $\mathrm{S_{++}^n}$ are the sets of positive semidefinite, positive definite matrices, respectively. $\mathrm{S_E^n}$ is the subspace of $\mathrm{S^n}$ of matrices
-              with sparsity pattern $\mathrm E$. $\mathrm{S_{E,+}^{n}}$ and $\mathrm{S_{E,++}^{n}}$ are the sets of positive semidefinite and positive definite matrices in $\mathrm{S_E^n}$.
+              <span style="font-weight: 700">Notation: </span> Uppercase (lowercase) bold face letters indicate matrices (column vectors). $A_{ij}$ denotes the $(i,j)$-th element of $\A$. ${\rm
+              Tr}(\cdot)$ denotes the trace of the matrix. $\mathrm{G(V,E)}$ denotes a graph with vertex set $\mathrm V$ and edge set $\mathrm E\subseteq \mathrm{V\times V}$. $\mathrm{S}^{n}$ is the
+              set of symmetric matrices of order $n$. $\mathrm{S_+^n}$ and $\mathrm{S_{++}^n}$ are the sets of positive semidefinite, positive definite matrices, respectively. $\mathrm{S_E^n}$ is the
+              subspace of $\mathrm{S^n}$ of matrices with sparsity pattern $\mathrm E$. $\mathrm{S_{E,+}^{n}}$ and $\mathrm{S_{E,++}^{n}}$ are the sets of positive semidefinite and positive definite
+              matrices in $\mathrm{S_E^n}$.
             </p>
           </div>
           <div id="chordal-graph">
             <div class="section" text="Chordal Graph"></div>
             <p>
               In many applications, we can break the underlying problems into solving a series of sparse normal equations \[\A\x=\b,\] where $\A$ is sparse and $\A\succ 0$. A standard approach to
-              solve $\x$ is to perform Cholesky factorization on $\A=\L\L^\mathrm{T}$, then solve $\L\d=\b$ following by $\L^\mathrm{T}\x=\d$. Since $\L$ is a lower triangular matrix, solving
+              solve $\x$ is to perform Cholesky factorization on $\A=\L\L^\mathrm{T}$, and then solve $\L\d=\b$ following by $\L^\mathrm{T}\x=\d$. Since $\L$ is a lower triangular matrix, solving
               $\L\d=\b$ and $\L^\mathrm{T}\x=\d$ only requires back substitution, the computational complexity to solve $\x$ is cubic time if $\L$ is dense, but achieve linear time if $\L$ is sparse.
               In this section, we will show that if $\A$ has chordal structure, then its sparsity structure remains the same after Cholesky factorization.
             </p>
@@ -178,8 +177,8 @@
               <p><span style="font-weight: 700">Case 2: </span> elimination order $=(v_2\to v_3\to v_4\to v_5\to v_1)$</p>
               <img src="fig2.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
               <p>
-                In case 1, we add $6$ edges during the process of elimination. However, in case 2, we don't have to add any edges. We call the elimination order that does not introduce new edges
-                during the vertex elimination the perfect elimination ordering.
+                In case 1, we add 6 edges during the process of elimination. However, in case 2, we do not have to add any edges. We call the elimination order that does not introduce new edges during
+                the vertex elimination the perfect elimination ordering.
               </p>
             </div>
             <div class="definition" , text="Perfect Elimination Ordering">
@@ -200,23 +199,23 @@
             <p>
               The element in matrix that were zeros in $\A$ but become non-zero in $\L$ is called fill-in (the elements marked in red in case 1). In case 1, the Cholesky factor has 6 fill-in and
               become fully dense. However, if we permute the $\A$ into the perfect elimination order as shown in case 2, the Cholesky factor has no fill-in. Here, we give a conceptual explanation for
-              this result, for more detail and rigorous proof, see <a class="ref" href="#appendix">Appendix</a>. Partition $\A$ and compute its Schur complement, we have
+              this result, for more detailed and rigorous proof, see Appendix <a class="ref" href="#appA">A</a>. Partition $\A$ and compute its Schur complement, we have
             </p>
             <img src="equ1.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <p>
-              This expression give us the first column of Cholesky factor $\sqrt{d_1}\begin{bmatrix}1\\\frac{1}{d_1}\b_1\end{bmatrix}$. Obviously, the fill-in are cause by the term
-              $\b_1\b_1^\mathrm{T}$ in $\D_1$. Let $\a_1=\begin{bmatrix}d_1\\\b_1\end{bmatrix}$ be the first column of $\A$, because of the term $\b_1\b_1^\mathrm{T}$ in $\D_1$, if $(1,i)$-th and
-              $(1,j)$-th elements in $\a_1$ is not zero, $i,j>1$, then the $(i,j)$-th element of $\D_1$ become nonzero. Graphically, it is equivalent to saying that if $(1,i)$, $(1,j)$ are connected,
-              then $(i,j)$ will become connected after eliminating vertex $1$, which is exactly the process of vertex elimination. The Cholesky factor can be obtained from performing the similar
-              partition on $\D_1$ then compute its Schur complement to obtain $\D_2$, and then repeat this process until we get $\D_n$ (see <a class="ref" href="#appendix">Appendix</a> for details).
-              If rows and columns of $\A$ are in perfect elimination order, then each $\D_1,\ldots,\D_n$ will have no fill-in, it follows that the Cholesky factor of $\A$ will have no fill-in as well.
+              This expression gives us the first column of Cholesky factor $\sqrt{d_1}\begin{bmatrix}1\\\frac{1}{d_1}\b_1\end{bmatrix}$. Obviously, the fill-in are cause by the term
+              $\b_1\b_1^\mathrm{T}$ in $\D_1$. Let $\a_1=\begin{bmatrix}d_1\\\b_1\end{bmatrix}$ be the first column of $\A$. Because of the term $\b_1\b_1^\mathrm{T}$ in $\D_1$, if $(1,i)$-th and
+              $(1,j)$-th elements in $\a_1$ is not zero, $i,j>1$, then the $(i,j)$-th element of $\D_1$ becomes nonzero. Graphically, it is equivalent to saying that if $(1,i)$, $(1,j)$ are connected,
+              then $(i,j)$ will become connected after eliminating vertex 1, which is exactly the process of vertex elimination. The Cholesky factor can be obtained by performing the similar partition
+              on $\D_1$ then compute its Schur complement to obtain $\D_2$, and then repeat this process until we get $\D_n$ (see Appendix <a class="ref" href="#appA">A</a> for details). If rows and
+              columns of $\A$ are in perfect elimination order, then each $\D_1,\ldots,\D_n$ will have no fill-in, it follows that the Cholesky factor of $\A$ will have no fill-in as well.
             </p>
             <div class="lemma" text="no fill-in">
               Let $\boldsymbol{A}\succ 0$ be a symmetric matrix. If $\boldsymbol{A}$ is in perfect elimination ordering, then its Cholesky factor $\boldsymbol{L}$ has no fill-in.
             </div>
             <p>In the following, we use the matrix $\A$ in the case 1 above to illustrate this idea. Partition $\A$ and compute its Schur complement, we have</p>
             <img src="equ2.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
-            <p>The graphical structure of $\C_1-\frac{1}{d_1}\b_1\b_1^\mathrm{T}$ is the graphical structure of $\A$ after eliminating vertex $1$.</p>
+            <p>Observe that the graphical structure of $\C_1-\frac{1}{d_1}\b_1\b_1^\mathrm{T}$ is the graphical structure of $\A$ after eliminating vertex $1$.</p>
             <img src="fig5.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <p>
               Notice that not every graph has perfect elimination ordering, and the perfect elimination ordering (if exists) is not unique in general. Fulkerson et at.
@@ -235,8 +234,9 @@
             </div>
             <div class="subsection" text="Induce Subtree, Running Intersection Property"></div>
             <p>
-              In Example 3, observe that for any $v\in\mathrm V$, every vertex in the clique tree contains $v$ induce a subtree. Therefore, if $v$ is contained in two cliques $W_1$ and $W_2$, then $v$
-              has to be contained in every cliques that are in the path from $W_1$ to $W_2$ on the clique tree. This is known as induce subtree or running intersection property.
+              In Example <a class="ref" href="#exp3">3</a>, observe that for any $v\in\mathrm V$, every vertex in the clique tree contains $v$ induce a subtree. Therefore, if $v$ is contained in two
+              cliques $W_1$ and $W_2$, then $v$ has to be contained in every cliques that are in the path from $W_1$ to $W_2$ on the clique tree. This is known as induce subtree or running
+              intersection property.
             </p>
             <div class="example">
               The induce subtree of vertex $e$ and $c$.
@@ -260,42 +260,45 @@
               A projection $\Y$ of a matrix $\X$ onto a sparsity pattern is denoted $\Y=\mathrm{P_E(\X)}$, i.e., $Y_{i,j}=X_{i,j}$ if $(i,j)\in\mathrm E$ and otherwise $Y_{i,j}=0$.
             </div>
             <p>
-              If we further suppose $\mathrm{G(V,E)}$ is chordal and let $W_1,\ldots,W_l$ denotes the cliques of $\mathrm G$, and $\X[W_j,W_j]$ denotes sub-matrices corresponding to clique $W_j$.
-              Grone et al. <a class="cite" href="https://www.seas.ucla.edu/~vandenbe/publications/chordalsdp.pdf" target="_blank">7</a> showed that this problem can be further relaxed into the
-              optimization problem that only enforce the positive semidefiniteness constraint on each $\X[W_j,W_j]$
+              If we further suppose $\mathrm{G(V,E)}$ is chordal. Let $W_1,\ldots,W_l$ denotes the cliques of $\mathrm G$, and $\X[W_j,W_j]$ denotes sub-matrices corresponding to clique $W_j$. Grone
+              et al. <a class="cite" href="https://www.seas.ucla.edu/~vandenbe/publications/chordalsdp.pdf" target="_blank">7</a> showed that this problem can be further relaxed into the optimization
+              problem that only enforce the positive semidefiniteness constraint on each $\X[W_j,W_j]$
             </p>
             <img src="equ4.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
-            <div class="theorem" text="Grone et al. 1984">
+            <div class="theorem" text="Grone et al. 1984" id="thm2">
               $\boldsymbol{X}$ is positive semidefinite completable, or $\boldsymbol{X}\in P_E(S_+^n)$, if and only if $\boldsymbol{X}[W_j,W_j]\succeq 0$ for all $j=1,\ldots,l$.
             </div>
             <p>
-              By Theorem 2, the relaxation above is always possible, then it follows that the relaxation is tight because $\C\bullet\X=\C\bullet \mathrm{P_E(\X)}$. For simplicity, let
-              $\X_j=\X[W_j,W_j]$. For some $\C_j,\A_{ij}\in\real^{|W_j|\times |W_j|}$, we can further rewrite this problem into the optimization problem over $\X_j$'s.
+              By Theorem <a class="ref" href="#thm2">2</a>, the relaxation above is always possible, then it follows that the relaxation is tight because $\C\bullet\X=\C\bullet \mathrm{P_E(\X)}$. For
+              simplicity, let $\X_j=\X[W_j,W_j]$. For some $\C_j,\A_{ij}\in\real^{|W_j|\times |W_j|}$, we can further rewrite this problem into the optimization problem over $\X_j$'s.
             </p>
             <img id="ctc" src="equ5.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <p>
-              where $\mathcal N_{ij}(X_i)$ denotes the part of $\X_i$ overlaps with $\X_j$. The reformulation above is called the clique tree conversion (CTC) for SDP. Example 5 gives a concrete
-              example for this reformulation.
+              where $\mathcal N_{ij}(X_i)$ denotes the part of $\X_i$ overlaps with $\X_j$. The reformulation above is called the clique tree conversion (CTC) for SDP. Example
+              <a class="ref" href="#exp5">5</a> gives a concrete example for this reformulation.
             </p>
-            <div class="example">
+            <div class="example" id="exp5">
               Let the graph $\mathrm{G(V,E)}$ shown in the left-hand side be the graphical structure of $\C,\A_1,\ldots,\A_m$. Notice that $\mathrm G$ is chordal and has two cliques $W_1$ and $W_2$.
               The corresponding $\X_1=\X[W_1,W_1]$, $\X_2=\X[W_2,W_2]$ and $\mathcal N_{1,2}(\X_1)=\mathcal N_{2,1}(\X_2)$ are shown in the right-hand side.
               <img src="fig8.png" class="img-center" style="max-width: 100%; margin: 5px auto" />
             </div>
             <p>
-              Notice that the $\X$ obtained from (CTC) does not guarantee to be positive semidefinite; therefore, when $\X$ is not positive semidefinite, we need to project $\X$ back to the positive
-              semidefinite cone. This process is called positive semidefinite completion and is given as follow
+              Notice that the $\X$ obtained from <a class="eqref" href="#ctc">2</a> does not guarantee to be positive semidefinite; therefore, when $\X$ is not positive semidefinite, we need to
+              project $\X$ back to the positive semidefinite cone. This process is called positive semidefinite completion and is given as follow
             </p>
             <img id="psd-completion" src="equ6.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
-            <p>Figure <a class="ref" href="#fig1">1</a>, illustrate the process of solving SDP through the clique tree conversion (CTC) following by the positive semidefinite completion (PSD Completion)</p>
+            <p>
+              Figure <a class="ref" href="#fig1">1</a>, illustrate the process of solving SDP through the clique tree conversion <a class="eqref" href="#ctc">2</a> following by the positive
+              semidefinite completion <a class="eqref" href="#psd-completion">3</a>
+            </p>
             <img src="fig9.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <div class="caption" text="Figure 1" id="fig1">
-              The graphical illustration of the solving SDP <a class="eqref" href="#sdp">1</a> through clique tree conversion <a class="eqref" href="#ctc">2</a> and positive semidefinite
-              completion <a class="eqref" href="#psd-completion">3</a>. The feasible set of <a class="eqref" href="#sdp">1</a> and <a class="eqref" href="#ctc">2</a> are shown in blue and orange
-              respectively. $\widehat \X$ denotes an optimizer of <a class="eqref" href="#ctc">2</a>, and $\widehat \Z$ denotes the solution obtained after
-              <a class="eqref" href="#psd-completion">3</a>, which is an optimizer of SDP. Obviously, if $\widehat\X$ were in blue set, then we can skip (PSD Completion).
+              The graphical illustration of solving SDP <a class="eqref" href="#sdp">1</a> through clique tree conversion <a class="eqref" href="#ctc">2</a> and positive semidefinite completion
+              <a class="eqref" href="#psd-completion">3</a>. The feasible set of <a class="eqref" href="#sdp">1</a> and <a class="eqref" href="#ctc">2</a> are shown in blue and orange respectively.
+              $\widehat \X$ denotes an optimizer of <a class="eqref" href="#ctc">2</a>, and $\widehat \Z$ denotes the solution obtained after <a class="eqref" href="#psd-completion">3</a>, which is an
+              optimizer of <a class="eqref" href="#sdp">1</a>. Obviously, if $\widehat\X$ were in blue set, then we can skip <a class="eqref" href="#psd-completion">3</a>.
             </div>
-            <p>The clique tree conversion can be vectorizes into a linear conic program in standard form</p>
+            <p>The clique tree conversion can be vectorizes into the standard form of linear conic program</p>
             <img id="vctc" src="equ7.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <p>
               where $\mathcal K=\mathrm{S^{|W_1|}_+}\times,\ldots,\times, \mathrm{S_+}^{|\mathrm W_l|}$. Let $f(n)=n(n+1)/2$ be a function outputs the number of elements in the lower triangular part
@@ -320,8 +323,9 @@
             <img src="equ12.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <div class="subsection" text="Dualize Clique Tree Conversion"></div>
             <p>
-              Zhang et al. proposed to exploit sparsity structure of $\H$ using the dualizing technique of Lofberg
-              <a class="cite" href="https://www.tandfonline.com/doi/abs/10.1080/10556780802553325?journalCode=goms20" target="_blank">9</a>. The dual of <a class="eqref" href="#vctc">4</a> is given by
+              Zhang et al. <a class="cite" href="https://link.springer.com/article/10.1007/s10107-020-01516-y" target="_blank">1</a> proposed to exploit sparsity structure of $\H$ using the dualizing
+              technique of Lofberg <a class="cite" href="https://www.tandfonline.com/doi/abs/10.1080/10556780802553325?journalCode=goms20" target="_blank">9</a>. The dual of
+              <a class="eqref" href="#vctc">4</a> is given by
             </p>
             <img id="normal" src="equ13.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <p>
@@ -343,11 +347,11 @@
             <img id="normal-eq" src="equ17.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <p>
               The block sparsity pattern of $\N^\mathrm{T}\N$ coincides with the tree graph $\mathrm{G(W,T)}$, and $\A^\mathrm{T}\A$ is a block diagonal matrix under the partially separable
-              assumption. As a result, the block sparsity pattern of $\H$ is chordal. Example 7 give a concrete example.
+              assumption. As a result, the block sparsity pattern of $\H$ is chordal. Example <a class="ref" href="#exp7">1</a> gives a concrete example.
             </p>
-            <div class="example">
-              Using the chordal graph $\mathrm{G(V,E)}$ and its tree graph $\mathrm{G(W,T)}$ in Example <a class="ref" href="#exp3">3</a> $(n=9,l=6)$. Suppose $m=5$ and $i'=\{2,4,1,2,5\}$, then the
-              $\A$ and $\A^\mathrm{T}\A$ has the following structure
+            <div class="example" id="exp7">
+              Using the chordal graph $\mathrm{G(V,E)}$ and its tree graph $\mathrm{G(W,T)}$ in Example <a class="ref" href="#exp3">3</a> $(n=9,l=6)$. Suppose $m=5$ and $\{i'\}=\{2,4,1,2,5\}$, then
+              the $\A$ and $\A^\mathrm{T}\A$ has the following structure
               <img src="equ18.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
               where $\a_i'=\svec(\A'_i)$, and $\tilde\A_i\in\real^{f(|W_i|)\times f(|W_i|)}$ are some dense matrix. Suppose we index the tree graph $\mathrm{G(W,T)}$ in post-order, then $\N$ and
               $\N^\mathrm{T}\N$ has the following structure
@@ -356,33 +360,49 @@
               <img src="equ20.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
               coincides with the graphical structure of tree graph $\mathrm{G(W,T)}$.
             </div>
-            <div class="theorem" text="no block fill" id="thm3">
+            <div class="lemma" text="no block fill" id="lem2">
               Let $\boldsymbol{H}\succ 0$ be a symmetric block matrix. If the block sparsity pattern of $\boldsymbol{H}$ is chordal, then its Cholseky factor has no block fill.
             </div>
             <div class="proof">
-              Adapt the proof in <a class="ref" href="#appendix">Appendix</a>. Partition $\H$ and compute its Schur complement, we have
+              Adapt the proof in Appendix <a class="ref" href="#appA">A</a>. Partition $\H$ and compute its Schur complement, we have
               <img src="equ21.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
-              The block fill-in is caused by $\B_1\D_{11}^{-1}\B_1^\mathrm{T}$ in $\D_1$. It then follows that when the block sparsity pattern of $\H$ is chordal, then the sparsity pattern of $\C_1$
-              will be the same as the sparsity pattern of $\B_1\D_{11}^{-1}\B_1^\mathrm{T}$. The Cholesky factor can be obtained by applying the similar partition on $\D_1$ and computes its Schur
-              complement, and then repeat this process until we obtain the block diagonal matrix $\D_n$.
+              The block fill-in is caused by $\B_1\D_{11}^{-1}\B_1^\mathrm{T}$ in $\D_1$. Then it follows that when the block sparsity pattern of $\H$ is chordal, then the block sparsity pattern of
+              $\C_1$ will be the same as the block sparsity pattern of $\B_1\D_{11}^{-1}\B_1^\mathrm{T}$. The Cholesky factor can be obtained by applying the similar partition on $\D_1$ and computes
+              its Schur complement, and then repeat this process until we obtain the block diagonal matrix $\D_n$.
             </div>
             <div class="qed">$\square$</div>
             <p>
-              Observe that evaluating $\H^{-1}\q$ is the same as solving $\q'$ such that $\H\q'=\q$. $\q'$ can be solved by first factorizing $\H=\L\L^\mathrm{T}$, and then solve $\L\b=\q$ follows by
-              $\L^\mathrm{T}\q'=\b$. By Theorem <a class="ref" href="#thm3">3</a>, $\L$ has no block fill; therefore, $\L$ can be factorized in $O(\beta^3n)$ and $\q'$ can be solved in $O(\beta^2n)$,
+              Observe that evaluating $\H^{-1}\q$ is the same as solving $\q'$ such that $\H\q'=\q$. $\q'$ can be solved by first factorizing $\H=\L\L^\mathrm{T}$, and then solve $\L\b=\q$ following
+              by $\L^\mathrm{T}\q'=\b$. By Lemma <a class="ref" href="#lem2">2</a>, $\L$ has no block fill; therefore, $\L$ can be factorized in $O(\beta^3n)$ and $\q'$ can be solved in $O(\beta^2n)$,
               where $\beta=\max_jf(|W_j|)$. This result allows us to evaluate $\Delta\y$ in <a class="eqref" href="#normal-eq">7</a> in $O(\omega^6n)$ time, where $\omega=\max_j|W_j|$ and
-              $\beta\leq\omega^2$. As a result, the computational complexity to obtain the $\epsilon$-accuracy solution using IPM is $O(w^6n^{1.5}\log(1/\epsilon))$. Notice Zhang's method is better
-              than Andersen's method when the number of equality constraints $m$ is large. Specifically, when $m$ is of $O(\omega n)$ then Andersen's method requires
-              $O(\omega^3n^{3.5}\log(1/\epsilon))$ time complexity , which is comparable to the cubic time complexity of direct IMP when the number of constraint $m$ is of $O(n)$.
+              $\beta\leq\omega^2$. As a result, the computational complexity to obtain the $\epsilon$-accuracy solution using IPM is $O(w^6n^{1.5}\log(1/\epsilon))$. Notice that Zhang's method
+              <a class="cite" href="https://link.springer.com/article/10.1007/s10107-020-01516-y" target="_blank">1</a> is better than Andersen's method
+              <a class="cite" href="https://link.springer.com/article/10.1007/s12532-010-0016-2">10</a> when the number of equality constraints $m$ is large. Specifically, when $m$ is of $O(\omega n)$
+              then Andersen's method requires $O(\omega^3n^{3.5}\log(1/\epsilon))$ time complexity, which is comparable to the cubic time complexity of direct IPM when the number of constraint $m$ is
+              of $O(n)$.
             </p>
           </div>
           <div id="appendix">
             <div class="section" text="Appendix"></div>
-            <div class="appsubsection" text="Proof of Lemma 1"></div>
+            <div id="appA" class="appsubsection" text="Proof of Lemma 1"></div>
             <div class="proof">
               Suppose $\A\in\mathrm{S_{E}^n}$. Partition $\A$ and computes its Schur complement, we have
-              <img src="equ2.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+              <img src="equ1.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+              We can easily see that $\L_1\in\mathrm{S_{E}^n}$. Let $\mathrm{E_1}$ be the sparsity pattern of $\D_1$, then $\mathrm{E_1}$ is simply the union of sparsity pattern $\mathrm{E}$ and any
+              new edges introduced by the outer product of $\b_1$
+              <img src="equ22.png" class="img-center" style="max-width: 100%; margin: 5px auto" />
+              Because $\A$ is in perfect elimination ordering we have $\{(i,j)\mid (1,i)\in\mathrm E,\ (1,j)\in\mathrm E\}\subseteq\mathrm E$, therefore $\mathrm E_1=\mathrm E$ and
+              $\D_1\in\mathrm{S_{E}^n}$. Similarly, we can apply the same partition on $\D_1$ and factor it as $\D_1=\widetilde\L_2\D_2\widetilde\L^\mathrm{T}_2$ where
+              <img src="equ23.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+              and let $\L_2=\L_1\widetilde\L_2$, we have
+              <img src="equ24.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+              Let $\mathrm{E_2}$ be the sparsity pattern of $\D_2$, becasue $\A$ is in perfect elimination ordering we have
+              <img src="equ25.png" class="img-center" style="max-width: 100%; margin: 5px auto" />
+              Repeating this procedure $n$ times, we have $\A=\L_n\D_n\L_n^\mathrm T$, where
+              <img src="equ26.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
+              As a result, we have $\mathrm E_n =\mathrm E_{n-1} = \ldots = \mathrm E_1= \mathrm E$; therefore $\L_n=\L\in\mathrm{S_{E}^n}$.
             </div>
+            <div class="qed">$\square$</div>
           </div>
           <div id="reference">
             <div class="section" text="Reference"></div>
