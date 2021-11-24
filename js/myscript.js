@@ -15,9 +15,19 @@ var IdName;
 var Aid = null;
 var Exp_Offset = 0;
 var Counter;
+var NavHeight;
+function SmoothScrollToAnchorFix(ID) {
+  IdName = ID;
+  Counter = 0;
+  NavHeight = 45;
+  cancelAnimationFrame(Aid);
+  SmoothScrollUD();
+}
+
 function SmoothScrollToAnchor(ID) {
   IdName = ID;
   Counter = 0;
+  NavHeight = 0;
   cancelAnimationFrame(Aid);
   SmoothScrollUD();
 }
@@ -27,7 +37,7 @@ function SmoothScrollUD() {
   var EleOffset = Elemt.offsetTop;
   var MarginTop = parseFloat(window.getComputedStyle(Elemt, null).getPropertyValue("padding-top"));
   var TopOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-  var NavHeight = 45;
+  // var NavHeight = 45;
   var TopViewMargin = 10;
   var Offset = TopOffset - EleOffset + NavHeight + TopViewMargin - MarginTop;
   if (IdName == "myhom") {
