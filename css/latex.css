@@ -124,6 +124,38 @@ body {
   font-weight: 700;
   font-family: 'STIX Two Text', serif;
 }
+.bib{
+  width:100%;
+  overflow: auto;
+  margin-bottom: 10px;
+}
+.bib-left{
+  float: left;
+  width:35px;
+  padding-right: 3%;
+  text-align: right;
+  font-weight: 500;
+  color:#1E3877;
+}
+.bib-left:before{
+  font-weight: 400;
+  color: black;
+  content: "[";
+}
+.bib-left:after{
+  font-weight: 400;
+  color: black;
+  content: "]";
+}
+.bib-right{
+  float: right;
+  /* width:93%; */
+  width: -webkit-calc(97% - (35px));
+  width: calc(97% - (35px));
+  text-align: left;
+  /* margin-left:auto; */
+}
+
 .theorem,
 .lemma,
 .example,
@@ -144,6 +176,7 @@ body {
 .proof:before,
 .section,
 .subsection,
+.bib-left
 .cite,
 .eqref,
 .ref{
