@@ -134,9 +134,9 @@
             <p>
               <span style="font-weight: 700">Notation: </span> Uppercase (lowercase) bold face letters indicate matrices (column vectors). $A_{ij}$ denotes the $(i,j)$-th element of ${\bf A}$. ${\rm
               Tr}(\cdot)$ denotes the trace of the matrix. $\mathrm{G(V,E)}$ denotes a graph with vertex set $\mathrm V$ and edge set $\mathrm E\subseteq \mathrm{V\times V}$. $\mathrm{S}^{n}$ is the
-              set of symmetric matrices of order $n$. $\mathrm{S_+^n}$ and $\mathrm{S_{++}^n}$ are the sets of positive semidefinite, positive definite matrices, respectively. $\mathrm{S_E^n}$ is the
-              subspace of $\mathrm{S^n}$ of matrices with sparsity pattern $\mathrm E$. $\mathrm{S_{E,+}^{n}}$ and $\mathrm{S_{E,++}^{n}}$ are the sets of positive semidefinite and positive definite
-              matrices in $\mathrm{S_E^n}$.
+              set of symmetric matrices of order $n$. $\mathrm{S_+^n}$ and $\mathrm{S_{++}^n}$ are the sets of positive semidefinite, positive definite matrices, respectively. $\mathrm{S_E^n}$ is a
+              set of symmetric matrices that have sparsity pattern $\mathrm E$. $\mathrm{S_{E,+}^{n}}$ and $\mathrm{S_{E,++}^{n}}$ are the sets of positive semidefinite and positive definite matrices
+              in $\mathrm{S_E^n}$.
             </p>
           </div>
           <div id="chordal-graph">
@@ -266,7 +266,8 @@
             </p>
             <img id="ctc" src="equ5.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <p>
-              where $\mathcal N_{ij}(X_i)$ denotes the part of ${\bf X}_i$ overlaps with ${\bf X}_j$. The reformulation above is called the clique tree conversion (CTC) for SDP. Example
+              where $\mathcal N_{ij}(X_i)$ denotes the part of ${\bf X}_i$ overlaps with ${\bf X}_j$. The reformulation above is called the clique tree conversion (CTC) for SDP. It is worth noting
+              that we only have to impose the overlaping constraint $\mathcal N_{ij}(X_i)=\mathcal N_{ji}(X_j)$ along the edge of clique tree because of the induce subtree properties. Example
               <a class="ref" href="#exp5">5</a> gives a concrete example for this reformulation.
             </p>
             <div class="example" id="exp5">
@@ -281,7 +282,7 @@
             </p>
             <img id="psd-completion" src="equ6.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />
             <p>
-              Figure <a class="ref" href="#fig1">1</a>, illustrate the process of solving SDP through the clique tree conversion <a class="eqref" href="#ctc">2</a> following by the positive
+              Figure <a class="ref" href="#fig1">1</a> illustrate the process of solving SDP through the clique tree conversion <a class="eqref" href="#ctc">2</a> following by the positive
               semidefinite completion <a class="eqref" href="#psd-completion">3</a>
             </p>
             <img src="fig9.png" class="img-center" style="max-width: 100%; margin-bottom: 5px" />

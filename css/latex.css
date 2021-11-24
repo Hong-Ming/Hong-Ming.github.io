@@ -172,7 +172,7 @@ body {
 .theorem,
 .lemma,
 .example:before,
-.definition:before,
+.definition,
 .proof:before,
 .section,
 .subsection,
@@ -181,6 +181,6 @@ body {
 .eqref,
 .ref{
   font-family: 'STIX Two Text', serif;
-  font-size: 1em;
+  font-size: 1.05em;
 }
 
