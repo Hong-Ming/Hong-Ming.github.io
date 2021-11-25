@@ -411,8 +411,8 @@
               <div class="proof">
                 Suppose ${\bf A}\in\mathrm{S_{E}^n}$. Partition ${\bf A}$ and computes its Schur complement, we have
                 <img src="equ1.png" class="equpic" />
-                We can easily see that ${\bf L}_1\in\mathrm{S_{E}^n}$. Let $\mathrm{E_1}$ be the sparsity pattern of ${\bf D}_1$, then $\mathrm{E_1}$ is simply the union of sparsity pattern
-                $\mathrm{E}$ and any new edges introduced by the outer product of ${\bf b}_1$
+                We can easily see that ${\bf L}_1+{\bf L}_1^\mathrm T\in\mathrm{S_{E}^n}$. Let $\mathrm{E_1}$ be the sparsity pattern of ${\bf D}_1$, then $\mathrm{E_1}$ is simply the union of
+                sparsity pattern $\mathrm{E}$ and any new edges introduced by the outer product of ${\bf b}_1$
                 <img src="equ22.png" class="equpic" />
                 Because ${\bf A}$ is in perfect elimination ordering we have $\{(i,j)\mid (1,i)\in\mathrm E,\ (1,j)\in\mathrm E\}\subseteq\mathrm E$, therefore $\mathrm E_1=\mathrm E$ and ${\bf
                 D}_1\in\mathrm{S_{E}^n}$. Similarly, we can apply the same partition on ${\bf D}_1$ and factor it as ${\bf D}_1=\widetilde{\bf L}_2{\bf D}_2\widetilde{\bf L}^\mathrm{T}_2$ where
@@ -423,7 +423,8 @@
                 <img src="equ25.png" class="equpic" />
                 Repeating this procedure $n$ times, we have ${\bf A}={\bf L}_n{\bf D}_n{\bf L}_n^\mathrm T$, where
                 <img src="equ26.png" class="equpic" />
-                As a result, we have $\mathrm E_n =\mathrm E_{n-1} = \ldots = \mathrm E_1= \mathrm E$; therefore ${\bf L}_n={\bf L}\in\mathrm{S_{E}^n}$.
+                Because ${\bf A}$ is in perfect elimination ordering we have $\mathrm E_n =\mathrm E_{n-1} = \ldots = \mathrm E_1= \mathrm E$. Since ${\bf D}_n$ is diagonal and ${\bf L}={\bf L}_n{\bf D}_n^{\frac{1}{2}}$, we
+                conclude that ${\bf L}+{\bf L}^\mathrm T\in\mathrm{S^n_E}$; therefore, the Cholesky factor ${\bf L}$ has no fill-in.
               </div>
               <div class="qed">$\square$</div>
             </div>
@@ -432,7 +433,7 @@
             <div class="bib">
               <a class="bib-left" href="https://link.springer.com/article/10.1007/s10107-020-01516-y" target="_blank">1</a>
               <span class="bib-right">
-                Zhang, R.Y., Lavaei, J. "Sparse semidefinite programs with guaranteed near-linear time complexity via dualized clique tree conversion." Math. Program. 188, 351-393 (2021).
+                Zhang, R.Y., Lavaei, J. "Sparse semidefinite programs with guaranteed near-linear time complexity via dualized clique tree conversion." Mathematical Programming 188, 351-393 (2021).
               </span>
             </div>
             <div class="bib">
