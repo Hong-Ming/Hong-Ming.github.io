@@ -7,5 +7,16 @@ Disallow: /image/
 Disallow: /favicon/
 Disallow: /webfonts/
 Disallow: /resume/
+Disallow: /*.css$
+Disallow: /*.js$
 Disallow: /*.png$
 Disallow: /*.jpg$
+Disallow: /*.pdf$
+Disallow: /*.ico$
+Disallow: /*.eot$
+Disallow: /*.svg$
+Disallow: /*.ttf$
+Disallow: /*.woff$
+Disallow: /*.xml$
+
+
