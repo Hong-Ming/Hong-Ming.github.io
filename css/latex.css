@@ -1,6 +1,41 @@
 body {
   counter-reset: thm lem def exp sec ssec;
 }
+/* section */
+.section {
+  counter-reset: ssec;
+  counter-increment: sec;
+  margin-top: 20px;
+}
+.section[text]:before {
+  content: counter(sec) "\00a0\00a0\00a0\00a0"attr(text);
+  font-size: 1.4em;
+}
+.subsection {
+  counter-increment: ssec;
+  margin-top: 10px;
+}
+.subsection[text]:before {
+  content: counter(sec) "." counter(ssec) "\00a0\00a0\00a0\00a0"attr(text);
+  font-size: 1.2em;
+}
+.appsubsection {
+  counter-increment: ssec;
+  margin-top: 10px;
+}
+.appsubsection[text]:before {
+  content: counter(ssec, upper-alpha) "\00a0\00a0\00a0\00a0"attr(text);
+  font-size: 1.2em;
+}
+.section[text]:before,
+.subsection[text]:before,
+.appsubsection[text]:before{
+  font-family: 'STIX Two Text', serif;
+  font-weight: 700;
+  display: block;
+  text-align: left;
+}
+/* amsthm */
 .theorem {
   counter-increment: thm;
   display: block;
@@ -43,34 +78,6 @@ body {
 .example[text]:before {
   content: "Example " counter(exp) " (" attr(text) "). ";
 }
-.section {
-  counter-reset: ssec;
-  counter-increment: sec;
-  margin: 20px 0 5px 0;
-}
-.section[text]:before {
-  content: counter(sec) "\00a0\00a0\00a0\00a0"attr(text);
-  font-weight: 700;
-  font-size: 30px;
-}
-.subsection {
-  counter-increment: ssec;
-  margin: 10px 0 5px 0;
-}
-.subsection[text]:before {
-  content: counter(sec) "." counter(ssec) "\00a0\00a0\00a0\00a0"attr(text);
-  font-weight: 700;
-  font-size: 24px;
-}
-.appsubsection {
-  counter-increment: ssec;
-  margin: 10px 0 5px 0;
-}
-.appsubsection[text]:before {
-  content: counter(ssec, upper-alpha) "\00a0\00a0\00a0\00a0"attr(text);
-  font-weight: 700;
-  font-size: 24px;
-}
 .proof {
   display: block;
 }
@@ -111,13 +118,12 @@ body {
   content: ")";
 }
 .ref {
-  font: "TeX";
   font-weight: 500;
   color: #DD3403;
 }
 .caption {
   margin: 0 20px 15px 20px;
-  font-size: 16px;
+  font-size: 0.9em;
 }
 .caption[text]:before{
   content: attr(text) ": ";
@@ -175,8 +181,6 @@ body {
 .example:before,
 .definition,
 .proof:before,
-.section,
-.subsection,
 .bib-left
 .cite,
 .eqref,
@@ -184,4 +188,9 @@ body {
   font-family: 'STIX Two Text', serif;
   font-size: 1.05em;
 }
-
+.equpic{
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  margin: 10px 0;
+}
