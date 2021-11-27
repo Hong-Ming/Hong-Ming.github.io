@@ -17,6 +17,5 @@ Disallow: /*.eot$
 Disallow: /*.svg$
 Disallow: /*.ttf$
 Disallow: /*.woff$
-Disallow: /*.xml$
 
 
