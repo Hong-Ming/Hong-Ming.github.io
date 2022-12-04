@@ -62,6 +62,23 @@
     <link rel="stylesheet" href="css/footer.css" />
     <!-- <script src="js/jquery-3.5.1.min.js"></script> -->
     <script src="js/myscript.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+      };
+    </script>
+    <style>
+      .MathJax {
+        font-size: 1em !important;
+      }
+    </style>
   </head>
 
   <body>
@@ -104,9 +121,9 @@
                 <span></span><span id="icon-text">GitHub</span>
               </a>
 
-              <a href="https://www.facebook.com/hmchiu2/" class="icon-button facebook">
-                <i class="fab fa-facebook-f icon-facebook"></i>
-                <span></span><span id="icon-text">Facebook</span>
+              <a href="https://scholar.google.com/citations?user=dMntjT4AAAAJ&hl=en" class="icon-button google-scholar">
+                <i class="fas fa-graduation-cap icon-google-scholar"></i>
+                <span></span><span id="icon-text">Google</span><span id="icon-text-2">Scholar</span>
               </a>
 
               <a href="https://www.linkedin.com/in/hmchiu/" class="icon-button linkedin">
@@ -134,8 +151,8 @@
               <a href="https://ryz.ece.illinois.edu/index.html">Prof. Richard Y. Zhang</a>. He received his Bachelor's Degree in Electronics Engineering from National Chiao Tung University, Hsinchu,
               Taiwan (NCTU). He worked with <a href="https://eenctu.nctu.edu.tw/en/teacher/p1.php?num=145&page=1">Prof. Carrson C. Fung</a> and
               <a href="https://eenctu.nctu.edu.tw/tw/teacher/p1.php?num=108&page=1">Prof. Tian-Sheuan Chang</a> during his undergrads. He is a member of
-              <strong>IEEE-Eta Kappa Nu, Mu Sigma Chapter</strong> and a former member of <strong>IEEE Student Bench at NCTU</strong>. His research interests include <strong>Machine Learning</strong>,
-              <strong>Optimization</strong> and <strong>Graph Learning</strong>.
+              <strong>IEEE-Eta Kappa Nu, Mu Sigma Chapter</strong> and a former member of <strong>IEEE Student Bench at NCTU</strong>. His research interests include
+              <strong>Machine Learning</strong> and <strong>Optimization</strong>.
             </p>
           </div>
         </div>
@@ -145,7 +162,6 @@
           <h1 id="myexp" class="home-head">Experiences</h1>
 
           <div class="timeline-body">
-
             <div class="timeline-item">
               <div class="timeline-date">Aug. 2021 - Present</div>
               <div class="timeline-title"><img class="social-icon" src="image/uiuc_logo.png" />Ph.D. student @ UIUC</div>
@@ -207,6 +223,69 @@
         <div class="publications">
           <h1 id="mypublications" class="home-head">Publications</h1>
           <div class="pub-list">
+            <!-- publication 4 -->
+            <div class="pub">
+              <div class="pub-left">
+                <img class="intro-img" src="image/bm.jpg" />
+              </div>
+              <div class="pub-right">
+                <div class="title">Overcoming the Convex Relaxation Barrier for Neural Network Verification via Nonconvex Low-Rank Semidefinite Relaxations</div>
+                <div class="authors">
+                  <a class="author group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a
+                  >,
+                  <a class="author group-text" href="https://ryz.ece.illinois.edu">Richard Y. Zhang</a>
+                </div>
+                <div class="desc">
+                  <p>
+                    To certify the robustness of neural networks to adversarial perturbations, most state-of-the-art techniques rely on a linear programming (LP) relaxation of the ReLU
+                    activation. Recent results suggest that LP relaxation faces an inherent "convex relaxation barrier". In this paper, we propose a nonconvex relaxation for the ReLU relaxation, based
+                    on a low-rank restriction of a semidefinite programming (SDP) relaxation. We show that the nonconvex relaxation has a similar complexity to the LP relaxation, and can almost completely overcome the "convex
+                    relaxation barrier" faced by the LP relaxation.
+                  </p>
+                </div>
+                <div class="tags">
+                  <span class="group-text">[ <a class="tag" href="https://arxiv.org/abs/2211.17244">PDF</a> ]</span>
+                  <!-- <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/ScaledSGD">Code</a> ]</span> -->
+                </div>
+                <div class="publish">
+                  <span class="publisher">Preprint</span>
+                  <!-- <span class="status">in New Orleans, LA</span> -->
+                  <!-- <span class="place">(Virtual)</span> -->
+                </div>
+              </div>
+            </div>
+            <!-- publication 3 -->
+            <div class="pub">
+              <div class="pub-left">
+                <img class="intro-img" src="image/scaledsgd.jpg" />
+              </div>
+              <div class="pub-right">
+                <div class="title">Accelerating SGD for Highly Ill-Conditioned Huge-Scale Online Matrix Completion</div>
+                <div class="authors">
+                  <a class="author group-text" href="https://jialun-zhang.github.io">Gavin Zhang</a>, <a class="author group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a
+                  >,
+                  <a class="author group-text" href="https://ryz.ece.illinois.edu">Richard Y. Zhang</a>
+                </div>
+                <div class="desc">
+                  <p>
+                    The matrix completion problem seeks to recover a $d \times d$ ground truth matrix of low rank $r \ll d$ from observations of its individual elements. Stochastic gradient descent
+                    (SGD) is one of the few algorithms capable of solving matrix completion on a huge scale. Unfortunately, SGD experiences a dramatic slow-down when the underlying ground truth is
+                    ill-conditioned; it requires at least $O(\kappa \log(1/\epsilon))$ iterations to get $\epsilon$-close to ground truth matrix with condition number $\kappa$. In this paper, we
+                    propose a preconditioned version of SGD that is agnostic to $\kappa$. For a symmetric ground truth and the Root Mean Square Error (RMSE) loss, we prove that the preconditioned SGD
+                    converges in $O(\log(1/\epsilon))$ iterations.
+                  </p>
+                </div>
+                <div class="tags">
+                  <span class="group-text">[ <a class="tag" href="https://arxiv.org/abs/2208.11246">PDF</a> ]</span>
+                  <span class="group-text">[ <a class="tag" href="https://github.com/Hong-Ming/ScaledSGD">Code</a> ]</span>
+                </div>
+                <div class="publish">
+                  <span class="publisher">NeurIPS 2022</span>
+                  <span class="status">in New Orleans, LA</span>
+                  <!-- <span class="place">(Virtual)</span> -->
+                </div>
+              </div>
+            </div>
             <!-- publication 2 -->
             <div class="pub">
               <div class="pub-left">
@@ -330,7 +409,7 @@
             </div>
 
             <!-- project 3 -->
-            <div class="pub">
+            <!-- <div class="pub">
               <div class="pub-left">
                 <img class="intro-img" src="image/mcd.jpg" />
               </div>
@@ -350,7 +429,7 @@
                   <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <!-- project 2 -->
             <div class="pub">
@@ -378,7 +457,7 @@
             </div>
 
             <!-- project 1 -->
-            <div class="pub">
+            <!-- <div class="pub">
               <div class="pub-left">
                 <img class="intro-img" src="image/mmc.jpg" />
               </div>
@@ -398,7 +477,7 @@
                   <a class="contributor group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

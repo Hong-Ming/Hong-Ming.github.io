@@ -129,6 +129,14 @@
   left: 0%;
   top: 40%;
 }
+#icon-text-2 {
+  height: 0rem;
+  width: 3.6rem;
+  margin: 0;
+  font-weight: 400;
+  left: 0%;
+  top: 60%;
+}
 @media (hover: hover) {
   .icon-button:hover span {
     left: 50%;
@@ -143,6 +151,10 @@
 
 .facebook span {
   background-color: #3b5998;
+}
+
+.google-scholar span {
+  background-color: #356ac3;
 }
 
 .linkedin span {
@@ -177,6 +189,10 @@
   color: #3b5998;
 }
 
+.icon-button .icon-google-scholar {
+  color: #356ac3;
+}
+
 .icon-button .icon-github {
   color: #000;
 }
@@ -191,6 +207,7 @@
 @media (hover: hover) {
   .icon-button:hover .icon-twitter,
   .icon-button:hover .icon-facebook,
+  .icon-button:hover .icon-google-scholar,
   .icon-button:hover .icon-github,
   .icon-button:hover .icon-linkedin,
   .icon-button:hover .icon-resume {
