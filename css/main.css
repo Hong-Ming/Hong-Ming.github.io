@@ -127,7 +127,7 @@ a {
   .bio {
     max-width: -webkit-calc(100% - (30px / 2));
     max-width: calc(100% - (30px / 2));
-    text-align: left;
+    /* text-align: left; */
   }
   .sitemap-head {
     font-size: 18px;
