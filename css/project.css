@@ -16,21 +16,34 @@
     margin: 30px auto 0;
 }
 
-.pub-right>.contribute{
-    float: right;
-    font-size: 18px;
-    font-weight: 700
+.selected-projects .pub-right > .desc > p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    text-align: left;
 }
 
-.pub-right>.contribute>.contributor {
+.selected-projects .contribute {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #59564f;
+}
+
+.selected-projects .contributor {
     color: #1758a9;
-    font-weight: 400
+    font-weight: 400;
+}
+
+.selected-projects .contributor strong {
+    font-weight: 700;
 }
 
 @media screen and (max-width: 600px) {
-    .pub-right>.contribute{
+    .selected-projects .pub-right > .desc > p {
         font-size: 16px;
-        float: left;
-        width: 100%;
     }
-  }
+    .selected-projects .contribute {
+        font-size: 15px;
+    }
+}

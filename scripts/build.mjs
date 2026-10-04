@@ -30,11 +30,11 @@ function render(source, pageName, collections) {
   const withEntries = html.replace(/^([ \t]*)<!-- entries: ([\w-]+) -->[ \t]*$/gm, (_, indent, name) =>
     renderEntries(collections, name).split('\n').map((line) => line ? indent + line : line).join('\n')
   );
-  // Preserve the original homepage click handlers independently of the preview
-  // URL. Other pages need links back to the homepage's sections.
+  // Give crawlers and JavaScript-disabled browsers real section destinations.
+  // Keep the homepage's animation without a competing native anchor jump.
   return withEntries.replace(/\{\{ section-link: (myhom|mybio|myexp|mypublications) \}\}/g, (_, id) =>
     pageName === 'index.html'
-      ? `onclick="SmoothScrollToAnchorFix('${id}')"`
+      ? `href="#${id}" onclick="SmoothScrollToAnchorFix('${id}'); return false;"`
       : `href="/#${id}"`
   );
 }

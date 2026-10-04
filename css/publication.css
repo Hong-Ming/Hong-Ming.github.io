@@ -93,12 +93,12 @@
     }
 }
 
-/* Publication-only presentation; projects keep the shared entry styles above. */
-.publications .pub-list {
+/* Shared entry layout for publications and projects. */
+.entry-list {
     overflow: visible;
 }
 
-.publications .pub {
+.entry-list .pub {
     width: 100%;
     margin: 0;
     padding: 20px 0;
@@ -106,21 +106,21 @@
     overflow: visible;
 }
 
-.publications .pub:last-child {
+.entry-list .pub:last-child {
     border-bottom: 0;
 }
 
-.publications .pub:first-child {
+.entry-list .pub:first-child {
     padding-top: 0;
 }
 
-.publications .pub-right {
+.entry-list .pub-right {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.publications .pub-right > .title {
+.entry-list .pub-right > .title {
     font-size: 20px;
     font-weight: 700;
     line-height: 1.4;
@@ -138,7 +138,7 @@
 }
 
 .publications .pub-right > .publish,
-.publications .pub-right > .tags {
+.entry-list .pub-right > .tags {
     float: none;
     width: auto;
     font-size: 15px;
@@ -168,7 +168,7 @@
     font-style: italic;
 }
 
-.publications .tags .group-text + .group-text {
+.entry-list .tags .group-text + .group-text {
     margin-left: 8px;
 }
 
@@ -178,17 +178,17 @@
         max-width: calc(100% - 15px);
         margin-top: 48px;
     }
-    .publications .pub {
+    .entry-list .pub {
         padding: 18px 0;
     }
-    .publications .pub-right > .title {
+    .entry-list .pub-right > .title {
         font-size: 18px;
     }
     .publications .authors {
         font-size: 15px;
     }
     .publications .pub-right > .publish,
-    .publications .pub-right > .tags {
+    .entry-list .pub-right > .tags {
         font-size: 14px;
     }
 }

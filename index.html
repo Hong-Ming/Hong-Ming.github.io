@@ -100,10 +100,10 @@
     <div class="dropdown">
       <button class="dropbtn" type="button" onclick="topnavFunction()" aria-label="Toggle navigation" aria-controls="myDropdown" aria-expanded="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
       <div class="dropdown-content" id="myDropdown">
-        <a onclick="SmoothScrollToAnchorFix('myhom')">Home</a>
-        <a onclick="SmoothScrollToAnchorFix('mybio')">Biography</a>
-        <a onclick="SmoothScrollToAnchorFix('mypublications')">Publications</a>
-        <a onclick="SmoothScrollToAnchorFix('myexp')">Experiences</a>
+        <a href="#myhom" onclick="SmoothScrollToAnchorFix('myhom'); return false;">Home</a>
+        <a href="#mybio" onclick="SmoothScrollToAnchorFix('mybio'); return false;">Biography</a>
+        <a href="#mypublications" onclick="SmoothScrollToAnchorFix('mypublications'); return false;">Publications</a>
+        <a href="#myexp" onclick="SmoothScrollToAnchorFix('myexp'); return false;">Experiences</a>
         <a href="/projects/">Projects</a>
         <a href="/posts/" id="lastnav">Posts</a>
       </div>
@@ -171,12 +171,12 @@
       <!-- Publications -->
       <div class="publications">
         <h1 id="mypublications" class="home-head">Publications</h1>
-        <div class="pub-list">
+        <div class="pub-list entry-list">
 
           <div class="pub">
             <div class="pub-right">
               <div class="title">SDP-CROWN: Efficient Bound Propagation for Neural Network Verification with Tightness of Semidefinite Programming</div>
-              <div class="authors"><a class="author group-text" href="http://hong-ming.github.io"><strong>Hong-Ming Chiu</strong></a>, <a class="author group-text" href="javascript:void(0)">Hao Chen</a>, <a class="author group-text" href="https://www.huan-zhang.com">Huan Zhang</a>, <a class="author group-text" href="https://ryz.ece.illinois.edu">Richard Y. Zhang</a></div>
+              <div class="authors"><a class="author group-text" href="http://hong-ming.github.io"><strong>Hong-Ming Chiu</strong></a>, <span class="author group-text">Hao Chen</span>, <a class="author group-text" href="https://www.huan-zhang.com">Huan Zhang</a>, <a class="author group-text" href="https://ryz.ece.illinois.edu">Richard Y. Zhang</a></div>
               <div class="publish"><span class="publisher">ICML 2025</span><span class="publication-separator" aria-hidden="true"> · </span><span class="status">Vancouver, Canada</span></div>
               <div class="publication-highlight">Selected for spotlight (one of 313/12107 submissions)</div>
               <div class="tags">
@@ -247,7 +247,7 @@
           <div class="pub">
             <div class="pub-right">
               <div class="title">Run Time Adaptive Network Slimming for Mobile Environments</div>
-              <div class="authors"><a class="author group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a>, <a class="author group-text" href="javascript:void(0)">Kuan-Chih Lin</a>, <a class="author group-text" href="https://vsplab.lab.nycu.edu.tw/advisor.html">Tian-Sheuan Chang</a></div>
+              <div class="authors"><a class="author group-text" href="http://hong-ming.github.io/"><strong>Hong-Ming Chiu</strong></a>, <span class="author group-text">Kuan-Chih Lin</span>, <a class="author group-text" href="https://vsplab.lab.nycu.edu.tw/advisor.html">Tian-Sheuan Chang</a></div>
               <div class="publish"><span class="publisher">ISCAS 2019</span><span class="publication-separator" aria-hidden="true"> · </span><span class="status">Sapporo, Japan</span></div>
               <div class="tags">
               <span class="group-text">[ <a class="tag" href="https://ieeexplore.ieee.org/document/8701884">Paper</a> ]</span>
@@ -338,7 +338,7 @@
     </div>
     <div class="myfooter">
       <div class="foot-left">
-        <a href="javascript:void(0)" class="ficon-button femail"> <i class="fas fa-envelope icon-email"></i><span></span><span id="foot-icon-text">Email</span></a>
+        <span class="ficon-button femail"> <i class="fas fa-envelope icon-email" aria-hidden="true"></i><span></span><span id="foot-icon-text">Email</span></span>
 
         <a href="https://github.com/Hong-Ming" class="ficon-button fgithub" aria-label="GitHub"> <i class="fab fa-github icon-github" aria-hidden="true"></i><span></span><span id="foot-icon-text">GitHub</span></a>
 
