@@ -1,6 +1,6 @@
 .myfooter {
   bottom: 0;
-  min-height: 100px;
+  min-height: 80px;
   margin-top: 0px;
   background-color: #2e2d29;
   color: #f9f9f9;
@@ -99,6 +99,18 @@
   background-color: #0077b5;
 }
 
+.fgoogle-scholar span {
+  background-color: #4285f4;
+}
+
+.fresume span {
+  background-color: #000000;
+}
+
+.fgithub span {
+  background-color: #333333;
+}
+
 .ftwitter span {
   background-color: #4099ff;
 }
@@ -150,6 +162,18 @@
   color: #0077b5;
 }
 
+.ficon-button .icon-google-scholar {
+  color: #4285f4;
+}
+
+.ficon-button .icon-resume {
+  color: #000000;
+}
+
+.ficon-button .icon-github {
+  color: #333333;
+}
+
 .ficon-button .icon-sitemap {
   color: #fd7e15;
   font-size: 1.2rem;
@@ -161,6 +185,9 @@
   .ficon-button:hover .icon-facebook,
   .ficon-button:hover .icon-instagram,
   .ficon-button:hover .icon-linkedin,
+  .ficon-button:hover .icon-google-scholar,
+  .ficon-button:hover .icon-resume,
+  .ficon-button:hover .icon-github,
   .ficon-button:hover .icon-sitemap {
     color: white;
     -webkit-text-fill-color: white;

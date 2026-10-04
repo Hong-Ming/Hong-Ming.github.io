@@ -1,15 +1,17 @@
 function topnavFunction() {
   var element = document.getElementById("myDropdown");
   element.classList.toggle("show");
+  document.querySelector(".dropbtn").setAttribute("aria-expanded", element.classList.contains("show"));
 }
-window.onclick = function (e) {
-  if (!e.target.matches(".dropbtn")) {
+window.addEventListener("click", function (e) {
+  if (!e.target.closest(".dropbtn")) {
     var myDropdown = document.getElementById("myDropdown");
-    if (myDropdown.classList.contains("show")) {
+    if (myDropdown && myDropdown.classList.contains("show")) {
       myDropdown.classList.remove("show");
+      document.querySelector(".dropbtn").setAttribute("aria-expanded", "false");
     }
   }
-};
+});
 
 var Aid = null;
 var Offset;
@@ -54,7 +56,7 @@ function SmoothScrollToTop() {
 }
 function SmoothScroll() {
   if (TopOffset > 0) {
-    ScrollAmt = Math.min(TopOffset, Offset);
+    var ScrollAmt = Math.min(TopOffset, Offset);
     window.scrollTo(0, TopOffset-ScrollAmt);
     TopOffset = TopOffset - ScrollAmt;
     Aid = requestAnimationFrame(SmoothScroll);
