@@ -1,3 +1,15 @@
+.projects-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 45px 0 0;
+}
+
+@media screen and (max-width: 960px) {
+    .projects-wrapper {
+        max-width: calc(100% - 30px);
+    }
+}
+
 .selected-projects {
     max-width: -webkit-calc(100% - (30px / 2));
     max-width: calc(100% - (30px / 2));

@@ -1,0 +1,228 @@
+[
+  {
+    "id": "sdp-crown",
+    "enabled": true,
+    "title": "SDP-CROWN: Efficient Bound Propagation for Neural Network Verification with Tightness of Semidefinite Programming",
+    "authors": [
+      {
+        "name": "Hong-Ming Chiu",
+        "url": "http://hong-ming.github.io",
+        "bold": true
+      },
+      {
+        "name": "Hao Chen",
+        "url": "javascript:void(0)"
+      },
+      {
+        "name": "Huan Zhang",
+        "url": "https://www.huan-zhang.com"
+      },
+      {
+        "name": "Richard Y. Zhang",
+        "url": "https://ryz.ece.illinois.edu"
+      }
+    ],
+    "highlight": "Selected for spotlight (one of 313/12107 submissions)",
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/pdf/2506.06665"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/Hong-Ming/SDP-CROWN"
+      }
+    ],
+    "venue": {
+      "name": "ICML 2025",
+      "location": "in Vancouver, Canada"
+    }
+  },
+  {
+    "id": "low-rank-ipm",
+    "enabled": true,
+    "title": "Well-conditioned Primal-Dual Interior-point Method for Accurate Low-rank Semidefinite Programming",
+    "authors": [
+      {
+        "name": "Hong-Ming Chiu",
+        "url": "http://hong-ming.github.io",
+        "bold": true
+      },
+      {
+        "name": "Richard Y. Zhang",
+        "url": "https://ryz.ece.illinois.edu"
+      }
+    ],
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2407.14013"
+      }
+    ],
+    "venue": {
+      "name": "Preprint"
+    }
+  },
+  {
+    "id": "preconditioned-gradient-descent",
+    "enabled": true,
+    "title": "Fast and Accurate Estimation of Low-Rank Matrices from Noisy Measurements via Preconditioned Non-Convex Gradient Descent",
+    "authors": [
+      {
+        "name": "Gavin Zhang",
+        "url": "https://jialun-zhang.github.io"
+      },
+      {
+        "name": "Hong-Ming Chiu",
+        "url": "http://hong-ming.github.io/",
+        "bold": true
+      },
+      {
+        "name": "Richard Y. Zhang",
+        "url": "https://ryz.ece.illinois.edu"
+      }
+    ],
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2305.17224"
+      }
+    ],
+    "venue": {
+      "name": "AISTATS 2024",
+      "location": "in Valencia, Spain"
+    }
+  },
+  {
+    "id": "bm-r",
+    "enabled": true,
+    "title": "Tight Certification of Adversarially Trained Neural Networks via Nonconvex Low-Rank Semidefinite Relaxations",
+    "authors": [
+      {
+        "name": "Hong-Ming Chiu",
+        "url": "http://hong-ming.github.io/",
+        "bold": true
+      },
+      {
+        "name": "Richard Y. Zhang",
+        "url": "https://ryz.ece.illinois.edu"
+      }
+    ],
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2211.17244"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/Hong-Ming/BM-r"
+      }
+    ],
+    "venue": {
+      "name": "ICML 2023",
+      "location": "in Honolulu, HI"
+    }
+  },
+  {
+    "id": "scaled-sgd",
+    "enabled": true,
+    "title": "Accelerating SGD for Highly Ill-Conditioned Huge-Scale Online Matrix Completion",
+    "authors": [
+      {
+        "name": "Gavin Zhang",
+        "url": "https://jialun-zhang.github.io"
+      },
+      {
+        "name": "Hong-Ming Chiu",
+        "url": "http://hong-ming.github.io/",
+        "bold": true
+      },
+      {
+        "name": "Richard Y. Zhang",
+        "url": "https://ryz.ece.illinois.edu"
+      }
+    ],
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://arxiv.org/abs/2208.11246"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/Hong-Ming/ScaledSGD"
+      }
+    ],
+    "venue": {
+      "name": "NeurIPS 2022",
+      "location": "in New Orleans, LA"
+    }
+  },
+  {
+    "id": "gla",
+    "enabled": true,
+    "title": "Graph Learning and Augmentation Based Interpolation of Signal Strength for Location-Aware Communications",
+    "authors": [
+      {
+        "name": "Hong-Ming Chiu",
+        "url": "http://hong-ming.github.io/",
+        "bold": true
+      },
+      {
+        "name": "Carrson C. Fung",
+        "url": "https://mcube.lab.nycu.edu.tw/~cfung/"
+      },
+      {
+        "name": "Antonio Ortega",
+        "url": "https://viterbi.usc.edu/directory/faculty/Ortega/Antonio"
+      }
+    ],
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://ieeexplore.ieee.org/document/9287685"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/Hong-Ming/GLA_Interpolator"
+      }
+    ],
+    "venue": {
+      "name": "EUSIPCO 2020",
+      "location": "in Amsterdam, NL"
+    }
+  },
+  {
+    "id": "adaptive-network-slimming",
+    "enabled": true,
+    "title": "Run Time Adaptive Network Slimming for Mobile Environments",
+    "authors": [
+      {
+        "name": "Hong-Ming Chiu",
+        "url": "http://hong-ming.github.io/",
+        "bold": true
+      },
+      {
+        "name": "Kuan-Chih Lin",
+        "url": "javascript:void(0)"
+      },
+      {
+        "name": "Tian Sheuan Chang",
+        "url": "https://vsplab.lab.nycu.edu.tw/advisor.html"
+      }
+    ],
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://ieeexplore.ieee.org/document/8701884"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/Hong-Ming/Adaptive_Network_Slimming"
+      }
+    ],
+    "venue": {
+      "name": "ISCAS 2019",
+      "location": "in Sapporo, Japan"
+    }
+  }
+]

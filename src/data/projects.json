@@ -1,0 +1,113 @@
+[
+  {
+    "id": "fpga-oscilloscope",
+    "enabled": true,
+    "title": "Building Oscilloscope on FPGA",
+    "descriptionHtml": "We built a simple oscilloscope using <a href=\"https://reference.digilentinc.com/reference/programmable-logic/nexys-4-ddr/start\">Nexys 4 DDR board</a> and PCB. First, the PCB transforms the input voltage signal into a signal with an acceptable voltage range for the FPGA board input, as well as generating knobs' control signal. The FPGA board then takes the processed signal and control signal to display waveforms, change voltage scale, adjust sweep time, etc. This work is the final project of the Digital Laboratory class at NYCU.",
+    "links": [
+      {
+        "label": "Code",
+        "url": "https://github.com/Hong-Ming/FPGA_Oscilloscope"
+      },
+      {
+        "label": "Video",
+        "url": "https://www.youtube.com/watch?v=sgIzcKYEROs&feature=youtu.be&ab_channel=AlexLi"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "Hong-Ming Chiu",
+        "url": "http://hong-ming.github.io/",
+        "bold": true
+      },
+      {
+        "name": "Huan-Jung Lee",
+        "url": "javascript:void(0)"
+      }
+    ]
+  },
+  {
+    "id": "graph-learning",
+    "enabled": true,
+    "title": "Graph Learning: Causal Graph Process (CGP) & Sparse Vector Autoregressive model (SVAR)",
+    "descriptionHtml": "This work contains the impelmentation and comparison of two graph learning algorithms, <a href=\"https://ieeexplore.ieee.org/document/7763882\"> Causal Graph Process (CGP) </a> and <a href=\"https://arxiv.org/abs/1207.0520\">Sparse Vector Autoregressive model (SVAR)</a>. These two graph learning methods can be used to derive the graph representation among a large number of unstructured time series data, and then make predictions on the future data.",
+    "links": [
+      {
+        "label": "Code",
+        "url": "https://github.com/Hong-Ming/CGP_and_SVAR"
+      },
+      {
+        "label": "Slides",
+        "url": "https://github.com/Hong-Ming/CGP_and_SVAR/blob/main/Slides/cgp_and_svar.pdf"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "Hong-Ming Chiu",
+        "url": "http://hong-ming.github.io/",
+        "bold": true
+      }
+    ]
+  },
+  {
+    "id": "model-change-detection",
+    "enabled": true,
+    "title": "Model Change Detection System",
+    "descriptionHtml": "This is a demo for the model change detection system on a landmine dataset. The model change detection system utilized KL-divergence and machine learning algorithms to classify landmines data collected from different surface conditions. This demo is built during the independent study in UIUC.",
+    "links": [
+      {
+        "label": "Code",
+        "url": "https://github.com/Hong-Ming/Model_Change_Detection"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "Hong-Ming Chiu",
+        "url": "http://hong-ming.github.io/",
+        "bold": true
+      }
+    ]
+  },
+  {
+    "id": "huffman-coding",
+    "enabled": true,
+    "title": "Huffman Coding Hardware",
+    "descriptionHtml": "Implemented 8-bit Huffman coding algorithm using System Verilog. The system takes an image as an input, the image contains 100 pixels and each pixel value is an integer between 1 to 6 (inclusive). The system then outputs the Huffman Code for each pixel value based on the source probability distribution (more frequent pixel values will have the shorter codewords). This is the final project of the Digital Circuit and Systems class in NYCU.",
+    "links": [
+      {
+        "label": "Code",
+        "url": "https://github.com/Hong-Ming/Huffman_Codeing_IC"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "Hong-Ming Chiu",
+        "url": "http://hong-ming.github.io/",
+        "bold": true
+      },
+      {
+        "name": "Huan-Jung Lee",
+        "url": "javascript:void(0)"
+      }
+    ]
+  },
+  {
+    "id": "minimum-mean-cycle",
+    "enabled": true,
+    "title": "Minimum Mean Cycle Problem",
+    "descriptionHtml": "Designed an algorithm for finding the Minimum Mean Cycle in a weighted directed graph using dynamic programming. This algorithm is an extension of the Bellman-Ford algorithm for computing single source shortest paths, and it is capable of finding the minimum mean cycle in polynomial time. This is the final project of the Advanced Algorithm class in NCTU.",
+    "links": [
+      {
+        "label": "Code",
+        "url": "https://github.com/Hong-Ming/Minimum_Mean_Cycle"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "Hong-Ming Chiu",
+        "url": "http://hong-ming.github.io/",
+        "bold": true
+      }
+    ]
+  }
+]

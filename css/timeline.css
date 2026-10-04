@@ -7,8 +7,10 @@
 
 .timeline-brief,
 .timeline {
-    max-width: -webkit-calc(100% - (30px / 2));
-    max-width: calc(100% - (30px / 2));
+    /* max-width: -webkit-calc(100% - (30px / 2));
+    max-width: calc(100% - (30px / 2)); */
+    max-width: -webkit-calc(85% - (30px / 2));
+    max-width: calc(85% - (30px / 2));
     margin: 30px auto 0;
     font-size: 20px;
     font-weight: 400;

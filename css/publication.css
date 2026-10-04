@@ -1,7 +1,6 @@
 .publications {
-    max-width: -webkit-calc(100% - (30px / 2));
-    max-width: calc(100% - (30px / 2));
-    margin: 30px auto 0;
+    max-width: calc(80% - (30px / 2));
+    margin: 50px auto 0;
 }
 
 .pub-list {
@@ -9,51 +8,17 @@
 }
 
 .pub {
-    border-top: thin solid #c0c0c0;
-    margin-bottom: 30px;
-    padding-top: 15px;
+    border-bottom: thin solid #c0c0c0;
+    margin-bottom: 15px;
+    /* padding-top: 15px; */
     overflow: auto
 }
 
-.pub-left {
-    float: left;
-    width: -webkit-calc(40% - (30px / 2));
-    width: calc(40% - (30px / 2));
-    text-align: center;
-    margin: 0 auto;
-}
-
-.pub-left>.intro-img {
-    width: 95%;
-    border-style: solid;
-    border-color: #9b3022;
-    margin: 0 auto;
-}
-
 .pub-right {
-    float: right;
-    width: -webkit-calc(60% - (30px / 2));
-    width: calc(60% - (30px / 2));
+    float: none;
+    width: 100%;
     margin: 0 auto;
-    padding-right: 1%;
-}
-
-@media screen and (max-width: 900px) {
-    .pub-left,
-    .pub-right {
-        float: none;
-        margin-left: auto;
-        margin-right: auto;
-        width: -webkit-calc(100% - (30px / 2));
-        width: calc(100% - (30px / 2));
-        padding-right: 0;
-    }
-    .pub-left{
-        margin-bottom: 10px;
-    }
-    .pub-left>.intro-img {
-        max-width: 350px;
-    }
+    padding-right: 0;
 }
 
 @media screen and (max-width: 600px) {
@@ -125,5 +90,104 @@
     .pub-right>.publish {
         float: left;
         width: 100%;
+    }
+}
+
+/* Publication-only presentation; projects keep the shared entry styles above. */
+.publications .pub-list {
+    overflow: visible;
+}
+
+.publications .pub {
+    width: 100%;
+    margin: 0;
+    padding: 20px 0;
+    border-bottom: 1px solid #dedbd3;
+    overflow: visible;
+}
+
+.publications .pub:last-child {
+    border-bottom: 0;
+}
+
+.publications .pub:first-child {
+    padding-top: 0;
+}
+
+.publications .pub-right {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.publications .pub-right > .title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.publications .authors {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #59564f;
+}
+
+.publications .author strong {
+    font-weight: 700;
+}
+
+.publications .pub-right > .publish,
+.publications .pub-right > .tags {
+    float: none;
+    width: auto;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.publications .pub-right > .publish > .publisher {
+    font-weight: 500;
+    color: #59564f;
+}
+
+.publications .pub-right > .publish > .status,
+.publications .pub-right > .publish > .place {
+    display: inline;
+    font-weight: 400;
+    color: #59564f;
+}
+
+.publications .publication-separator {
+    color: #8a867d;
+}
+
+.publications .publication-highlight {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #9b3022;
+    font-style: italic;
+}
+
+.publications .tags .group-text + .group-text {
+    margin-left: 8px;
+}
+
+@media screen and (max-width: 600px) {
+    .publications {
+        max-width: 100%;
+        margin-top: 48px;
+    }
+    .publications .pub {
+        padding: 18px 0;
+    }
+    .publications .pub-right > .title {
+        font-size: 18px;
+    }
+    .publications .authors {
+        font-size: 15px;
+    }
+    .publications .pub-right > .publish,
+    .publications .pub-right > .tags {
+        font-size: 14px;
     }
 }
