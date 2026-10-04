@@ -24,7 +24,7 @@ figure {
 
 body {
   z-index: initial;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Roboto Fallback", Arial, sans-serif;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;

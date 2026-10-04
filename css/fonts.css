@@ -1,0 +1,59 @@
+/* Roboto variable, Latin subset, from @fontsource-variable/roboto 5.3.0.
+ * License: ../webfonts/Roboto-LICENSE.txt.
+ * Arial width adjustments use the biography text and the Mac Arial fonts.
+ * Recalculate them if the font file changes; wrapping can still vary by device.
+ */
+@font-face {
+  font-family: "Roboto";
+  src: url("../webfonts/roboto-latin-variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  ascent-override: 92.7734%;
+  descent-override: 24.4141%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Roboto Fallback";
+  src: local("Arial"), local("ArialMT");
+  font-style: normal;
+  font-weight: 300;
+  size-adjust: 97.0219%;
+  ascent-override: 95.6212%;
+  descent-override: 25.1635%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Roboto Fallback";
+  src: local("Arial"), local("ArialMT");
+  font-style: normal;
+  font-weight: 400;
+  size-adjust: 98.4513%;
+  ascent-override: 94.2328%;
+  descent-override: 24.7981%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Roboto Fallback";
+  src: local("Arial"), local("ArialMT");
+  font-style: normal;
+  font-weight: 500;
+  size-adjust: 99.3673%;
+  ascent-override: 93.3641%;
+  descent-override: 24.5695%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Roboto Fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT");
+  font-style: normal;
+  font-weight: 700;
+  size-adjust: 93.9671%;
+  ascent-override: 98.7297%;
+  descent-override: 25.9815%;
+  line-gap-override: 0%;
+}
