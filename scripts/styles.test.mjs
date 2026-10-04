@@ -6,6 +6,7 @@ import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn, spawnSync } from 'node:child_process';
 import { inlineStyles } from './styles.mjs';
+import sharp from 'sharp';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -62,11 +63,11 @@ test('uses fresh generated CSS and fails on missing or malformed stylesheet inpu
   }
 });
 
-test('check and watch rebuild generated HTML when CSS sources change without a rebuild loop', async () => {
+test('check and watch rebuild when CSS or original images change without a rebuild loop', async () => {
   const fixture = mkdtempSync(join(tmpdir(), 'inline-build-'));
   let watcher;
   try {
-    for (const name of ['src', 'scripts', 'css', 'webfonts']) {
+    for (const name of ['src', 'scripts', 'css', 'webfonts', 'image']) {
       cpSync(join(root, name), join(fixture, name), { recursive: true });
     }
     symlinkSync(join(root, 'node_modules'), join(fixture, 'node_modules'), 'dir');
@@ -97,6 +98,14 @@ test('check and watch rebuild generated HTML when CSS sources change without a r
     await waitFor(() => readFileSync(join(fixture, 'index.html'), 'utf8').includes('.watch-proof{color:#00f}'));
     await new Promise((resolve) => setTimeout(resolve, 1200));
     assert.equal((output.match(/Built 7 pages/g) ?? []).length, 2, output);
+    assert.equal(run('--check').status, 0);
+    const photo = join(fixture, 'image/myphoto.jpg');
+    const generatedPhoto = join(fixture, 'image/generated/myphoto-168.webp');
+    const before = readFileSync(generatedPhoto);
+    writeFileSync(photo, await sharp(readFileSync(photo)).jpeg({ quality: 60 }).toBuffer());
+    await waitFor(() => !readFileSync(generatedPhoto).equals(before));
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+    assert.equal((output.match(/Built 7 pages/g) ?? []).length, 3, output);
     assert.equal(run('--check').status, 0);
   } finally {
     if (watcher && watcher.exitCode === null) {

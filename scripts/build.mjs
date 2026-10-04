@@ -5,6 +5,7 @@ import { loadEntries, renderEntries } from './entries.mjs';
 import { fontAwesomeInputs, renderFontAwesome } from './fontawesome.mjs';
 import { renderFontAwesomeFonts } from './fontawesome-fonts.mjs';
 import { inlineStyles } from './styles.mjs';
+import { imageInputs, renderResponsiveImages, renderImageAttributes } from './images.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const pagesDir = join(root, 'src/pages');
@@ -42,10 +43,12 @@ function render(source, pageName, collections) {
 
 async function build() {
   const collections = loadEntries(root);
+  const responsive = await renderResponsiveImages(root);
   // Render all sources before writing so a missing include cannot cause a partial build.
   const pages = pageFiles(pagesDir).map((source) => {
     const name = relative(pagesDir, source);
-    const html = render(readFileSync(source, 'utf8'), name, collections);
+    const html = render(readFileSync(source, 'utf8'), name, collections)
+      .replace(/\{\{ image: ([\w-]+) \}\}/g, (_, key) => renderImageAttributes(responsive.images, key));
     if (html.includes('<!-- include:') || html.includes('<!-- entries:')) throw new Error(`Unresolved build directive in ${name}`);
     return { name, html, destination: join(root, name) };
   });
@@ -58,7 +61,7 @@ async function build() {
       + inlineStyles(root, page, generatedStyles);
   }
   const stale = [];
-  for (const { name, output, destination } of [...pages, icons, ...fonts]) {
+  for (const { name, output, destination } of [...pages, icons, ...fonts, ...responsive.assets]) {
     if (checkOnly) {
       let current;
       try { current = readFileSync(destination); } catch (error) {
@@ -74,6 +77,7 @@ async function build() {
   const originalBytes = fonts.reduce((sum, font) => sum + font.originalBytes, 0);
   const subsetBytes = fonts.reduce((sum, font) => sum + font.output.length, 0);
   console.log(`${checkOnly ? 'Checked' : 'Built'} ${pages.length} pages with inline CSS and Font Awesome CSS (${icons.iconCount}/${icons.totalIconCount} icons); ${fonts.length} icon fonts: ${originalBytes} → ${subsetBytes} bytes.`);
+  console.log(`Responsive images: ${responsive.assets.length} variants from ${responsive.images.length} originals.`);
 }
 
 try {
@@ -91,7 +95,7 @@ if (process.argv.includes('--watch') && !checkOnly) {
       .map((name) => join(root, 'css', name));
     // Exclude generated CSS to avoid rebuilding in response to our own output.
     const inputs = [...new Set([...pageFiles(join(root, 'src'), true), ...css,
-      ...fontAwesomeInputs.map((path) => join(root, path))])].sort();
+      ...fontAwesomeInputs.map((path) => join(root, path)), ...imageInputs.map((path) => join(root, path))])].sort();
     return JSON.stringify(inputs.map((path) => {
       const { mtimeMs, ctimeMs, size } = statSync(path);
       return [path, mtimeMs, ctimeMs, size];
@@ -114,5 +118,5 @@ if (process.argv.includes('--watch') && !checkOnly) {
       building = false;
     }
   }, 500);
-  console.log('Watching src/, css/ sources, and Font Awesome font inputs for changes. Press Ctrl+C to stop.');
+  console.log('Watching src/, css/ sources, original images, and Font Awesome font inputs for changes. Press Ctrl+C to stop.');
 }

@@ -99,8 +99,9 @@ test('build includes new icons from shared HTML and JSON; check detects stale CS
   try {
     cpSync(join(root, 'src'), join(fixture, 'src'), { recursive: true });
     mkdirSync(join(fixture, 'scripts'));
-    for (const file of ['build.mjs', 'entries.mjs', 'fontawesome.mjs', 'fontawesome-fonts.mjs', 'styles.mjs']) cpSync(join(root, 'scripts', file), join(fixture, 'scripts', file));
+    for (const file of ['build.mjs', 'entries.mjs', 'fontawesome.mjs', 'fontawesome-fonts.mjs', 'styles.mjs', 'images.mjs']) cpSync(join(root, 'scripts', file), join(fixture, 'scripts', file));
     cpSync(join(root, 'css'), join(fixture, 'css'), { recursive: true });
+    cpSync(join(root, 'image'), join(fixture, 'image'), { recursive: true });
     symlinkSync(join(root, 'node_modules'), join(fixture, 'node_modules'), 'dir');
     for (const file of fontAwesomeInputs) {
       mkdirSync(dirname(join(fixture, file)), { recursive: true });

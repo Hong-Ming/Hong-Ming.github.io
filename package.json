@@ -8,13 +8,14 @@
     "test": "node --test scripts/*.test.mjs"
   },
   "engines": {
-    "node": ">=18"
+    "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
   },
   "devDependencies": {
     "clean-css": "5.3.3",
     "fontverter": "2.0.0",
     "harfbuzzjs": "1.6.2",
     "parse5": "7.3.0",
+    "sharp": "0.34.5",
     "subset-font": "2.9.0"
   }
 }
