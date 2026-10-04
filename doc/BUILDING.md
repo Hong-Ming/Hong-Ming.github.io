@@ -23,6 +23,20 @@ order, responsive rules, font metrics, and license banners, and adjusts font
 and image URLs for each page's directory. External stylesheet links remain
 external. `myscript.js` uses `defer` in the source templates.
 
+Google Analytics is installed directly on each page using `G-N4LXQ0S6MC`.
+
+To render LaTeX equations on a page, put this marker on its own line inside
+that page's `<head>` in `src/pages/` and rebuild:
+
+```html
+<!-- mathjax: enabled -->
+```
+
+The build expands the marker using `src/includes/mathjax.html`, with the
+configuration before the loading script. The chordal-SDP post enables it;
+the homepage currently does not download MathJax. The marker supports the
+existing `$...$`, `\(...\)`, `$$...$$`, and `\[...\]` equation delimiters.
+
 Keep editing the original CSS and source HTML. Rebuild before publishing and
 include the generated HTML, `css/fontawesome-subset.css`, subset fonts, and `image/generated/` in
 your changes. Editing generated HTML directly will be overwritten next build.

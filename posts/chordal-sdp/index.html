@@ -42,7 +42,6 @@
     <style data-source="/css/latex.css">body{counter-reset:thm lem def exp sec ssec}.section{counter-reset:ssec;counter-increment:sec;margin-top:20px}.section[text]:before{content:counter(sec) "\00a0\00a0\00a0\00a0"attr(text);font-size:1.4em}.subsection{counter-increment:ssec;margin-top:10px}.subsection[text]:before{content:counter(sec) "." counter(ssec) "\00a0\00a0\00a0\00a0"attr(text);font-size:1.2em}.appsubsection{counter-increment:ssec;margin-top:10px}.appsubsection[text]:before{content:counter(ssec,upper-alpha) "\00a0\00a0\00a0\00a0"attr(text);font-size:1.2em}.section[text]:before,.subsection[text]:before,.appsubsection[text]:before{font-family:'STIX Two Text',serif;font-weight:700;display:block;text-align:left}.theorem{counter-increment:thm;display:block;font-style:italic}.theorem:before{content:"Theorem " counter(thm) "."}.theorem[text]:before{content:"Theorem " counter(thm) " (" attr(text) "). "}.lemma{counter-increment:lem;display:block;font-style:italic}.lemma:before{content:"Lemma " counter(lem) "."}.lemma[text]:before{content:"Lemma " counter(lem) " (" attr(text) "). "}.definition{counter-increment:def;display:block}.definition:before{content:"Definition " counter(def) "."}.definition[text]:before{content:"Definition " counter(def) " (" attr(text) "). "}.example{counter-increment:exp;display:block}.example:before{content:"Example " counter(exp) ". "}.example[text]:before{content:"Example " counter(exp) " (" attr(text) "). "}.proof{display:block}.proof:before{content:"Proof.\00a0\00a0";font-style:italic}.qed{display:block;text-align:right}.cite{font-weight:500;color:#1e3877}.cite:before{font-weight:400;color:#000;content:"["}.cite:after{font-weight:400;color:#000;content:"]"}.eqref{font-weight:500;color:#1e3877}.eqref:before{font-weight:400;color:#000;content:"("}.eqref:after{font-weight:400;color:#000;content:")"}.ref{font-weight:500;color:#dd3403}.caption{margin:0 20px 15px 20px;font-size:.9em}.caption[text]:before{content:attr(text) ": ";font-weight:700;font-family:'STIX Two Text',serif}.bib{width:100%;overflow:auto;margin-bottom:10px}.bib-left{float:left;width:35px;padding-right:3%;text-align:right;font-weight:500;color:#1e3877}.bib-left:before{font-weight:400;color:#000;content:"["}.bib-left:after{font-weight:400;color:#000;content:"]"}.bib-right{float:right;width:-webkit-calc(97% - (35px));width:calc(97% - (35px));text-align:left}.theorem,.lemma,.example,.definition{margin:10px 0 10px 0}.theorem:before,.lemma:before,.example:before,.definition:before{font-weight:700;font-style:normal;text-align:left}.theorem,.lemma,.example:before,.definition,.proof:before,.bib-left .cite,.eqref,.ref{font-family:'STIX Two Text',serif;font-size:1.05em}.equpic{display:block;margin:0 auto;width:100%;height:auto;margin:10px 0}</style>
     <script src="../../js/myscript.js" defer></script>
     <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
-    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <script>
       window.MathJax = {
         tex: {
@@ -53,6 +52,13 @@
         },
       };
     </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <style>
+      .MathJax {
+        font-size: 1em !important;
+      }
+    </style>
     <style>
       :target {
         padding-top: 0px;
@@ -76,9 +82,6 @@
         body {
           text-align: left;
         }
-      }
-      .MathJax {
-        font-size: 1em !important;
       }
     </style>
   </head>

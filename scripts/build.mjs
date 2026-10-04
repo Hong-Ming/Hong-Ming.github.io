@@ -22,7 +22,13 @@ function pageFiles(directory, includeData = false) {
 
 // Includes occupy their own line; preserve that line's indentation in the output.
 function render(source, pageName, collections) {
-  const html = source.replace(/^([ \t]*)<!-- include: ([\w-]+\.html) -->[ \t]*$/gm, (_, indent, name) => {
+  let mathjaxIncluded = false;
+  const html = source.replace(/^([ \t]*)<!-- (?:include: ([\w-]+\.html)|mathjax: enabled) -->[ \t]*$/gm, (_, indent, include) => {
+    const name = include ?? 'mathjax.html';
+    if (name === 'mathjax.html') {
+      if (mathjaxIncluded) throw new Error(`MathJax is enabled more than once in ${pageName}.`);
+      mathjaxIncluded = true;
+    }
     const partial = readFileSync(join(includesDir, name), 'utf8').trimEnd();
     if (partial.includes('<!-- include:')) {
       throw new Error(`Nested includes are not supported: ${name}`);
@@ -49,7 +55,7 @@ async function build() {
     const name = relative(pagesDir, source);
     const html = render(readFileSync(source, 'utf8'), name, collections)
       .replace(/\{\{ image: ([\w-]+) \}\}/g, (_, key) => renderImageAttributes(responsive.images, key));
-    if (html.includes('<!-- include:') || html.includes('<!-- entries:')) throw new Error(`Unresolved build directive in ${name}`);
+    if (html.includes('<!-- include:') || html.includes('<!-- entries:') || html.includes('<!-- mathjax:')) throw new Error(`Unresolved build directive in ${name}`);
     return { name, html, destination: join(root, name) };
   });
   const icons = renderFontAwesome(root, pages);
