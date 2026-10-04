@@ -3,6 +3,7 @@ import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadEntries, renderEntries } from './entries.mjs';
 import { fontAwesomeInputs, renderFontAwesome } from './fontawesome.mjs';
+import { renderFontAwesomeFonts } from './fontawesome-fonts.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const pagesDir = join(root, 'src/pages');
@@ -38,7 +39,7 @@ function render(source, pageName, collections) {
   );
 }
 
-function build() {
+async function build() {
   const collections = loadEntries(root);
   // Render all sources before writing so a missing include cannot cause a partial build.
   const pages = pageFiles(pagesDir).map((source) => {
@@ -49,25 +50,28 @@ function build() {
     return { name, html, output, destination: join(root, name) };
   });
   const icons = renderFontAwesome(root, pages);
+  const fonts = await renderFontAwesomeFonts(root, icons.fonts);
   const stale = [];
-  for (const { name, output, destination } of [...pages, icons]) {
+  for (const { name, output, destination } of [...pages, icons, ...fonts]) {
     if (checkOnly) {
       let current;
-      try { current = readFileSync(destination, 'utf8'); } catch (error) {
+      try { current = readFileSync(destination); } catch (error) {
         if (error.code !== 'ENOENT') throw error;
       }
-      if (current !== output) stale.push(name);
+      if (!current?.equals(Buffer.isBuffer(output) ? output : Buffer.from(output))) stale.push(name);
     } else {
       mkdirSync(dirname(destination), { recursive: true });
       writeFileSync(destination, output);
     }
   }
   if (stale.length) throw new Error(`Generated files are stale: ${stale.join(', ')}. Run npm run build.`);
-  console.log(`${checkOnly ? 'Checked' : 'Built'} ${pages.length} pages and Font Awesome CSS (${icons.iconCount}/${icons.totalIconCount} icons).`);
+  const originalBytes = fonts.reduce((sum, font) => sum + font.originalBytes, 0);
+  const subsetBytes = fonts.reduce((sum, font) => sum + font.output.length, 0);
+  console.log(`${checkOnly ? 'Checked' : 'Built'} ${pages.length} pages and Font Awesome CSS (${icons.iconCount}/${icons.totalIconCount} icons); ${fonts.length} icon fonts: ${originalBytes} → ${subsetBytes} bytes.`);
 }
 
 try {
-  build();
+  await build();
 } catch (error) {
   console.error(error.message);
   process.exit(1);
@@ -84,16 +88,21 @@ if (process.argv.includes('--watch') && !checkOnly) {
     }));
   }
   let previous = snapshot();
-  setInterval(() => {
+  let building = false;
+  setInterval(async () => {
+    if (building) return;
     try {
       const current = snapshot();
       if (current !== previous) {
         previous = current;
-        build();
+        building = true;
+        await build();
       }
     } catch (error) {
       console.error(error.message);
+    } finally {
+      building = false;
     }
   }, 500);
-  console.log('Watching src/ and Font Awesome CSS inputs for changes. Press Ctrl+C to stop.');
+  console.log('Watching src/ and Font Awesome CSS/font inputs for changes. Press Ctrl+C to stop.');
 }

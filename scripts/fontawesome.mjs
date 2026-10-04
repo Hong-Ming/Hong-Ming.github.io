@@ -3,13 +3,14 @@ import { join } from 'node:path';
 
 export const fontAwesomeInputs = [
   'css/fontawesome.css', 'css/brands.css', 'css/solid.css', 'css/regular.css',
+  'webfonts/fa-brands-400.woff2', 'webfonts/fa-solid-900.woff2', 'webfonts/fa-regular-400.woff2',
 ];
 
 // These are the glyph rules in the installed Font Awesome Free 5.15.1 CSS.
 // Everything else (helpers, keyframes, accessibility styles) stays intact.
 // New literal icon classes in pages, includes, or JSON markup are included on
 // the next build. Classes created only at runtime by JavaScript are not scanned.
-const iconRule = /\.(fa-[a-z0-9-]+):before\s*\{\s*content:\s*"(?:\\.|[^"\\])*"\s*;\s*\}/g;
+const iconRule = /\.(fa-[a-z0-9-]+):before\s*\{\s*content:\s*"\\([\da-f]+)"\s*;\s*\}/g;
 const families = new Map([
   ['fab', 'css/brands.css'],
   ['fa', 'css/solid.css'],
@@ -26,53 +27,69 @@ function decodeAttribute(value) {
   });
 }
 
-function htmlClasses(html) {
+function htmlClassLists(html) {
   // Ignore commented-out icons and code inside script/style elements. Scanning
   // rendered HTML includes shared partials and markup generated from JSON.
   const active = html.replace(/<!--[\s\S]*?-->/g, '')
     .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, '');
-  const classes = new Set();
+  const classLists = [];
   for (const tag of active.matchAll(/<[a-zA-Z](?:[^"'<>]|"[^"]*"|'[^']*')*>/g)) {
     const attributes = tag[0].replace(/^<[^\s/>]+/, '');
     for (const attribute of attributes.matchAll(/([^\s"'<>/=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+)))?/g)) {
       if (attribute[1].toLowerCase() !== 'class') continue;
-      for (const name of decodeAttribute(attribute[2] ?? attribute[3] ?? attribute[4] ?? '').split(/\s+/)) {
-        if (name) classes.add(name);
-      }
+      classLists.push(decodeAttribute(attribute[2] ?? attribute[3] ?? attribute[4] ?? '').split(/\s+/).filter(Boolean));
     }
   }
-  return classes;
+  return classLists;
 }
 
 export function renderFontAwesome(root, pages) {
   const full = readFileSync(join(root, 'css/fontawesome.css'), 'utf8');
-  const available = new Set([...full.matchAll(iconRule)].map((match) => match[1]));
+  const available = new Map([...full.matchAll(iconRule)].map((match) => [match[1], parseInt(match[2], 16)]));
   if (!available.size) throw new Error('No Font Awesome glyph definitions found in css/fontawesome.css.');
   const shared = full.replace(iconRule, '');
   const helpers = new Set([...shared.matchAll(/\.(fa-[a-z0-9-]+)/g)].map((match) => match[1]));
   const used = new Set();
-  const requiredFonts = new Set();
+  const requiredFonts = new Map();
   for (const page of pages) {
-    for (const name of htmlClasses(page.html)) {
-      if (families.has(name)) requiredFonts.add(families.get(name));
-      if (available.has(name)) used.add(name);
-      else if (name.startsWith('fa-') && !helpers.has(name)) {
-        throw new Error(`Unknown Font Awesome class "${name}" in ${page.name}. Use an icon/helper from the installed version.`);
-      } else if (name === 'fal' || name === 'fad') {
-        throw new Error(`Font Awesome style "${name}" in ${page.name} is not included in this Free library. Use fa, fas, far, or fab.`);
+    for (const classes of htmlClassLists(page.html)) {
+      const styles = new Set(classes.filter((name) => families.has(name)).map((name) => families.get(name)));
+      for (const name of classes) {
+        if (available.has(name)) {
+          if (styles.size !== 1) throw new Error(`Icon "${name}" in ${page.name} needs one Font Awesome style: fa, fas, far, or fab.`);
+          used.add(name);
+          const [style] = styles;
+          if (!requiredFonts.has(style)) requiredFonts.set(style, new Set());
+          requiredFonts.get(style).add(available.get(name));
+        } else if (name.startsWith('fa-') && !helpers.has(name)) {
+          throw new Error(`Unknown Font Awesome class "${name}" in ${page.name}. Use an icon/helper from the installed version.`);
+        } else if (name === 'fal' || name === 'fad') {
+          throw new Error(`Font Awesome style "${name}" in ${page.name} is not included in this Free library. Use fa, fas, far, or fab.`);
+        }
       }
     }
   }
   const subset = full.replace(iconRule, (rule, name) => used.has(name) ? rule : '');
   // Family files have the same license banner as the base file; retain it once.
-  const fontCss = [...requiredFonts].map((file) => readFileSync(join(root, file), 'utf8')
-    .replace(/^\/\*![\s\S]*?\*\/\s*/, '')).join('\n\n');
+  const fonts = [];
+  const fontCss = [...requiredFonts].map(([file, codes]) => {
+    const css = readFileSync(join(root, file), 'utf8').replace(/^\/\*![\s\S]*?\*\/\s*/, '');
+    const input = css.match(/\.\.\/(webfonts\/fa-[\w-]+\.woff2)/)?.[1];
+    if (!input) throw new Error(`No WOFF2 font found in ${file}.`);
+    const name = input.replace(/\.woff2$/, '-subset.woff2');
+    fonts.push({ name, input, destination: join(root, name), codes: [...codes].sort((a, b) => a - b) });
+    // Modern browsers use WOFF2. Remove legacy src declarations so they cannot
+    // accidentally download a complete font alongside the generated subset.
+    return css.replace(/\s*src:\s*[^;]+;/g, '')
+      .replace(/(@font-face\s*\{)/, `$1\n  src: url("../${name}") format("woff2");`);
+  }).join('\n\n');
   const output = `/* Generated by npm run build; edit the complete library or source HTML instead. */\n${subset}\n${fontCss}`
     .replace(/\n(?:[ \t]*\n){2,}/g, '\n\n').trimEnd() + '\n';
   return {
     name: 'css/fontawesome-subset.css',
     destination: join(root, 'css/fontawesome-subset.css'),
     output,
+    fonts,
     iconCount: used.size,
     totalIconCount: available.size,
   };
