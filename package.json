@@ -4,7 +4,8 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "watch": "node scripts/build.mjs --watch",
-    "check": "node scripts/build.mjs --check"
+    "check": "node scripts/build.mjs --check",
+    "test": "node --test scripts/*.test.mjs"
   },
   "engines": {
     "node": ">=18"

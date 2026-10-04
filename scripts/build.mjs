@@ -2,6 +2,7 @@ import { readdirSync, readFileSync, mkdirSync, writeFileSync, statSync } from 'n
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadEntries, renderEntries } from './entries.mjs';
+import { fontAwesomeInputs, renderFontAwesome } from './fontawesome.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const pagesDir = join(root, 'src/pages');
@@ -45,10 +46,11 @@ function build() {
     const html = render(readFileSync(source, 'utf8'), name, collections);
     if (html.includes('<!-- include:') || html.includes('<!-- entries:')) throw new Error(`Unresolved build directive in ${name}`);
     const output = '<!-- Generated from src/pages/' + name + '; edit source and run npm run build. -->\n' + html;
-    return { name, output, destination: join(root, name) };
+    return { name, html, output, destination: join(root, name) };
   });
+  const icons = renderFontAwesome(root, pages);
   const stale = [];
-  for (const { name, output, destination } of pages) {
+  for (const { name, output, destination } of [...pages, icons]) {
     if (checkOnly) {
       let current;
       try { current = readFileSync(destination, 'utf8'); } catch (error) {
@@ -60,8 +62,8 @@ function build() {
       writeFileSync(destination, output);
     }
   }
-  if (stale.length) throw new Error(`Generated pages are stale: ${stale.join(', ')}. Run npm run build.`);
-  console.log(`${checkOnly ? 'Checked' : 'Built'} ${pages.length} pages.`);
+  if (stale.length) throw new Error(`Generated files are stale: ${stale.join(', ')}. Run npm run build.`);
+  console.log(`${checkOnly ? 'Checked' : 'Built'} ${pages.length} pages and Font Awesome CSS (${icons.iconCount}/${icons.totalIconCount} icons).`);
 }
 
 try {
@@ -75,7 +77,8 @@ if (process.argv.includes('--watch') && !checkOnly) {
   // Poll this small source tree so watch mode also works where native filesystem
   // watchers are unavailable (and on all platforms supported by Node.js 18).
   function snapshot() {
-    return JSON.stringify(pageFiles(join(root, 'src'), true).map((path) => {
+    const inputs = [...pageFiles(join(root, 'src'), true), ...fontAwesomeInputs.map((path) => join(root, path))];
+    return JSON.stringify(inputs.map((path) => {
       const { mtimeMs, ctimeMs, size } = statSync(path);
       return [path, mtimeMs, ctimeMs, size];
     }));
@@ -92,5 +95,5 @@ if (process.argv.includes('--watch') && !checkOnly) {
       console.error(error.message);
     }
   }, 500);
-  console.log('Watching src/ for changes. Press Ctrl+C to stop.');
+  console.log('Watching src/ and Font Awesome CSS inputs for changes. Press Ctrl+C to stop.');
 }
