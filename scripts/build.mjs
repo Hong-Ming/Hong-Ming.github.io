@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { loadEntries, renderEntries } from './entries.mjs';
 import { fontAwesomeInputs, renderFontAwesome } from './fontawesome.mjs';
 import { renderFontAwesomeFonts } from './fontawesome-fonts.mjs';
+import { inlineStyles } from './styles.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const pagesDir = join(root, 'src/pages');
@@ -46,11 +47,16 @@ async function build() {
     const name = relative(pagesDir, source);
     const html = render(readFileSync(source, 'utf8'), name, collections);
     if (html.includes('<!-- include:') || html.includes('<!-- entries:')) throw new Error(`Unresolved build directive in ${name}`);
-    const output = '<!-- Generated from src/pages/' + name + '; edit source and run npm run build. -->\n' + html;
-    return { name, html, output, destination: join(root, name) };
+    return { name, html, destination: join(root, name) };
   });
   const icons = renderFontAwesome(root, pages);
   const fonts = await renderFontAwesomeFonts(root, icons.fonts);
+  // Use this build's icon CSS, not the previous generated file on disk.
+  const generatedStyles = new Map([[icons.destination, icons.output]]);
+  for (const page of pages) {
+    page.output = '<!-- Generated from src/pages/' + page.name + '; edit source and run npm run build. -->\n'
+      + inlineStyles(root, page, generatedStyles);
+  }
   const stale = [];
   for (const { name, output, destination } of [...pages, icons, ...fonts]) {
     if (checkOnly) {
@@ -67,7 +73,7 @@ async function build() {
   if (stale.length) throw new Error(`Generated files are stale: ${stale.join(', ')}. Run npm run build.`);
   const originalBytes = fonts.reduce((sum, font) => sum + font.originalBytes, 0);
   const subsetBytes = fonts.reduce((sum, font) => sum + font.output.length, 0);
-  console.log(`${checkOnly ? 'Checked' : 'Built'} ${pages.length} pages and Font Awesome CSS (${icons.iconCount}/${icons.totalIconCount} icons); ${fonts.length} icon fonts: ${originalBytes} → ${subsetBytes} bytes.`);
+  console.log(`${checkOnly ? 'Checked' : 'Built'} ${pages.length} pages with inline CSS and Font Awesome CSS (${icons.iconCount}/${icons.totalIconCount} icons); ${fonts.length} icon fonts: ${originalBytes} → ${subsetBytes} bytes.`);
 }
 
 try {
@@ -81,7 +87,11 @@ if (process.argv.includes('--watch') && !checkOnly) {
   // Poll this small source tree so watch mode also works where native filesystem
   // watchers are unavailable (and on all platforms supported by Node.js 18).
   function snapshot() {
-    const inputs = [...pageFiles(join(root, 'src'), true), ...fontAwesomeInputs.map((path) => join(root, path))];
+    const css = readdirSync(join(root, 'css')).filter((name) => name.endsWith('.css') && name !== 'fontawesome-subset.css')
+      .map((name) => join(root, 'css', name));
+    // Exclude generated CSS to avoid rebuilding in response to our own output.
+    const inputs = [...new Set([...pageFiles(join(root, 'src'), true), ...css,
+      ...fontAwesomeInputs.map((path) => join(root, path))])].sort();
     return JSON.stringify(inputs.map((path) => {
       const { mtimeMs, ctimeMs, size } = statSync(path);
       return [path, mtimeMs, ctimeMs, size];
@@ -104,5 +114,5 @@ if (process.argv.includes('--watch') && !checkOnly) {
       building = false;
     }
   }, 500);
-  console.log('Watching src/ and Font Awesome CSS/font inputs for changes. Press Ctrl+C to stop.');
+  console.log('Watching src/, css/ sources, and Font Awesome font inputs for changes. Press Ctrl+C to stop.');
 }
