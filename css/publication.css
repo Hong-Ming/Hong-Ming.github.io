@@ -174,7 +174,8 @@
 
 @media screen and (max-width: 600px) {
     .publications {
-        max-width: 100%;
+        /* max-width: 100%; */
+        max-width: calc(100% - 15px);
         margin-top: 48px;
     }
     .publications .pub {

@@ -19,14 +19,6 @@
     }
 } */
 
-.circle-img {
-  margin: 0px auto;
-  width: 168px;
-  border-width: 4px;
-  border-style: solid;
-  border-radius: 50%;
-}
-
 .nboard {
   max-width: 100%;
   z-index: initial;
@@ -79,6 +71,7 @@
 
 .circle-img {
   margin: 0px auto;
+  height: 168px;
   width: 168px;
   border-width: 4px;
   border-style: solid;
